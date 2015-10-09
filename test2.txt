@@ -1,0 +1,28 @@
+locations 2
+robots 1
+cranes 2
+piles 2
+containers 1
+
+# We want to find a plan to move
+# container c0 from p0 to p1
+initial
+adjacent l0 l1
+adjacent l1 l0
+at r0 l0
+attached p0 l0
+attached p1 l1
+belong k0 l0
+belong k1 l1
+occupied l0
+free l1
+unloaded r0
+empty k0
+empty k1
+in c0 p0
+on c0 G
+top c0 p0
+top G p1
+
+goal
+in c0 p1

@@ -46,14 +46,17 @@ def readfile(filename, plan, tracker):
     line = infile.readline()
     while line:
         line = line.strip()
-        if line.startswith('#'):
+        if line.startswith('#') or len( line ) == 0:
             line = infile.readline()
             continue
         line_arr = sAr(line)
         identifier = line_arr[0]
-        if (identifier == "initial"): continue
+        if (identifier == "initial"): 
+            line = infile.readline()
+            continue
         if (identifier == "goal"):
             goal = True
+            line = infile.readline()
             continue
 
         try:
@@ -71,6 +74,8 @@ def readfile(filename, plan, tracker):
             except:
                 print "Incomplete predicate"
                 return (False, 0, 0)
+            
+            
             newPred = Predicate(p_id, tracker.getId(arg1), tracker.getId(arg2))
 
         ## One-argument propositions
@@ -84,8 +89,10 @@ def readfile(filename, plan, tracker):
 
         else: pass
 
-        if (goal): plan.open.append((newPred,1))
+        if (goal): plan.open_conditions.append((newPred,1))
         else: start.addList.append(newPred)
+        
+        line = infile.readline()
 
     plan.steps.append(start)
     plan.steps.append(end)

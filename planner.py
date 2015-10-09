@@ -13,4 +13,5 @@ from read import *
 ## return a complete plan
 ## p is a Plan object
 ## tracker is a VariableTracker object
-def planSearch(p, tracker): pass
+def planSearch(p, tracker): 
+    return p

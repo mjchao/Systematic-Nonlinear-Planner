@@ -31,7 +31,7 @@ and use its provided functions.
 class VariableTracker:
 
     ## Construct a VariableTracker object
-    def __init__(self, numLocs, numRobots, numCranes, numPiles, numContainers):
+    def __init__(self, numLocs=0, numRobots=0, numCranes=0, numPiles=0, numContainers=0):
         self.locationEnd = numLocs
         self.robotEnd = numRobots + self.locationEnd
         self.craneEnd = numCranes + self.robotEnd
@@ -39,19 +39,11 @@ class VariableTracker:
         self.containerEnd = numContainers + self.pileEnd
         self.groundEnd = self.containerEnd + 1
 
-    ## Construct a literal / variable tracker
-    def __init__(self):
-        self.locationEnd = 0
-        self.robotEnd = 0
-        self.craneEnd = 0
-        self.pileEnd = 0
-        self.containerEnd = 0
-        self.groundEnd = 0
-
     ## Get the unique integer id of a variable or literal
     def getId(self, var):
         ch = var[0]
-        num = int(var[1])
+        if ( ch != 'G' ):
+            num = int(var[1])
 
         if ch == 'l': ## location
             return num

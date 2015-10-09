@@ -45,6 +45,6 @@ except:
     print "Could not find a plan\n"
     sys.exit()
 
-printPlan(sys.argv[2], finalPlan, tracker)
+printPlan(finalPlan, tracker)
 
 
