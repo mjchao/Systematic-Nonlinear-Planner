@@ -92,11 +92,14 @@ def planSearch(p, tracker):
             
             for a in potentialActions:
                 if ( a.adds( nextPrecond[0] , tracker ) ):
+                    print "OK" 
                     childPlan = copy.deepcopy( nextPlan )
                     childPlan.steps.append( a )
                     childPlan.links.append( (len( childPlan.steps)-1 , nextPrecond[ 1 ] ) )
-                    print str( len( childPlan.open_conditions ) )
                     del childPlan.open_conditions[ nextPrecondIdx ]
+                    
+                    for precond in a.getPrereqs():
+                        childPlan.open_conditions.append( precond )
                     
                     for link in childPlan.links:
                         for prereq in childPlan.steps[ link[1] ].getPrereqs():

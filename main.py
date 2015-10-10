@@ -29,15 +29,15 @@ if len(sys.argv) < 3:
     print "Not enough arguments\n"
     sys.exit()
 
-
-initial = Plan()
-tracker = VariableTracker()
-
-if not readfile(sys.argv[1], initial, tracker)[0]:
+readInputStatus = readfile(sys.argv[1])
+if ( not readInputStatus[ 0 ] ):
     print "Could not read file\n"
     sys.exit()
 
-print initial.open_conditions
+initial = readInputStatus[ 1 ]
+tracker = readInputStatus[ 2 ]
+Predicate.tracker = tracker
+print str(initial.open_conditions[ 0 ][ 0 ])
 
 finalPlan = Plan()
 '''

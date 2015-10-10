@@ -70,10 +70,8 @@ class Predicate:
         if ( type(y) == list ):
             yStr = str([ (tracker.getName( int(var) ) if type(var) == int else var) for var in y ])
         else:
-            yStr = tracker.getName( y ) if type(y) == int else str(y)
-        
-            
-        print "Unify: " + xStr + " " + yStr
+            yStr = tracker.getName( y ) if type(y) == int else str(y)   
+        #print "Unify: " + xStr + " " + yStr
         
         #check for failure
         if ( theta == None ):

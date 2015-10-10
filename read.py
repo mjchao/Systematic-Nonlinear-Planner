@@ -12,7 +12,7 @@ def sAr(line): return filter(lambda x: len(x) > 0, line.strip().split())  ## Str
 
 ## Takes an empty plan object and an empty variable tracker
 ## Fills these with the info in the file specified by "filename"
-def readfile(filename, plan, tracker):
+def readfile(filename):
     infile = open(filename, "r")
     identifier = ''
     line = infile.readline()
