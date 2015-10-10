@@ -422,24 +422,47 @@ class Action:
 ## You may want to modify this data structure, depending on how your algorithm works
 ## Just note that if you do so, you may also have to modify the read function
 class Plan:
-
-    ## Actions are uniquely identified by their index in the steps list
-    steps = []
-    links = [] ## Causal links
-    threats = [] ## All threats to causal links
-
-    ## For open conditions, we use a list of (Predicate, int)
-    ## because we need to store the "parent" action of each open condition,
-    ## That is, the action that requires this Predicate as a precondition.
-    ## Our solution is to simply pair predicates with integer identifiers
-    open_conditions = []
-
-    orderings = [] ## All ordering constraints
-
+    
     ##The integer id of the next variable to be allocated
     ##This is important for creating actions "with fresh variables"
     nextVar = -1
 
+    def __init__(self):
+        ## Actions are uniquely identified by their index in the steps list
+        self.steps = []
+        self.links = [] ## Causal links
+        
+        #we'll represent threats as ordered triples (T , A , B) where
+        #T is the integer that represents the threat action, A is the
+        #integer that represents the first endpoint of the causal link
+        #and B is the integer that represents the second endpoint of the
+        #causal link
+        self.threats = [] ## All threats to causal links
+    
+        ## For open conditions, we use a list of (Predicate, int)
+        ## because we need to store the "parent" action of each open condition,
+        ## That is, the action that requires this Predicate as a precondition.
+        ## Our solution is to simply pair predicates with integer identifiers
+        self.open_conditions = []
+    
+        self.orderings = [] ## All ordering constraints
+    
+    '''
+    Returns if this plan is a complete plan - i.e. there are no
+    open preconditions left
+    '''
+    def is_complete(self):
+        return len( self.open_conditions ) == 0
+    
+    '''
+    Returns if this plan has unresolved threats that threaten
+    causal links. We resolve a threat by using ordering
+    constraints that force the threat to come before or after
+    the endpoints of the causal link.
+    '''
+    def has_threats(self):
+        return len( self.threats ) != 0
+        
 
 ## An exception class, to be thrown if your search could not find a plan
 class plan_not_found:
@@ -462,6 +485,9 @@ def main():
     print moveAction.adds( pred , tracker )
     
     failPred = Predicate( Predicates.HOLDING , "k0" , "c1" )
+    print moveAction.adds( failPred , tracker )
+    
+    failPred = Predicate( Predicates.AT , "r0" )
     print moveAction.adds( failPred , tracker )
     
 

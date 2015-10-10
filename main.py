@@ -37,14 +37,17 @@ if not readfile(sys.argv[1], initial, tracker)[0]:
     print "Could not read file\n"
     sys.exit()
 
+print initial.open_conditions
 
 finalPlan = Plan()
+'''
 try:
     finalPlan = planSearch(initial, tracker)
 except:
     print "Could not find a plan\n"
     sys.exit()
-
+'''
+finalPlan = planSearch( initial , tracker )
 printPlan(finalPlan, tracker)
 
 
