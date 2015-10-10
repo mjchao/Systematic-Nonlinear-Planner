@@ -15,23 +15,78 @@ plan_not_found ## an exception class
 
 from configure import *
 from variables import *
+from matplotlib.pyplot import thetagrids
 
 ## An object representing a predicate
 ## Predicates have at least one argument, and at most two
 ## Unused arguments are always -1.
 class Predicate:
-    args = []
-
-    def __init__(self): pass
     
     def __init__(self, t, arg1 = -1, arg2 = -1):
         self.type_t = t
+        self.args = []
         self.args.append(arg1)
         self.args.append(arg2)
 
     def is_equal(self, p):
         return (self.type_t == p.type_t) and (self.args[0] == p.args[0]) and (self.args[1] == p.args[1])
+    
+    '''
+    Determines the substitutions that would make two lists of variables/literals 
+    equivalent, or returns failure if this is impossible.
+    
+    @param x - a list of variables or literals
+    @param y - another list of variables or literals to unify with x
+    @param theta - the list of substitutions
+    @return - the possible substitutions can make x equivalent to y
+    '''
+    @staticmethod
+    def unify( x , y , theta , tracker ):
+        print "Unify: " + str(x) + " " + str(y)
+        
+        #check for failure
+        if ( theta == None ):
+            return theta
+        
+        #if x and y are already the same,
+        #then there are no substitutions required, and we are done
+        if ( x == y ):
+            return theta
 
+        #if we're unifying variables, then directly unify them
+        if ( type(x) == int ):
+            return Predicate.unify_var( x , y , theta , tracker )
+        elif( type(y) == int ):
+            return Predicate.unify_var( y , x , theta , tracker )
+        
+        #otherwise, this is a list
+        
+        #if the argument lists are different sizes, it is clearly
+        #impossible to unify
+        if ( len( x ) != len( y ) ):
+            theta = None
+            return theta
+        
+        #we directly unify the first variable/literal 
+        #and then continue unifying the rest of the list
+        return Predicate.unify( x[1:len(x)] , y[1:len(y)] , Predicate.unify( x[0] , y[0] , theta , tracker ) , tracker )
+          
+    def unify_var( self , var , x , theta , tracker ):
+        
+        #check if the variable is already substituted
+        for substitution in theta :
+            if ( substitution[ 0 ] == var ):
+                return Predicate.unify( var , substitution[ 1 ] , theta , tracker )
+                break
+            
+        for substitution in theta:
+            if ( substitution[ 0 ] == x ):
+                return Predicate.unify( x , substitution[ 1 ] , theta , tracker )
+                break
+            
+        #no occur check needed because we don't have compound expressions!
+        theta.append( (var , x) )
+        return theta  
 
 ## A causal link
 ## Consists of a predicate, a "causal step", and a "recipient step"
@@ -71,7 +126,7 @@ class Action:
     ##type of action
     addList = [] ##List of added predicates
     deleteList = [] ##List of deleted predicates
-
+    
     '''
     Action::adds
     ----
@@ -92,6 +147,7 @@ class Action:
 
     If nothing unifies, returns an empty list of lists.
     '''
+    
 
     def adds(self, p, tracker):
         returnList = [] ## list of list of bindings. Each binding is a pair of integers - (int, int).
@@ -107,7 +163,10 @@ class Action:
         we add the pair (29,15) to our binding list, 
         which can be read as "replace 29 with 15"
         '''
-
+        for pred in self.addList:
+             possibleBindings = Predicate.unify( pred.args , p.args , [] , tracker )
+             if ( len( possibleBindings ) > 0 ):
+                 returnList.append( possibleBindings )
 
         ## ****
 
@@ -340,5 +399,18 @@ class plan_not_found:
     def __init__(self): pass
 
 
+'''
+Unit testing
+'''
+def main():
+    tracker = VariableTracker( 2 , 1 , 0 , 0 , 0 )
+    moveAction = Action( Actions.MOVE )
+    pred = Predicate( Predicates.AT , "r0" , "l1" )
+    for p in moveAction.addList:
+        print str( p.args )
+    print moveAction.adds( pred , tracker )
+    pass
+
+if __name__ == "__main__": main()
 
 

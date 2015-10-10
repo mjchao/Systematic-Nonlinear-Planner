@@ -38,6 +38,7 @@ class VariableTracker:
         self.pileEnd = numPiles + self.craneEnd
         self.containerEnd = numContainers + self.pileEnd
         self.groundEnd = self.containerEnd + 1
+        self.numVariables = 0
 
     ## Get the unique integer id of a variable or literal
     def getId(self, var):
@@ -81,6 +82,14 @@ class VariableTracker:
     ## Get the integer value of the first variable
     def getFirstVar(self):
         return self.groundEnd
+    
+    '''
+    Assigns the next unassigned integer value to be a variable
+    '''
+    def getUnassignedVar( self ):
+        rtn = self.groundEnd + self.numVariables
+        self.numVariables += 1
+        return rtn
 
     ## Returns true if id (n) is a valid literal or variable
     def isValid(self, n):

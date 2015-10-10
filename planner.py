@@ -13,5 +13,7 @@ from read import *
 ## return a complete plan
 ## p is a Plan object
 ## tracker is a VariableTracker object
-def planSearch(p, tracker): 
+def planSearch(p, tracker):
+    for cond in p.open_conditions:
+        print cond 
     return p
