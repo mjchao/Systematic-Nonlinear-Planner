@@ -2,3 +2,5 @@
 *.pyc
 
 variables.pyc
+
+planner.pyc
