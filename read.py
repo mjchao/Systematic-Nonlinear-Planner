@@ -107,7 +107,7 @@ def readfile(filename):
 ## Maybe useful for debugging
 def printPredicate(p, tracker):
     print Predicate2Name[p.type_t],
-    for i in range(2):
+    for i in range(len(p.args)):
         if (p.args[i] < 0): break
         print tracker.getName(p.args[i]),
 
@@ -116,7 +116,7 @@ def printPredicate(p, tracker):
 ## Maybe useful for debugging
 def printAction(A, tracker):
     print Action2Name[A.type_t],
-    for i in range(5):
+    for i in range(len(A.args)):
         if (A.args[i] < 0): break
         print tracker.getName(A.args[i]),
 
@@ -183,7 +183,6 @@ def printVerbosePlan(plan, tracker):
 
     print "\n#Causal Links"
     for i in range(len(plan.links)):
-        print plan.links[i].links, ",",
         printPredicate(plan.links[i].pred, tracker)
         print ",", plan.links[i].recipientStep
 

@@ -40,7 +40,7 @@ def planSearch(p, tracker):
         
         print "PROCESSING: " 
         print pq.qsize()
-        printPlan( nextPlan , tracker )
+        printVerbosePlan( nextPlan , tracker )
                 
         #if the ordering isn't consistent, clearly this plan won't work
         if ( not isOrderConsistent( nextPlan.orderings , len( nextPlan.steps ) ) ):
@@ -57,14 +57,14 @@ def planSearch(p, tracker):
             del childPlan1.threats[ len( childPlan1.threats )-1 ]
             
             #enforce T < A
-            childPlan1.orderings.append( (threat[0] , threat[ 1 ] ) )
+            childPlan1.orderings.append( ( threat.actionId , threat.threatened.causalStep ) )
             insert_plan( pq , childPlan1 )
             
             childPlan2 = copy.deepcopy( nextPlan )
             del childPlan2.threats[ len( childPlan2.threats)-1 ]
             
             #enforce B < T
-            childPlan2.orderings.append( (threat[2] , threat[0]) )
+            childPlan2.orderings.append( (threat.threatened.recipientStep , threat.actionId) )
             insert_plan( pq , childPlan2 )
             
         #if no threats, then pick a precondition to satisfy
@@ -80,15 +80,17 @@ def planSearch(p, tracker):
                             print entry
                             a.substitute( tracker.getId(entry[ 0 ]) , tracker.getId(entry[ 1 ]) )
                     childPlan = copy.deepcopy( nextPlan )
-                    childPlan.links.append( (i , childPlan.open_conditions[ nextPrecondIdx ][ 1 ] ) )
+                    newLink = Link( nextPrecond[ 0 ] , i , childPlan.open_conditions[ nextPrecondIdx ][ 1 ] )
+                    childPlan.links.append( newLink )
                     childPlan.orderings.append( (i , childPlan.open_conditions[ nextPrecondIdx ][ 1 ] ) )
                     del childPlan.open_conditions[ nextPrecondIdx ]   
                     
                     #calculate new threats
                     for link in childPlan.links:
-                        for prereq in childPlan.steps[ link[1] ].getPrereqs():
+                        for prereq in childPlan.steps[ link.causalStep ].getPrereqs():
                             if ( a.deletes( prereq ) ):
-                                childPlan.threats.append( (i , link[ 0 ] , link[ 1 ] ) )
+                                newThreat = Threat( link , i )
+                                childPlan.threats.append( newThreat )
                                 break;
     
                     insert_plan( pq , childPlan )
@@ -110,7 +112,8 @@ def planSearch(p, tracker):
                             
                     print "OK! adding " + str(a)
                     childPlan.steps.append( a )
-                    childPlan.links.append( (len( childPlan.steps)-1 , nextPrecond[ 1 ] ) )
+                    newLink = Link( nextPrecond[ 0 ] , len(childPlan.steps)-1 , nextPrecond[ 1 ] )
+                    childPlan.links.append( newLink )
                     
                     del childPlan.open_conditions[ nextPrecondIdx ]
                     
@@ -118,9 +121,10 @@ def planSearch(p, tracker):
                         childPlan.open_conditions.append( (precond , len(childPlan.steps)-1) )
                     
                     for link in childPlan.links:
-                        for prereq in childPlan.steps[ link[1] ].getPrereqs():
+                        for prereq in childPlan.steps[ link.causalStep ].getPrereqs():
                             if ( a.deletes( prereq ) ):
-                                childPlan.threats.append( (len(childPlan.steps)-1 , link[ 0 ] , link[ 1 ]) )
+                                newThreat = Threat( link , len(childPlan.steps)-1 )
+                                childPlan.threats.append( newThreat )
                                 break;
                             
                     insert_plan( pq , childPlan )
