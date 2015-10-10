@@ -22,14 +22,33 @@ from matplotlib.pyplot import thetagrids
 ## Unused arguments are always -1.
 class Predicate:
     
+    '''
+    We use a static variable tracker for all Predicates due to
+    design flaws in the instructor provided code. There is no
+    way to print the names of the arguments to this predicate
+    because there is no variable tracker provided to this
+    object.
+    '''
+    tracker = VariableTracker()
+    
     def __init__(self, t, arg1 = -1, arg2 = -1):
         self.type_t = t
         self.args = []
-        self.args.append(arg1)
-        self.args.append(arg2)
+        if ( arg1 != -1 ):
+            self.args.append(arg1)
+            
+        if ( arg2 != -1 ) :
+            self.args.append(arg2)
 
     def is_equal(self, p):
         return (self.type_t == p.type_t) and (self.args[0] == p.args[0]) and (self.args[1] == p.args[1])
+    
+    def __str__(self):
+        argsStr = "(" + Predicate.tracker.getName( self.args[ 0 ] )
+        for i in range( 1 , len( self.args ) ):
+            argsStr += ", " + Predicate.tracker.getName( self.args[ i ] )
+        argsStr += ")"
+        return Predicate2Name[ self.type_t ] + argsStr
     
     '''
     Determines the substitutions that would make two lists of variables/literals 
@@ -42,7 +61,18 @@ class Predicate:
     '''
     @staticmethod
     def unify( x , y , theta , tracker ):
-        print "Unify: " + str(x) + " " + str(y)
+        #DEBUG
+        if ( type(x) == list ):
+            xStr = str([ (tracker.getName( int(var) ) if type(var) == int else var) for var in x ])
+        else:
+            xStr = tracker.getName( x ) if type(x) == int else str(x)
+            
+        if ( type(y) == list ):
+            yStr = str([ (tracker.getName( int(var) ) if type(var) == int else var) for var in y ])
+        else:
+            yStr = tracker.getName( y ) if type(y) == int else str(y)
+            
+        print "Unify: " + xStr + " " + yStr
         
         #check for failure
         if ( theta == None ):
@@ -418,10 +448,14 @@ Unit testing
 '''
 def main():
     tracker = VariableTracker( 2 , 1 , 0 , 0 , 0 )
+    Predicate.tracker = tracker
     moveAction = Action( Actions.MOVE , tracker.getUnassignedVar() , tracker.getUnassignedVar() , tracker.getUnassignedVar() )
     pred = Predicate( Predicates.AT , "r0" , "l1" )
     for p in moveAction.addList:
-        print str( p.args )
+        print str(p)
+        
+    for p in moveAction.deleteList:
+        print str(p)
     print moveAction.adds( pred , tracker )
     
     failPred = Predicate( Predicates.HOLDING , "k0" , "c1" )
