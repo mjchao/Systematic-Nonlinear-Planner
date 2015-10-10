@@ -83,22 +83,25 @@ class Predicate:
             return theta
 
         #if we're unifying variables, then directly unify them
-        if ( type(x) == int ):
+        if ( type(x) == int and tracker.isVariable( int(x) ) ):
             return Predicate.unify_var( x , y , theta , tracker )
-        elif( type(y) == int ):
+        elif( type(y) == int and tracker.isVariable( int(y) ) ):
             return Predicate.unify_var( y , x , theta , tracker )
         
         #otherwise, this is a list
-        
-        #if the argument lists are different sizes, it is clearly
-        #impossible to unify
-        if ( len( x ) != len( y ) ):
+        elif( type(x) == list and type(y) == list ):
+            #if the argument lists are different sizes, it is clearly
+            #impossible to unify
+            if ( len( x ) != len( y ) ):
+                theta = None
+                return theta
+            
+            #we directly unify the first variable/literal 
+            #and then continue unifying the rest of the list
+            return Predicate.unify( x[1:len(x)] , y[1:len(y)] , Predicate.unify( x[0] , y[0] , theta , tracker ) , tracker )
+        else:
             theta = None
-            return theta
-        
-        #we directly unify the first variable/literal 
-        #and then continue unifying the rest of the list
-        return Predicate.unify( x[1:len(x)] , y[1:len(y)] , Predicate.unify( x[0] , y[0] , theta , tracker ) , tracker )
+            return None
       
     '''
     Returns a substitution for var and x
@@ -410,7 +413,7 @@ class Action:
     ## Calls the unification algorithm
     def deletes(self, p):
         for i in range(len(self.deleteList)):
-            if (p == self.deleteList[i]):
+            if (Predicate.unify( self.deleteList[ i ].args , p.args , [] , Predicate.tracker ) != None ):
                 return True
         return False
     

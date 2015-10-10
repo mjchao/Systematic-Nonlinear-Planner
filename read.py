@@ -171,7 +171,7 @@ def printVerbosePlan(plan, tracker):
     for i in range(len(plan.steps)):
         act = plan.steps[i]
         print i, Action2Name[act.type_t],
-        for j in range(5):
+        for j in range(len(act.args)):
             if (act.args[j] < 0): break
             print tracker.getName(act.args[j]),
 
@@ -183,7 +183,7 @@ def printVerbosePlan(plan, tracker):
 
     print "\n#Causal Links"
     for i in range(len(plan.links)):
-        print plan.links[i].causalStep, ",",
+        print plan.links[i].links, ",",
         printPredicate(plan.links[i].pred, tracker)
         print ",", plan.links[i].recipientStep
 
@@ -196,8 +196,8 @@ def printVerbosePlan(plan, tracker):
         print ")"
 
     print "\n#Open Preconditions"
-    for i in range(len(plan.open)):
-        printPredicate(plan.open[i][0], tracker)
+    for i in range(len(plan.open_conditions)):
+        printPredicate(plan.open_conditions[i][0], tracker)
         print
 
 

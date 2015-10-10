@@ -37,7 +37,10 @@ def planSearch(p, tracker):
     #we'll use A* search
     while( not pq.empty() ):
         nextPlan = pq.get()[ 1 ]
-        #printPlan( nextPlan , tracker )
+        
+        print "PROCESSING: " 
+        print pq.qsize()
+        printPlan( nextPlan , tracker )
                 
         #if the ordering isn't consistent, clearly this plan won't work
         if ( not isOrderConsistent( nextPlan.orderings , len( nextPlan.steps ) ) ):
@@ -74,6 +77,7 @@ def planSearch(p, tracker):
                 if ( len( substitutions ) > 0 ):
                     for sub in substitutions:
                         for entry in sub:
+                            print entry
                             a.substitute( tracker.getId(entry[ 0 ]) , tracker.getId(entry[ 1 ]) )
                     childPlan = copy.deepcopy( nextPlan )
                     childPlan.links.append( (i , childPlan.open_conditions[ nextPrecondIdx ][ 1 ] ) )
@@ -107,15 +111,16 @@ def planSearch(p, tracker):
                     print "OK! adding " + str(a)
                     childPlan.steps.append( a )
                     childPlan.links.append( (len( childPlan.steps)-1 , nextPrecond[ 1 ] ) )
+                    
                     del childPlan.open_conditions[ nextPrecondIdx ]
                     
                     for precond in a.getPrereqs():
-                        childPlan.open_conditions.append( precond )
+                        childPlan.open_conditions.append( (precond , len(childPlan.steps)-1) )
                     
                     for link in childPlan.links:
                         for prereq in childPlan.steps[ link[1] ].getPrereqs():
                             if ( a.deletes( prereq ) ):
-                                childPlan.threats.append( len(childPlan.steps)-1 , link[ 0 ] , link[ 1 ] )
+                                childPlan.threats.append( (len(childPlan.steps)-1 , link[ 0 ] , link[ 1 ]) )
                                 break;
                             
                     insert_plan( pq , childPlan )
