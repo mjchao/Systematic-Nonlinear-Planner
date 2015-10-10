@@ -114,7 +114,7 @@ def planSearch(p, tracker):
                     childPlan.steps.append( a )
                     newLink = Link( nextPrecond[ 0 ] , len(childPlan.steps)-1 , nextPrecond[ 1 ] )
                     childPlan.links.append( newLink )
-                    
+                    childPlan.orderings.append( (len(childPlan.steps)-1 , nextPrecond[ 1 ]) )
                     del childPlan.open_conditions[ nextPrecondIdx ]
                     
                     for precond in a.getPrereqs():
