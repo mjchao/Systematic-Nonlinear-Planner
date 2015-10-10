@@ -157,10 +157,6 @@ class Threat:
 ## An object representing an action
 ## Actions have at least three arguments, and at most five
 class Action:
-    args = [] ## 5 arguments
-    ##type of action
-    addList = [] ##List of added predicates
-    deleteList = [] ##List of deleted predicates
     
     '''
     Action::adds
@@ -200,9 +196,9 @@ class Action:
         '''
         for pred in self.addList:
             if ( pred.type_t == p.type_t ):
-                 possibleBindings = Predicate.unify( pred.args , p.args , [] , tracker )
-                 if ( possibleBindings != None ):
-                     returnList.append( possibleBindings )
+                possibleBindings = Predicate.unify( pred.args , p.args , [] , tracker )
+                if ( possibleBindings != None ):
+                    returnList.append( possibleBindings )
 
         ## ****
 
@@ -213,6 +209,12 @@ class Action:
 
     ## Constructor
     def __init__(self, t, arg1 = -1, arg2 = -1, arg3 = -1, arg4 = -1, arg5 = -1):
+        
+        self.args = [] ## 5 arguments
+        ##type of action
+        self.addList = [] ##List of added predicates
+        self.deleteList = [] ##List of deleted predicates
+        
         self.type_t = t
         if ( arg1 != -1 ):
             self.args.append(arg1)
@@ -328,7 +330,7 @@ class Action:
     ## Implemented for you
     def substitute(self, former, newval):
         subst = False
-        for i in range(5):
+        for i in range(len( self.args )):
             if (self.args[i] == former):
                 self.args[i] = newval
                 subst = True
@@ -411,6 +413,16 @@ class Action:
             if (p == self.deleteList[i]):
                 return True
         return False
+    
+    def __str__(self):
+        if ( len( self.args ) > 0 ):
+            argsStr = "(" + Predicate.tracker.getName( self.args[ 0 ] )
+            for i in range( 1 , len( self.args ) ):
+                argsStr += ", " + Predicate.tracker.getName( self.args[ i ] )
+            argsStr += ")"
+        else:
+            argsStr = "()"
+        return str(Action2Name[ self.type_t ]) + argsStr
 
 
 ## A plan object
@@ -474,6 +486,7 @@ def main():
     tracker = VariableTracker( 2 , 1 , 0 , 0 , 0 )
     Predicate.tracker = tracker
     moveAction = Action( Actions.MOVE , tracker.getUnassignedVar() , tracker.getUnassignedVar() , tracker.getUnassignedVar() )
+    print str( moveAction )
     pred = Predicate( Predicates.AT , "r0" , "l1" )
     for p in moveAction.addList:
         print str(p)
@@ -487,7 +500,6 @@ def main():
     
     failPred = Predicate( Predicates.AT , "r0" )
     print moveAction.adds( failPred , tracker )
-    
 
 if __name__ == "__main__": main()
 

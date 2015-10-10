@@ -39,6 +39,8 @@ tracker = readInputStatus[ 2 ]
 Predicate.tracker = tracker
 print str(initial.open_conditions[ 0 ][ 0 ])
 
+printPlan( initial , tracker )
+
 finalPlan = Plan()
 '''
 try:
@@ -48,6 +50,7 @@ except:
     sys.exit()
 '''
 finalPlan = planSearch( initial , tracker )
-printPlan(finalPlan, tracker)
+printPlan( initial , tracker )
+#printPlan(finalPlan, tracker)
 
 

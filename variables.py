@@ -44,7 +44,7 @@ class VariableTracker:
     def getId(self, var):
         ch = var[0]
         if ( ch != 'G' ):
-            num = int(var[1])
+            num = int(var[1:len(var)])
 
         if ch == 'l': ## location
             return num

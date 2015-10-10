@@ -27,8 +27,8 @@ def insert_plan( pq , plan ):
 ## p is a Plan object
 ## tracker is a VariableTracker object
 def planSearch(p, tracker):
-    for cond in p.open_conditions:
-        print str(cond[ 0 ]) 
+    #for cond in p.open_conditions:
+    #    print str(cond[ 0 ]) 
     
     #start with empty priority queue
     pq = PriorityQueue()
@@ -37,6 +37,7 @@ def planSearch(p, tracker):
     #we'll use A* search
     while( not pq.empty() ):
         nextPlan = pq.get()[ 1 ]
+        #printPlan( nextPlan , tracker )
                 
         #if the ordering isn't consistent, clearly this plan won't work
         if ( not isOrderConsistent( nextPlan.orderings , len( nextPlan.steps ) ) ):
@@ -69,7 +70,11 @@ def planSearch(p, tracker):
             nextPrecond = nextPlan.open_conditions[ nextPrecondIdx ]
             for i in range( 0 , len( nextPlan.steps ) ):
                 a = nextPlan.steps[ i ]
-                if ( a.adds( nextPrecond[0] , tracker ) ):
+                substitutions = a.adds( nextPrecond[ 0 ] , tracker )
+                if ( len( substitutions ) > 0 ):
+                    for sub in substitutions:
+                        for entry in sub:
+                            a.substitute( tracker.getId(entry[ 0 ]) , tracker.getId(entry[ 1 ]) )
                     childPlan = copy.deepcopy( nextPlan )
                     childPlan.links.append( (i , childPlan.open_conditions[ nextPrecondIdx ][ 1 ] ) )
                     childPlan.orderings.append( (i , childPlan.open_conditions[ nextPrecondIdx ][ 1 ] ) )
@@ -91,9 +96,15 @@ def planSearch(p, tracker):
                                 Action( Actions.UNLOAD , tracker.getUnassignedVar() , tracker.getUnassignedVar() , tracker.getUnassignedVar() , tracker.getUnassignedVar() )]
             
             for a in potentialActions:
-                if ( a.adds( nextPrecond[0] , tracker ) ):
-                    print "OK" 
+                substitutions = a.adds( nextPrecond[ 0 ] , tracker )
+                if ( len( substitutions ) > 0 ):
                     childPlan = copy.deepcopy( nextPlan )
+                    for sub in substitutions:
+                        for entry in sub:
+                            print entry
+                            a.substitute( tracker.getId(entry[ 0 ]) , tracker.getId(entry[ 1 ]) )
+                            
+                    print "OK! adding " + str(a)
                     childPlan.steps.append( a )
                     childPlan.links.append( (len( childPlan.steps)-1 , nextPrecond[ 1 ] ) )
                     del childPlan.open_conditions[ nextPrecondIdx ]

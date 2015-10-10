@@ -154,12 +154,7 @@ def printPlan(plan, tracker):
         act = plan.steps[i]
         if (act.type_t == Actions.START): startStep = i
         if (act.type_t == Actions.FINISH): endStep = i
-        print i, Action2Name[act.type_t],
-        for j in range(5):
-            if (act.args[j] < 0): break
-            print tracker.getName(act.args[j]),
-
-        print
+        print i, str( act )
 
     print "\nconstraints"
     for i in range(len(plan.orderings)):
