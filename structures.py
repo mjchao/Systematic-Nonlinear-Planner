@@ -71,6 +71,7 @@ class Predicate:
             yStr = str([ (tracker.getName( int(var) ) if type(var) == int else var) for var in y ])
         else:
             yStr = tracker.getName( y ) if type(y) == int else str(y)
+        
             
         print "Unify: " + xStr + " " + yStr
         
@@ -119,7 +120,9 @@ class Predicate:
                 break
             
         #no occur check needed because we don't have compound expressions!
-        theta.append( (var , x) )
+        varName = tracker.getName( var ) if type(var) == int else str(var)
+        xName = tracker.getName( x ) if type(x) == int else str(x)
+        theta.append( (varName , xName) )
         return theta  
 
 ## A causal link
