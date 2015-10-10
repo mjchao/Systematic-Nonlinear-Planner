@@ -70,8 +70,12 @@ class Predicate:
         #we directly unify the first variable/literal 
         #and then continue unifying the rest of the list
         return Predicate.unify( x[1:len(x)] , y[1:len(y)] , Predicate.unify( x[0] , y[0] , theta , tracker ) , tracker )
-          
-    def unify_var( self , var , x , theta , tracker ):
+      
+    '''
+    Returns a substitution for var and x
+    '''    
+    @staticmethod
+    def unify_var( var , x , theta , tracker ):
         
         #check if the variable is already substituted
         for substitution in theta :
@@ -164,9 +168,10 @@ class Action:
         which can be read as "replace 29 with 15"
         '''
         for pred in self.addList:
-             possibleBindings = Predicate.unify( pred.args , p.args , [] , tracker )
-             if ( len( possibleBindings ) > 0 ):
-                 returnList.append( possibleBindings )
+            if ( pred.type_t == p.type_t ):
+                 possibleBindings = Predicate.unify( pred.args , p.args , [] , tracker )
+                 if ( possibleBindings != None ):
+                     returnList.append( possibleBindings )
 
         ## ****
 
@@ -178,11 +183,20 @@ class Action:
     ## Constructor
     def __init__(self, t, arg1 = -1, arg2 = -1, arg3 = -1, arg4 = -1, arg5 = -1):
         self.type_t = t
-        self.args.append(arg1)
-        self.args.append(arg2)
-        self.args.append(arg3)
-        self.args.append(arg4)
-        self.args.append(arg5)
+        if ( arg1 != -1 ):
+            self.args.append(arg1)
+            
+        if ( arg2 != -1 ):
+            self.args.append(arg2)
+            
+        if ( arg3 != -1 ):
+            self.args.append(arg3)
+            
+        if ( arg4 != -1 ):
+            self.args.append(arg4)
+            
+        if ( arg5 != -1 ):
+            self.args.append(arg5)
 
         self.fillPredicates()
 
@@ -404,12 +418,15 @@ Unit testing
 '''
 def main():
     tracker = VariableTracker( 2 , 1 , 0 , 0 , 0 )
-    moveAction = Action( Actions.MOVE )
+    moveAction = Action( Actions.MOVE , tracker.getUnassignedVar() , tracker.getUnassignedVar() , tracker.getUnassignedVar() )
     pred = Predicate( Predicates.AT , "r0" , "l1" )
     for p in moveAction.addList:
         print str( p.args )
     print moveAction.adds( pred , tracker )
-    pass
+    
+    failPred = Predicate( Predicates.HOLDING , "k0" , "c1" )
+    print moveAction.adds( failPred , tracker )
+    
 
 if __name__ == "__main__": main()
 
