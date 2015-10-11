@@ -72,28 +72,32 @@ def planSearch(p, tracker):
             nextPrecondIdx = randint( 0 , len(nextPlan.open_conditions)-1 )
             nextPrecond = nextPlan.open_conditions[ nextPrecondIdx ]
             for i in range( 0 , len( nextPlan.steps ) ):
-                a = nextPlan.steps[ i ]
-                substitutions = a.adds( nextPrecond[ 0 ] , tracker )
-                if ( len( substitutions ) > 0 ):
-                    for sub in substitutions:
-                        for entry in sub:
-                            print entry
-                            a.substitute( tracker.getId(entry[ 0 ]) , tracker.getId(entry[ 1 ]) )
-                    childPlan = copy.deepcopy( nextPlan )
-                    newLink = Link( nextPrecond[ 0 ] , i , childPlan.open_conditions[ nextPrecondIdx ][ 1 ] )
-                    childPlan.links.append( newLink )
-                    childPlan.orderings.append( (i , childPlan.open_conditions[ nextPrecondIdx ][ 1 ] ) )
-                    del childPlan.open_conditions[ nextPrecondIdx ]   
-                    
-                    #calculate new threats
-                    for link in childPlan.links:
-                        for prereq in childPlan.steps[ link.causalStep ].getPrereqs():
-                            if ( a.deletes( prereq ) ):
-                                newThreat = Threat( link , i )
-                                childPlan.threats.append( newThreat )
-                                break;
-    
-                    insert_plan( pq , childPlan )
+                
+                #do not let an action link to or threaten itself
+                if ( i != nextPrecond[ 1 ] ):
+                    a = nextPlan.steps[ i ]
+                    substitutions = a.adds( nextPrecond[ 0 ] , tracker )
+                    if ( len( substitutions ) > 0 ):
+                        for sub in substitutions:
+                            for entry in sub:
+                                print entry
+                                a.substitute( tracker.getId(entry[ 0 ]) , tracker.getId(entry[ 1 ]) )
+                        childPlan = copy.deepcopy( nextPlan )
+                        newLink = Link( nextPrecond[ 0 ] , i , childPlan.open_conditions[ nextPrecondIdx ][ 1 ] )
+                        childPlan.links.append( newLink )
+                        childPlan.orderings.append( (i , childPlan.open_conditions[ nextPrecondIdx ][ 1 ] ) )
+                        del childPlan.open_conditions[ nextPrecondIdx ]   
+                        
+                        #calculate new threats
+                        for link in childPlan.links:
+                            
+                            for prereq in childPlan.steps[ link.causalStep ].getPrereqs():
+                                if ( a.deletes( prereq ) ):
+                                    newThreat = Threat( link , i )
+                                    childPlan.threats.append( newThreat )
+                                    break;
+        
+                        insert_plan( pq , childPlan )
                     
             potentialActions = [ Action( Actions.MOVE , tracker.getUnassignedVar() , tracker.getUnassignedVar() , tracker.getUnassignedVar() ) ,
                                 Action( Actions.TAKE , tracker.getUnassignedVar() , tracker.getUnassignedVar() , tracker.getUnassignedVar() , tracker.getUnassignedVar() , tracker.getUnassignedVar() ) ,
@@ -120,14 +124,20 @@ def planSearch(p, tracker):
                     for precond in a.getPrereqs():
                         childPlan.open_conditions.append( (precond , len(childPlan.steps)-1) )
                     
+                    #check for new threats
                     for link in childPlan.links:
-                        for prereq in childPlan.steps[ link.causalStep ].getPrereqs():
-                            if ( a.deletes( prereq ) ):
-                                newThreat = Threat( link , len(childPlan.steps)-1 )
-                                childPlan.threats.append( newThreat )
-                                break;
+                        
+                        #do not let action threaten itself
+                        if ( len(childPlan.steps)-1 != link.causalStep ):
+                            for prereq in childPlan.steps[ link.causalStep ].getPrereqs():
+                                if ( a.deletes( prereq ) ):
+                                    newThreat = Threat( link , len(childPlan.steps)-1 )
+                                    childPlan.threats.append( newThreat )
+                                    break;
                             
                     insert_plan( pq , childPlan )
+                else:
+                    print str(a) + " does not add " + str(nextPrecond[ 0 ] )
     
     print "FAILED" 
     raise plan_not_found()

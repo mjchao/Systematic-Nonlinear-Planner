@@ -183,6 +183,7 @@ def printVerbosePlan(plan, tracker):
 
     print "\n#Causal Links"
     for i in range(len(plan.links)):
+        print plan.links[i].causalStep, ",",
         printPredicate(plan.links[i].pred, tracker)
         print ",", plan.links[i].recipientStep
 
