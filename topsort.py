@@ -81,12 +81,13 @@ def isOrderConsistent(orderings, numVertices):
     result = topSort(orderings, numVertices)
     return result[1]
 
-
 '''
 Unit testing to make sure instructor code is correct
 '''
 def main():
+    print isOrderConsistent( [(0,1) , (2 , 1)] , 3 )
     print isOrderConsistent( [(0 , 1) , (2 , 1) , (0, 2) , (3, 2)] , 4)
+    print isOrderConsistent( [(0 , 1) , (0 , 2) , (2 , 1) , (3 , 2)] , 4)
     
 if __name__ == "__main__": main()
 

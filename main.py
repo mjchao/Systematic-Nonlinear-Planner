@@ -50,7 +50,9 @@ except:
     sys.exit()
 '''
 finalPlan = planSearch( initial , tracker )
-printPlan( initial , tracker )
+
+print "===== FINAL PLAN====="
+printPlan( finalPlan , tracker )
 #printPlan(finalPlan, tracker)
 
 
