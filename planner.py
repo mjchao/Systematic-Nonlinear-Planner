@@ -9,19 +9,13 @@ from random import randint
 
 MAX_SEARCH_EFFORT = 1000000
 
-idx = 0
 '''
 Returns an estimate of the number of steps
 that will be required to complete a partial
 plan. This is the heuristic function
 '''
 def estimateRemainingCost( plan ):
-    global idx
-    #TODO use better heuristic
-    #e.g. number of causal links + number of open preconditions
-    #return len( plan.open_conditions )
-    idx = idx + 1
-    return idx
+    return len( plan.steps )
 
 def insert_plan( pq , plan ):
     pq.put( (estimateRemainingCost( plan ) , plan) )
@@ -32,27 +26,21 @@ def insert_plan( pq , plan ):
 ## p is a Plan object
 ## tracker is a VariableTracker object
 def planSearch(p, tracker):
-    global idx
 
     #start with empty priority queue
     pq = PriorityQueue()
     insert_plan( pq , p )
-    insert_plan( pq , None )
 
     level = 0
     lastNumActions = 0
     #we'll use A* search
     while( not pq.empty() and level < 1000 ):
         entry = pq.get()
-        nextPlan , planId = entry[ 1 ] , entry[ 0 ]
-        if ( nextPlan is None ):
-            if ( not pq.empty() ):
-                insert_plan( pq , None )
-            level += 1
-            print "LEVEL: " + str(level) + "; Num Actions: " + str(lastNumActions)
-            continue
+        nextPlan = entry[ 1 ]
         
-        lastNumActions = len(nextPlan.steps)
+        if len(nextPlan.steps) != lastNumActions:
+            lastNumActions = len( nextPlan.steps )
+            print "LEVEL: " + str(lastNumActions)
         
         #print "PROCESSING Node " + str(planId) + ":" 
         #printVerbosePlan( nextPlan , tracker )
