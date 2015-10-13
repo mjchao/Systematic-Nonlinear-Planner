@@ -45,10 +45,9 @@ def topSort(orderings, numVertices):
         incomingEdges[orderings[i][1]] += 1 ## Number of incoming edges
 
     ## Add all vertices with zero incoming edges to a queue
-    for i in incomingEdges:
+    for i in range(numVertices):
         if (incomingEdges[i] == 0):
             S.append(i)
-
 
     ## Perform topological sort:
     ## While the queue is not empty, take out a vertex, put it in sorted list,
@@ -59,12 +58,10 @@ def topSort(orderings, numVertices):
         S.pop(0)
         sorted_t.append(vertex)
         outgoing = outgoingEdges[vertex][:]
-        for i in range(len(outgoing)):
-            o = outgoing[i]
-            income = incomingEdges[o]
-            income -= 1 ## Remove an edge
+        for o in outgoing:
+            incomingEdges[o] -= 1 ## Remove an edge
             remainingEdges -= 1
-            if (income == 0): S.append(o) ## Insert a vertex if no more incoming edges
+            if (incomingEdges[o] == 0): S.append(o) ## Insert a vertex if no more incoming edges
 
     if (remainingEdges > 0): successful = False ## If edges are left, a cycle exists
 
@@ -86,7 +83,8 @@ Unit testing to make sure instructor code is correct
 '''
 def main():
     print isOrderConsistent( [(0,1) , (2 , 1)] , 3 )
-    print isOrderConsistent( [(0 , 1) , (2 , 1) , (0, 2) , (3, 2)] , 4)
+    #0 < 3 < 2 < 1
+    print isOrderConsistent( [(0 , 1) , (0 , 1) , (0 , 1) , (2 , 1) , (0, 2) , (3, 2)] , 4)
     print isOrderConsistent( [(0 , 1) , (0 , 2) , (2 , 1) , (3 , 2)] , 4)
     
 if __name__ == "__main__": main()
