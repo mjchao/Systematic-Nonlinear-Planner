@@ -43,6 +43,14 @@ class Predicate:
     def is_equal(self, p):
         return (self.type_t == p.type_t) and (self.args[0] == p.args[0]) and (self.args[1] == p.args[1])
     
+    ## Perform a substitution, substituting all instances of 
+    ## variable "former" with "newval"
+    ## Implemented for you
+    def substitute(self, former, newval):
+        for i in range(len( self.args )):
+            if (self.args[i] == former):
+                self.args[i] = newval
+    
     def __str__(self):
         argsStr = "(" + Predicate.tracker.getName( self.args[ 0 ] )
         for i in range( 1 , len( self.args ) ):
