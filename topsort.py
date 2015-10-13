@@ -86,6 +86,7 @@ def main():
     #0 < 3 < 2 < 1
     print isOrderConsistent( [(0 , 1) , (0 , 1) , (0 , 1) , (2 , 1) , (0, 2) , (3, 2)] , 4)
     print isOrderConsistent( [(0 , 1) , (0 , 2) , (2 , 1) , (3 , 2)] , 4)
+    print isOrderConsistent( [(0, 3), (1, 3) , (2, 3) ] , 4)
     
 if __name__ == "__main__": main()
 

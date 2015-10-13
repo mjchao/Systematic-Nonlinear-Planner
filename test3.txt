@@ -8,13 +8,14 @@ containers 3
 initial
 attached p0 l0
 attached p1 l0
+attached p2 l0
 belong k0 l0
 free l0
 empty k0
 # All the in-conditions now
 in c0 p0
-in c1 p0
-in c2 p1
+in c1 p1
+in c2 p0
 # Now all the on-conditions
 on c2 c0
 on c0 G

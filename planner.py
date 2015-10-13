@@ -32,9 +32,8 @@ def insert_plan( pq , plan ):
 ## p is a Plan object
 ## tracker is a VariableTracker object
 def planSearch(p, tracker):
-    #for cond in p.open_conditions:
-    #    print str(cond[ 0 ]) 
-    
+    global idx
+
     #start with empty priority queue
     pq = PriorityQueue()
     insert_plan( pq , p )
@@ -43,7 +42,8 @@ def planSearch(p, tracker):
     level = 0
     #we'll use A* search
     while( not pq.empty() ):
-        nextPlan = pq.get()[ 1 ]
+        entry = pq.get()
+        nextPlan , planId = entry[ 1 ] , entry[ 0 ]
         if ( nextPlan is None ):
             if ( not pq.empty() ):
                 insert_plan( pq , None )
@@ -52,7 +52,7 @@ def planSearch(p, tracker):
             continue
         
         
-        print "PROCESSING new Node: " 
+        print "PROCESSING Node " + str(planId) + ":" 
         printVerbosePlan( nextPlan , tracker )
                 
         #if the ordering isn't consistent, clearly this plan won't work
@@ -124,6 +124,7 @@ def planSearch(p, tracker):
                                         childPlan.threats.append( newThreat )
                                         break;
             
+                            print "Generated child plan " + str(idx+1) + " using past action " + str( nextPlan.steps[ i ] )
                             insert_plan( pq , childPlan )
                     
             potentialActions = [ Action( Actions.MOVE , tracker.getUnassignedVar() , tracker.getUnassignedVar() , tracker.getUnassignedVar() ) ,
@@ -132,13 +133,9 @@ def planSearch(p, tracker):
                                 Action( Actions.LOAD , tracker.getUnassignedVar() , tracker.getUnassignedVar() , tracker.getUnassignedVar() , tracker.getUnassignedVar() ) ,
                                 Action( Actions.UNLOAD , tracker.getUnassignedVar() , tracker.getUnassignedVar() , tracker.getUnassignedVar() , tracker.getUnassignedVar() )]
             
-            print "Checking potential actions"
             for a in potentialActions:
                 substitutions = a.adds( nextPrecond[ 0 ] , tracker )
-                if ( a.type_t == Actions.TAKE ):
-                    print "Take substitutions: " + str(substitutions)
                 if ( len( substitutions ) > 0 ):
-                    print "Checking potential action: " + Action2Name[ a.type_t ]
                     for sub in substitutions:
                         childPlan = copy.deepcopy( nextPlan )
                         childPlan.steps.append( a )
@@ -168,6 +165,7 @@ def planSearch(p, tracker):
                                         childPlan.threats.append( newThreat )
                                         break;
                                 
+                        print "Generated child plan " + str(idx+1) + " using " + str(a)
                         insert_plan( pq , childPlan )
     
     print "FAILED" 
