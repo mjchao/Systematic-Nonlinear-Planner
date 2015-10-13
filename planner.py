@@ -40,6 +40,7 @@ def planSearch(p, tracker):
     insert_plan( pq , None )
 
     level = 0
+    lastNumActions = 0
     #we'll use A* search
     while( not pq.empty() and level < 1000 ):
         entry = pq.get()
@@ -48,9 +49,10 @@ def planSearch(p, tracker):
             if ( not pq.empty() ):
                 insert_plan( pq , None )
             level += 1
-            print "LEVEL: " + str(level)
+            print "LEVEL: " + str(level) + "; Num Actions: " + str(lastNumActions)
             continue
         
+        lastNumActions = len(nextPlan.steps)
         
         #print "PROCESSING Node " + str(planId) + ":" 
         #printVerbosePlan( nextPlan , tracker )
