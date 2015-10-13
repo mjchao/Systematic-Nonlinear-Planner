@@ -110,7 +110,7 @@ def planSearch(p, tracker):
                                 for action in childPlan.steps:
                                     action.substitute( tracker.getId(entry[ 0 ]) , tracker.getId(entry[ 1 ]) )
                                 for cond in childPlan.open_conditions:
-                                    cond.substitute( tracker.getId( entry[ 0 ] ) , tracker.getId( entry[ 1 ] ) )
+                                    cond[ 0 ].substitute( tracker.getId( entry[ 0 ] ) , tracker.getId( entry[ 1 ] ) )
                         
                             newLink = Link( nextPrecond[ 0 ] , i , childPlan.open_conditions[ nextPrecondIdx ][ 1 ] )
                             childPlan.links.append( newLink )
@@ -148,7 +148,7 @@ def planSearch(p, tracker):
                             for action in childPlan.steps :
                                 action.substitute( tracker.getId(entry[ 0 ]) , tracker.getId(entry[ 1 ]) )
                             for cond in childPlan.open_conditions:
-                                action.substitute( tracker.getId( entry[ 0 ] ) , tracker.getId( entry[ 1 ] ) )
+                                cond[ 0 ].substitute( tracker.getId( entry[ 0 ] ) , tracker.getId( entry[ 1 ] ) )
                             
                         newLink = Link( nextPrecond[ 0 ] , len(childPlan.steps)-1 , nextPrecond[ 1 ] )
                         childPlan.links.append( newLink )
