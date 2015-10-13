@@ -41,7 +41,7 @@ def planSearch(p, tracker):
 
     level = 0
     #we'll use A* search
-    while( not pq.empty() ):
+    while( not pq.empty() and level < 1000 ):
         entry = pq.get()
         nextPlan , planId = entry[ 1 ] , entry[ 0 ]
         if ( nextPlan is None ):
@@ -52,12 +52,12 @@ def planSearch(p, tracker):
             continue
         
         
-        print "PROCESSING Node " + str(planId) + ":" 
-        printVerbosePlan( nextPlan , tracker )
+        #print "PROCESSING Node " + str(planId) + ":" 
+        #printVerbosePlan( nextPlan , tracker )
                 
         #if the ordering isn't consistent, clearly this plan won't work
         if ( not isOrderConsistent( nextPlan.orderings , len( nextPlan.steps ) ) ):
-            print "Order is not consistent"
+            #print "Order is not consistent"
             continue
         
         #if the plan is complete, then we're done
@@ -98,7 +98,8 @@ def planSearch(p, tracker):
                 if ( i != nextPrecond[ 1 ] ):
                     substitutions = nextPlan.steps[ i ].adds( nextPrecond[ 0 ] , tracker )
                     if ( i == 0 ):
-                        print "Unifying with start: " + str(substitutions)
+                        pass
+                        #print "Unifying with start: " + str(substitutions)
                     if ( len( substitutions ) > 0 ):
                         for sub in substitutions:
                             childPlan = copy.deepcopy( nextPlan )
@@ -124,7 +125,7 @@ def planSearch(p, tracker):
                                         childPlan.threats.append( newThreat )
                                         break;
             
-                            print "Generated child plan " + str(idx+1) + " using past action " + str( nextPlan.steps[ i ] )
+                            #print "Generated child plan " + str(idx+1) + " using past action " + str( nextPlan.steps[ i ] )
                             insert_plan( pq , childPlan )
                     
             potentialActions = [ Action( Actions.MOVE , tracker.getUnassignedVar() , tracker.getUnassignedVar() , tracker.getUnassignedVar() ) ,
@@ -165,7 +166,7 @@ def planSearch(p, tracker):
                                         childPlan.threats.append( newThreat )
                                         break;
                                 
-                        print "Generated child plan " + str(idx+1) + " using " + str(a)
+                        #print "Generated child plan " + str(idx+1) + " using " + str(a)
                         insert_plan( pq , childPlan )
     
     print "FAILED" 
