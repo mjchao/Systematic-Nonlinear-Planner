@@ -111,7 +111,6 @@ def planSearch(p, tracker):
                                 if ( a.deletes( link.pred ) ):
                                     newThreat = Threat( link , i )
                                     childPlan.threats.append( newThreat )
-                                    break;
                             
                             #check for threats to this new link by other previous actions        
                             for j in range(len(childPlan.steps)):
@@ -161,7 +160,6 @@ def planSearch(p, tracker):
                             if ( a.deletes( link.pred ) ):
                                 newThreat = Threat( link , len(childPlan.steps)-1 )
                                 childPlan.threats.append( newThreat )
-                                break;
                                     
                         #check for threats by other actions that might threaten this new link
                         for j in range(len(childPlan.steps)):
