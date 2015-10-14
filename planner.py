@@ -164,6 +164,12 @@ def planSearch(p, tracker):
                                         newThreat = Threat( link , len(childPlan.steps)-1 )
                                         childPlan.threats.append( newThreat )
                                         break;
+                                    
+                        #check for threats by other actions that might threaten this new link
+                        for j in range(len(childPlan.steps)):
+                            if ( childPlan.steps[ j ].deletes( nextPrecond[ 0 ] ) ):
+                                newThreat = Threat( newLink , j )
+                                childPlan.threats.append( newThreat )                        
                                 
                         #print "Generated child plan " + str(idx+1) + " using " + str(a)
                         insert_plan( pq , childPlan )
