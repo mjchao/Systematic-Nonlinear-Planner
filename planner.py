@@ -120,14 +120,16 @@ def planSearch(p, tracker):
                                         newThreat = Threat( link , i )
                                         childPlan.threats.append( newThreat )
                                         break;
-                                    
+                            '''        
                             #also calculate threats from previous actions
                             for j in range(len(childPlan.steps)):
-                                for prereq in a.getPrereqs():
-                                    if ( childPlan.steps[ j ] is not a and childPlan.steps[ j ].deletes( prereq ) ):
-                                        newThreat = Threat( newLink , j )
-                                        childPlan.threats.append( newThreat )
-                                        break
+                                if ( childPlan.steps[ j ] is not a ):
+                                    for prereq in a.getPrereqs():
+                                        if ( childPlan.steps[ j ].deletes( prereq ) ):
+                                            newThreat = Threat( newLink , j )
+                                            childPlan.threats.append( newThreat )
+                                            break
+                            '''
             
                             insert_plan( pq , childPlan )
                     
@@ -171,13 +173,13 @@ def planSearch(p, tracker):
                                         childPlan.threats.append( newThreat )
                                         break;
                                     
-                        #also calculate threats from previous actions
+                        #also add threats from previous actions
                         for j in range(len(childPlan.steps)-1):
-                            for prereq in a.getPrereqs():
-                                if ( childPlan.steps[ j ].deletes( prereq ) ):
-                                    newThreat = Threat( newLink , j )
-                                    childPlan.threats.append( newThreat )
-                                    break
+                            if ( childPlan.steps[ j ].deletes( nextPrecond[ 0 ] ) ):
+                                print str( childPlan.steps[ j ] ) + " deletes " + str( nextPrecond[ 0 ] )
+                                newThreat = Threat( newLink , j )
+                                childPlan.threats.append( newThreat )
+                                break
                                 
                         insert_plan( pq , childPlan )
     
