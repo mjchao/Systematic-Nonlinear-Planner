@@ -7,7 +7,7 @@ from Queue import PriorityQueue
 import copy
 from random import randint
 
-MAX_SEARCH_EFFORT = 1000000
+MAX_LEVEL = 1000
 
 '''
 Returns an estimate of the number of steps
@@ -15,7 +15,7 @@ that will be required to complete a partial
 plan. This is the heuristic function
 '''
 def estimateRemainingCost( plan ):
-    return len( plan.steps )
+    return len( plan.steps ) + len( plan.open_conditions )
 
 def insert_plan( pq , plan ):
     pq.put( (estimateRemainingCost( plan ) , plan) )
@@ -26,6 +26,8 @@ def insert_plan( pq , plan ):
 ## p is a Plan object
 ## tracker is a VariableTracker object
 def planSearch(p, tracker):
+    global MAX_LEVEL
+    count = 0
 
     #start with empty priority queue
     pq = PriorityQueue()
@@ -33,8 +35,9 @@ def planSearch(p, tracker):
 
     level = 0
     lastNumActions = 0
+    
     #we'll use A* search
-    while( not pq.empty() and level < 1000 ):
+    while( not pq.empty() and level < MAX_LEVEL ):
         entry = pq.get()
         nextPlan = entry[ 1 ]
         
@@ -42,17 +45,19 @@ def planSearch(p, tracker):
             lastNumActions = len( nextPlan.steps )
             print "LEVEL: " + str(lastNumActions)
         
-        #print "PROCESSING Node " + str(planId) + ":" 
-        #printVerbosePlan( nextPlan , tracker )
+        printVerbosePlan( nextPlan , tracker )
                 
         #if the ordering isn't consistent, clearly this plan won't work
         if ( not isOrderConsistent( nextPlan.orderings , len( nextPlan.steps ) ) ):
-            #print "Order is not consistent"
             continue
         
         #if the plan is complete, then we're done
         if ( nextPlan.is_complete() ):
-            return nextPlan
+            if ( count == 1 ):
+                return nextPlan
+            else:
+                count += 1
+                continue
         
         #otherwise, try resolving open threats
         if ( nextPlan.has_threats() ):
@@ -89,7 +94,6 @@ def planSearch(p, tracker):
                     substitutions = nextPlan.steps[ i ].adds( nextPrecond[ 0 ] , tracker )
                     if ( i == 0 ):
                         pass
-                        #print "Unifying with start: " + str(substitutions)
                     if ( len( substitutions ) > 0 ):
                         for sub in substitutions:
                             childPlan = copy.deepcopy( nextPlan )
@@ -116,8 +120,15 @@ def planSearch(p, tracker):
                                         newThreat = Threat( link , i )
                                         childPlan.threats.append( newThreat )
                                         break;
+                                    
+                            #also calculate threats from previous actions
+                            for j in range(len(childPlan.steps)):
+                                for prereq in a.getPrereqs():
+                                    if ( childPlan.steps[ j ] is not a and childPlan.steps[ j ].deletes( prereq ) ):
+                                        newThreat = Threat( newLink , j )
+                                        childPlan.threats.append( newThreat )
+                                        break
             
-                            #print "Generated child plan " + str(idx+1) + " using past action " + str( nextPlan.steps[ i ] )
                             insert_plan( pq , childPlan )
                     
             potentialActions = [ Action( Actions.MOVE , tracker.getUnassignedVar() , tracker.getUnassignedVar() , tracker.getUnassignedVar() ) ,
@@ -142,8 +153,8 @@ def planSearch(p, tracker):
                         childPlan.links.append( newLink )
                         
                         newOrdering = (len(childPlan.steps)-1 , nextPrecond[ 1 ])
-                        if ( not newOrdering in childPlan.orderings ):
-                            childPlan.orderings.append( newOrdering )
+                        #if ( not newOrdering in childPlan.orderings ):
+                        childPlan.orderings.append( newOrdering )
                         del childPlan.open_conditions[ nextPrecondIdx ]
                         
                         for precond in a.getPrereqs():
@@ -159,8 +170,15 @@ def planSearch(p, tracker):
                                         newThreat = Threat( link , len(childPlan.steps)-1 )
                                         childPlan.threats.append( newThreat )
                                         break;
+                                    
+                        #also calculate threats from previous actions
+                        for j in range(len(childPlan.steps)-1):
+                            for prereq in a.getPrereqs():
+                                if ( childPlan.steps[ j ].deletes( prereq ) ):
+                                    newThreat = Threat( newLink , j )
+                                    childPlan.threats.append( newThreat )
+                                    break
                                 
-                        #print "Generated child plan " + str(idx+1) + " using " + str(a)
                         insert_plan( pq , childPlan )
     
     print "FAILED" 

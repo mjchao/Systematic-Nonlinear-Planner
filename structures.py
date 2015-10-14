@@ -506,6 +506,12 @@ def main():
         print str(p)
     print moveAction.adds( pred , tracker )
     
+    deletedPred = Predicate( Predicates.AT , "r0" , "l0" )
+    print "Deletes (True): " + str( moveAction.deletes( deletedPred ) )
+    
+    failDeletedPred = Predicate( Predicates.AT , "l0" , "r0" )
+    print "Deletes (False): " + str( moveAction.deletes( failDeletedPred ) )
+    
     failPred = Predicate( Predicates.HOLDING , "k0" , "c1" )
     print moveAction.adds( failPred , tracker )
     
