@@ -468,6 +468,11 @@ class Plan:
         self.open_conditions = []
     
         self.orderings = [] ## All ordering constraints
+        
+    def enforce_ordering( self , start , end ):
+        newOrdering = (start , end)
+        if newOrdering not in self.orderings:
+            self.orderings.append( newOrdering )
     
     '''
     Returns if this plan is a complete plan - i.e. there are no
