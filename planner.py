@@ -84,12 +84,10 @@ def planSearch(p, tracker):
             nextPrecond = nextPlan.open_conditions[ nextPrecondIdx ]
             for i in range( 0 , len( nextPlan.steps ) ):
                 
-                #do not let an action link to or threaten itself
+                #do not let an action link to itself
                 if ( i != nextPrecond[ 1 ] ):
                     substitutions = nextPlan.steps[ i ].adds( nextPrecond[ 0 ] , tracker )
-                    if ( i == 0 ):
-                        pass
-                        #print "Unifying with start: " + str(substitutions)
+
                     if ( len( substitutions ) > 0 ):
                         for sub in substitutions:
                             childPlan = copy.deepcopy( nextPlan )
@@ -116,6 +114,13 @@ def planSearch(p, tracker):
                                         newThreat = Threat( link , i )
                                         childPlan.threats.append( newThreat )
                                         break;
+                            
+                            #check for threats to this new link by other previous actions        
+                            for j in range(len(childPlan.steps)):
+                                if ( childPlan.steps[ j ].deletes( nextPrecond[ 0 ] ) ):
+                                    newThreat = Threat( newLink , j )
+                                    childPlan.threats.append( newThreat )
+                            
             
                             #print "Generated child plan " + str(idx+1) + " using past action " + str( nextPlan.steps[ i ] )
                             insert_plan( pq , childPlan )

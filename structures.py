@@ -421,8 +421,9 @@ class Action:
     ## Calls the unification algorithm
     def deletes(self, p):
         for i in range(len(self.deleteList)):
-            if (Predicate.unify( self.deleteList[ i ].args , p.args , [] , Predicate.tracker ) != None ):
-                return True
+            if ( self.type_t == p.type_t ):
+                if (Predicate.unify( self.deleteList[ i ].args , p.args , [] , Predicate.tracker ) != None ):
+                    return True
         return False
     
     def __str__(self):
