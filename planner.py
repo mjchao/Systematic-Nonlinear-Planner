@@ -15,7 +15,7 @@ that will be required to complete a partial
 plan. This is the heuristic function
 '''
 def estimateRemainingCost( plan ):
-    return len( plan.steps )
+    return len( plan.steps ) + len( plan.open_conditions )
 
 def insert_plan( pq , plan ):
     pq.put( (estimateRemainingCost( plan ) , plan) )
