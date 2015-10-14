@@ -1,0 +1,11193 @@
+in(c0, p1)
+actions
+0 start()
+1 finish()
+
+constraints
+LEVEL: 2
+#Steps
+0 start
+1 finish
+
+#Orderings
+0  <  1
+
+#Causal Links
+
+#Threats
+
+#Open Preconditions
+in c0 p1
+LEVEL: 3
+#Steps
+0 start
+1 finish
+2 put x8 x9 c0 x11 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+
+#Causal Links
+2 , in c0 p1 , 1
+
+#Threats
+
+#Open Preconditions
+belong x8 x9
+attached p1 x9
+holding x8 c0
+top x11 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 x11 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+
+#Threats
+
+#Open Preconditions
+attached p1 l0
+holding k0 c0
+top x11 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 x11 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+
+#Threats
+
+#Open Preconditions
+holding k0 c0
+top x11 p1
+LEVEL: 4
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 x11 p1
+3 unload k0 x81 c0 x83
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+
+#Threats
+
+#Open Preconditions
+top x11 p1
+belong k0 x81
+at x83 x81
+loaded x83 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 unload k0 x81 c0 x83
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+
+#Threats
+
+#Open Preconditions
+belong k0 x81
+at x83 x81
+loaded x83 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 unload k0 l0 c0 x83
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x81 , 3
+
+#Threats
+
+#Open Preconditions
+at x83 l0
+loaded x83 c0
+empty k0
+LEVEL: 5
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 unload k0 l0 c0 x83
+4 move x83 x127 l0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x81 , 3
+4 , at x83 l0 , 3
+
+#Threats
+
+#Open Preconditions
+loaded x83 c0
+empty k0
+adjacent x127 l0
+at x83 x127
+free l0
+LEVEL: 4
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 x11 p1
+3 take k0 x67 c0 x69 x70
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+
+#Threats
+
+#Open Preconditions
+top x11 p1
+belong k0 x67
+attached x70 x67
+empty k0
+top c0 x70
+on c0 x69
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 x67 c0 x69 x70
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+
+#Threats
+
+#Open Preconditions
+belong k0 x67
+attached x70 x67
+empty k0
+top c0 x70
+on c0 x69
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 x70
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+
+#Threats
+
+#Open Preconditions
+attached x70 l0
+empty k0
+top c0 x70
+on c0 x69
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+
+#Threats
+
+#Open Preconditions
+empty k0
+top c0 p1
+on c0 x69
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+
+#Threats
+
+#Open Preconditions
+top c0 p1
+on c0 x69
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+2  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+2 , top c0 p1 , 3
+
+#Threats
+
+#Open Preconditions
+on c0 x69
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+2  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+2 , empty k0 , 3
+
+#Threats
+
+#Open Preconditions
+top c0 p1
+on c0 x69
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+
+#Threats
+
+#Open Preconditions
+empty k0
+top c0 p0
+on c0 x69
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+2  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+2 , empty k0 , 3
+
+#Threats
+
+#Open Preconditions
+top c0 p0
+on c0 x69
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+
+#Threats
+
+#Open Preconditions
+top c0 p0
+on c0 x69
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+0 , top c0 p0 , 3
+
+#Threats
+
+#Open Preconditions
+on c0 x69
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+2  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+0 , top c0 p0 , 3
+2 , on c0 x69 , 3
+
+#Threats
+
+#Open Preconditions
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+0 , top c0 p0 , 3
+0 , on c0 x69 , 3
+
+#Threats
+
+#Open Preconditions
+LEVEL: 5
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put x323 x324 c0 x69 x327
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+0 , top c0 p0 , 3
+4 , on c0 x69 , 3
+
+#Threats
+
+#Open Preconditions
+belong x323 x324
+attached x327 x324
+holding x323 c0
+top x69 x327
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 l0 c0 x69 x327
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+0 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong x323 x324 , 4
+
+#Threats
+
+#Open Preconditions
+attached x327 l0
+holding k0 c0
+top x69 x327
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 l0 c0 x69 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+0 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong x323 x324 , 4
+0 , attached x327 l0 , 4
+
+#Threats
+
+#Open Preconditions
+holding k0 c0
+top x69 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 l0 c0 x69 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+0 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong x323 x324 , 4
+0 , attached x327 l0 , 4
+3 , holding k0 c0 , 4
+
+#Threats
+
+#Open Preconditions
+top x69 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 l0 c0 x69 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+0 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong x323 x324 , 4
+0 , attached x327 l0 , 4
+
+#Threats
+
+#Open Preconditions
+holding k0 c0
+top x69 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 l0 c0 x69 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+0 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong x323 x324 , 4
+0 , attached x327 l0 , 4
+3 , holding k0 c0 , 4
+
+#Threats
+
+#Open Preconditions
+top x69 p1
+LEVEL: 4
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 x11 p1
+3 take k0 x67 c0 x11 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+
+#Threats
+
+#Open Preconditions
+belong k0 x67
+attached p1 x67
+empty k0
+top c0 p1
+on c0 x11
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 x11 p1
+3 take k0 l0 c0 x11 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+
+#Threats
+
+#Open Preconditions
+attached p1 l0
+empty k0
+top c0 p1
+on c0 x11
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 x11 p1
+3 take k0 l0 c0 x11 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+
+#Threats
+
+#Open Preconditions
+empty k0
+top c0 p1
+on c0 x11
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 x11 p1
+3 take k0 l0 c0 x11 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+
+#Threats
+
+#Open Preconditions
+top c0 p1
+on c0 x11
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 x11 p1
+3 take k0 l0 c0 x11 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+2  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+2 , top c0 p1 , 3
+
+#Threats
+
+#Open Preconditions
+on c0 x11
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 x11 p1
+3 take k0 l0 c0 x11 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+2  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+2 , empty k0 , 3
+
+#Threats
+
+#Open Preconditions
+top c0 p1
+on c0 x11
+LEVEL: 5
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p1
+4 put x260 x261 c0 x263 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+
+#Threats
+
+#Open Preconditions
+on c0 x69
+belong x260 x261
+attached p1 x261
+holding x260 c0
+top x263 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p1
+4 put x260 x261 c0 x69 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x69 , 3
+
+#Threats
+
+#Open Preconditions
+belong x260 x261
+attached p1 x261
+holding x260 c0
+top x69 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p1
+4 put k0 l0 c0 x69 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x69 , 3
+0 , belong x260 x261 , 4
+
+#Threats
+
+#Open Preconditions
+attached p1 l0
+holding k0 c0
+top x69 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p1
+4 put k0 l0 c0 x69 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x69 , 3
+0 , belong x260 x261 , 4
+0 , attached p1 l0 , 4
+
+#Threats
+
+#Open Preconditions
+holding k0 c0
+top x69 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p1
+4 put k0 l0 c0 x69 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x69 , 3
+0 , belong x260 x261 , 4
+0 , attached p1 l0 , 4
+3 , holding k0 c0 , 4
+
+#Threats
+
+#Open Preconditions
+top x69 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put x260 x261 c0 x263 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+
+#Threats
+
+#Open Preconditions
+belong x260 x261
+attached p1 x261
+holding x260 c0
+top x263 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 x263 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong x260 x261 , 4
+
+#Threats
+
+#Open Preconditions
+attached p1 l0
+holding k0 c0
+top x263 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 x263 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong x260 x261 , 4
+0 , attached p1 l0 , 4
+
+#Threats
+
+#Open Preconditions
+holding k0 c0
+top x263 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 x263 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong x260 x261 , 4
+0 , attached p1 l0 , 4
+3 , holding k0 c0 , 4
+
+#Threats
+
+#Open Preconditions
+top x263 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put x260 x261 c0 x263 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+2  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+2 , on c0 x69 , 3
+
+#Threats
+
+#Open Preconditions
+belong x260 x261
+attached p1 x261
+holding x260 c0
+top x263 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put x302 x303 c0 x305 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+
+#Threats
+
+#Open Preconditions
+on c0 x69
+belong x302 x303
+attached p0 x303
+holding x302 c0
+top x305 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put x302 x303 c0 x305 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+2  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+2 , on c0 x69 , 3
+
+#Threats
+
+#Open Preconditions
+belong x302 x303
+attached p0 x303
+holding x302 c0
+top x305 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put x302 x303 c0 x69 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+4 , on c0 x69 , 3
+
+#Threats
+
+#Open Preconditions
+belong x302 x303
+attached p0 x303
+holding x302 c0
+top x69 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 l0 c0 x69 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong x302 x303 , 4
+
+#Threats
+
+#Open Preconditions
+attached p0 l0
+holding k0 c0
+top x69 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 l0 c0 x69 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong x302 x303 , 4
+0 , attached p0 l0 , 4
+
+#Threats
+
+#Open Preconditions
+holding k0 c0
+top x69 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 l0 c0 x69 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong x302 x303 , 4
+0 , attached p0 l0 , 4
+3 , holding k0 c0 , 4
+
+#Threats
+
+#Open Preconditions
+top x69 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put x302 x303 c0 x305 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+
+#Threats
+
+#Open Preconditions
+belong x302 x303
+attached p0 x303
+holding x302 c0
+top x305 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 l0 c0 x305 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong x302 x303 , 4
+
+#Threats
+
+#Open Preconditions
+attached p0 l0
+holding k0 c0
+top x305 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 l0 c0 x305 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong x302 x303 , 4
+0 , attached p0 l0 , 4
+
+#Threats
+
+#Open Preconditions
+holding k0 c0
+top x305 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 l0 c0 x305 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong x302 x303 , 4
+0 , attached p0 l0 , 4
+3 , holding k0 c0 , 4
+
+#Threats
+
+#Open Preconditions
+top x305 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 x11 p1
+3 take k0 l0 c0 x11 p1
+4 put x491 x492 c0 x494 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+
+#Threats
+
+#Open Preconditions
+on c0 x11
+belong x491 x492
+attached p1 x492
+holding x491 c0
+top x494 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put x491 x492 c0 x494 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+
+#Threats
+
+#Open Preconditions
+belong x491 x492
+attached p1 x492
+holding x491 c0
+top x494 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 x494 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong x491 x492 , 4
+
+#Threats
+
+#Open Preconditions
+attached p1 l0
+holding k0 c0
+top x494 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 x494 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong x491 x492 , 4
+0 , attached p1 l0 , 4
+
+#Threats
+
+#Open Preconditions
+holding k0 c0
+top x494 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 x494 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong x491 x492 , 4
+0 , attached p1 l0 , 4
+3 , holding k0 c0 , 4
+
+#Threats
+
+#Open Preconditions
+top x494 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 x11 p1
+3 take k0 l0 c0 x11 p1
+4 put x491 x492 c0 x494 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+2  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+2 , on c0 x11 , 3
+
+#Threats
+
+#Open Preconditions
+belong x491 x492
+attached p1 x492
+holding x491 c0
+top x494 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 x11 p1
+3 take k0 l0 c0 x11 p1
+4 put x491 x492 c0 x11 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x11 , 3
+
+#Threats
+
+#Open Preconditions
+belong x491 x492
+attached p1 x492
+holding x491 c0
+top x11 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 x11 p1
+3 take k0 l0 c0 x11 p1
+4 put k0 l0 c0 x11 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x11 , 3
+0 , belong x491 x492 , 4
+
+#Threats
+
+#Open Preconditions
+attached p1 l0
+holding k0 c0
+top x11 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 x11 p1
+3 take k0 l0 c0 x11 p1
+4 put k0 l0 c0 x11 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x11 , 3
+0 , belong x491 x492 , 4
+0 , attached p1 l0 , 4
+
+#Threats
+
+#Open Preconditions
+holding k0 c0
+top x11 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 x11 p1
+3 take k0 l0 c0 x11 p1
+4 put k0 l0 c0 x11 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x11 , 3
+0 , belong x491 x492 , 4
+0 , attached p1 l0 , 4
+3 , holding k0 c0 , 4
+
+#Threats
+
+#Open Preconditions
+top x11 p1
+LEVEL: 6
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 l0 c0 x69 p0
+5 unload k0 x732 c0 x734
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong x302 x303 , 4
+0 , attached p0 l0 , 4
+5 , holding k0 c0 , 4
+
+#Threats
+
+#Open Preconditions
+top x69 p0
+belong k0 x732
+at x734 x732
+loaded x734 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 l0 c0 x69 p0
+5 unload k0 x732 c0 x734
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong x302 x303 , 4
+0 , attached p0 l0 , 4
+5 , holding k0 c0 , 4
+3 , top x69 p0 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x732
+at x734 x732
+loaded x734 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 c0 p0
+4 put k0 l0 c0 c0 p0
+5 unload k0 x732 c0 x734
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong x302 x303 , 4
+0 , attached p0 l0 , 4
+5 , holding k0 c0 , 4
+0 , top x69 p0 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x732
+at x734 x732
+loaded x734 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 c0 p0
+4 put k0 l0 c0 c0 p0
+5 unload k0 l0 c0 x734
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong x302 x303 , 4
+0 , attached p0 l0 , 4
+5 , holding k0 c0 , 4
+0 , top x69 p0 , 4
+0 , belong k0 x732 , 5
+
+#Threats
+
+#Open Preconditions
+at x734 l0
+loaded x734 c0
+empty k0
+LEVEL: 5
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p1
+4 put k0 x240 x241 x242 x243
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+
+#Threats
+
+#Open Preconditions
+top c0 p1
+on c0 x69
+belong k0 x240
+attached x243 x240
+holding k0 x241
+top x242 x243
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p1
+4 put k0 x240 x241 x242 x243
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+2  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+2 , top c0 p1 , 3
+
+#Threats
+
+#Open Preconditions
+on c0 x69
+belong k0 x240
+attached x243 x240
+holding k0 x241
+top x242 x243
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p1
+4 put k0 x240 c0 x242 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+
+#Threats
+
+#Open Preconditions
+on c0 x69
+belong k0 x240
+attached p1 x240
+holding k0 c0
+top x242 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 x240 c0 x242 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+
+#Threats
+
+#Open Preconditions
+belong k0 x240
+attached p1 x240
+holding k0 c0
+top x242 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 x242 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong k0 x240 , 4
+
+#Threats
+
+#Open Preconditions
+attached p1 l0
+holding k0 c0
+top x242 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 x242 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong k0 x240 , 4
+0 , attached p1 l0 , 4
+
+#Threats
+
+#Open Preconditions
+holding k0 c0
+top x242 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 x242 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong k0 x240 , 4
+0 , attached p1 l0 , 4
+3 , holding k0 c0 , 4
+
+#Threats
+
+#Open Preconditions
+top x242 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 x240 c0 x242 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+2  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+2 , on c0 x69 , 3
+
+#Threats
+
+#Open Preconditions
+belong k0 x240
+attached p1 x240
+holding k0 c0
+top x242 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p1
+4 put k0 x240 c0 x69 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x69 , 3
+
+#Threats
+
+#Open Preconditions
+belong k0 x240
+attached p1 x240
+holding k0 c0
+top x69 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p1
+4 put k0 l0 c0 x69 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x69 , 3
+0 , belong k0 x240 , 4
+
+#Threats
+
+#Open Preconditions
+attached p1 l0
+holding k0 c0
+top x69 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p1
+4 put k0 l0 c0 x69 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x69 , 3
+0 , belong k0 x240 , 4
+0 , attached p1 l0 , 4
+
+#Threats
+
+#Open Preconditions
+holding k0 c0
+top x69 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p1
+4 put k0 l0 c0 x69 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x69 , 3
+0 , belong k0 x240 , 4
+0 , attached p1 l0 , 4
+3 , holding k0 c0 , 4
+
+#Threats
+
+#Open Preconditions
+top x69 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p1
+4 take x255 x256 x257 c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+
+#Threats
+
+#Open Preconditions
+on c0 x69
+belong x255 x256
+attached p1 x256
+empty x255
+top x257 p1
+on x257 c0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take x255 x256 x257 c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+2  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+2 , on c0 x69 , 3
+
+#Threats
+
+#Open Preconditions
+belong x255 x256
+attached p1 x256
+empty x255
+top x257 p1
+on x257 c0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take x255 x256 x257 c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+
+#Threats
+
+#Open Preconditions
+belong x255 x256
+attached p1 x256
+empty x255
+top x257 p1
+on x257 c0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 x257 c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong x255 x256 , 4
+
+#Threats
+
+#Open Preconditions
+attached p1 l0
+empty k0
+top x257 p1
+on x257 c0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 x257 c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong x255 x256 , 4
+0 , attached p1 l0 , 4
+
+#Threats
+
+#Open Preconditions
+empty k0
+top x257 p1
+on x257 c0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 x257 c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong x255 x256 , 4
+0 , attached p1 l0 , 4
+0 , empty k0 , 4
+
+#Threats
+
+#Open Preconditions
+top x257 p1
+on x257 c0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 G c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong x255 x256 , 4
+0 , attached p1 l0 , 4
+0 , empty k0 , 4
+0 , top x257 p1 , 4
+
+#Threats
+
+#Open Preconditions
+on G c0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 c0 c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+2  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong x255 x256 , 4
+0 , attached p1 l0 , 4
+0 , empty k0 , 4
+2 , top x257 p1 , 4
+
+#Threats
+
+#Open Preconditions
+on c0 c0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 G c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong x255 x256 , 4
+0 , attached p1 l0 , 4
+0 , empty k0 , 4
+3 , top x257 p1 , 4
+
+#Threats
+
+#Open Preconditions
+on G c0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 x257 c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+2  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong x255 x256 , 4
+0 , attached p1 l0 , 4
+2 , empty k0 , 4
+
+#Threats
+
+#Open Preconditions
+top x257 p1
+on x257 c0
+LEVEL: 6
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 G c0 p1
+5 put x1289 x1290 G c0 x1293
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong x255 x256 , 4
+0 , attached p1 l0 , 4
+0 , empty k0 , 4
+0 , top x257 p1 , 4
+5 , on G c0 , 4
+
+#Threats
+
+#Open Preconditions
+belong x1289 x1290
+attached x1293 x1290
+holding x1289 G
+top c0 x1293
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 G c0 p1
+5 put k0 l0 G c0 x1293
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong x255 x256 , 4
+0 , attached p1 l0 , 4
+0 , empty k0 , 4
+0 , top x257 p1 , 4
+5 , on G c0 , 4
+0 , belong x1289 x1290 , 5
+
+#Threats
+
+#Open Preconditions
+attached x1293 l0
+holding k0 G
+top c0 x1293
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 G c0 p1
+5 put k0 l0 G c0 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong x255 x256 , 4
+0 , attached p1 l0 , 4
+0 , empty k0 , 4
+0 , top x257 p1 , 4
+5 , on G c0 , 4
+0 , belong x1289 x1290 , 5
+0 , attached x1293 l0 , 5
+
+#Threats
+
+#Open Preconditions
+holding k0 G
+top c0 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 G c0 p1
+5 put k0 l0 G c0 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+4  <  5
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong x255 x256 , 4
+0 , attached p1 l0 , 4
+0 , empty k0 , 4
+0 , top x257 p1 , 4
+5 , on G c0 , 4
+0 , belong x1289 x1290 , 5
+0 , attached x1293 l0 , 5
+4 , holding k0 G , 5
+
+#Threats
+
+#Open Preconditions
+top c0 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 G c0 p1
+5 put k0 l0 G c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong x255 x256 , 4
+0 , attached p1 l0 , 4
+0 , empty k0 , 4
+0 , top x257 p1 , 4
+5 , on G c0 , 4
+0 , belong x1289 x1290 , 5
+0 , attached x1293 l0 , 5
+
+#Threats
+
+#Open Preconditions
+holding k0 G
+top c0 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 G c0 p1
+5 put k0 l0 G c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+4  <  5
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong x255 x256 , 4
+0 , attached p1 l0 , 4
+0 , empty k0 , 4
+0 , top x257 p1 , 4
+5 , on G c0 , 4
+0 , belong x1289 x1290 , 5
+0 , attached x1293 l0 , 5
+4 , holding k0 G , 5
+
+#Threats
+
+#Open Preconditions
+top c0 p1
+LEVEL: 5
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 x11 p1
+3 take k0 l0 c0 x11 p1
+4 load k0 x476 x477 x478
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+4 , empty k0 , 3
+
+#Threats
+
+#Open Preconditions
+top c0 p1
+on c0 x11
+belong k0 x476
+holding k0 x477
+at x478 x476
+unloaded x478
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 x11 p1
+3 take k0 l0 c0 x11 p1
+4 load k0 x476 x477 x478
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+2  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+4 , empty k0 , 3
+2 , top c0 p1 , 3
+
+#Threats
+
+#Open Preconditions
+on c0 x11
+belong k0 x476
+holding k0 x477
+at x478 x476
+unloaded x478
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 x11 p1
+3 take k0 l0 c0 x11 p1
+4 take x486 x487 x488 c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+
+#Threats
+
+#Open Preconditions
+on c0 x11
+belong x486 x487
+attached p1 x487
+empty x486
+top x488 p1
+on x488 c0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take x486 x487 x488 c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+
+#Threats
+
+#Open Preconditions
+belong x486 x487
+attached p1 x487
+empty x486
+top x488 p1
+on x488 c0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 x488 c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong x486 x487 , 4
+
+#Threats
+
+#Open Preconditions
+attached p1 l0
+empty k0
+top x488 p1
+on x488 c0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 x488 c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong x486 x487 , 4
+0 , attached p1 l0 , 4
+
+#Threats
+
+#Open Preconditions
+empty k0
+top x488 p1
+on x488 c0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 x488 c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong x486 x487 , 4
+0 , attached p1 l0 , 4
+0 , empty k0 , 4
+
+#Threats
+
+#Open Preconditions
+top x488 p1
+on x488 c0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 G c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong x486 x487 , 4
+0 , attached p1 l0 , 4
+0 , empty k0 , 4
+0 , top x488 p1 , 4
+
+#Threats
+
+#Open Preconditions
+on G c0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 c0 c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+2  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong x486 x487 , 4
+0 , attached p1 l0 , 4
+0 , empty k0 , 4
+2 , top x488 p1 , 4
+
+#Threats
+
+#Open Preconditions
+on c0 c0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 G c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong x486 x487 , 4
+0 , attached p1 l0 , 4
+0 , empty k0 , 4
+3 , top x488 p1 , 4
+
+#Threats
+
+#Open Preconditions
+on G c0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 x488 c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+2  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong x486 x487 , 4
+0 , attached p1 l0 , 4
+2 , empty k0 , 4
+
+#Threats
+
+#Open Preconditions
+top x488 p1
+on x488 c0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 x11 p1
+3 take k0 l0 c0 x11 p1
+4 take x486 x487 x488 c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+2  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+2 , on c0 x11 , 3
+
+#Threats
+
+#Open Preconditions
+belong x486 x487
+attached p1 x487
+empty x486
+top x488 p1
+on x488 c0
+LEVEL: 6
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 G c0 p1
+5 put x1520 x1521 G c0 x1524
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong x486 x487 , 4
+0 , attached p1 l0 , 4
+0 , empty k0 , 4
+0 , top x488 p1 , 4
+5 , on G c0 , 4
+
+#Threats
+
+#Open Preconditions
+belong x1520 x1521
+attached x1524 x1521
+holding x1520 G
+top c0 x1524
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 G c0 p1
+5 put k0 l0 G c0 x1524
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong x486 x487 , 4
+0 , attached p1 l0 , 4
+0 , empty k0 , 4
+0 , top x488 p1 , 4
+5 , on G c0 , 4
+0 , belong x1520 x1521 , 5
+
+#Threats
+
+#Open Preconditions
+attached x1524 l0
+holding k0 G
+top c0 x1524
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 G c0 p1
+5 put k0 l0 G c0 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong x486 x487 , 4
+0 , attached p1 l0 , 4
+0 , empty k0 , 4
+0 , top x488 p1 , 4
+5 , on G c0 , 4
+0 , belong x1520 x1521 , 5
+0 , attached x1524 l0 , 5
+
+#Threats
+
+#Open Preconditions
+holding k0 G
+top c0 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 G c0 p1
+5 put k0 l0 G c0 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+4  <  5
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong x486 x487 , 4
+0 , attached p1 l0 , 4
+0 , empty k0 , 4
+0 , top x488 p1 , 4
+5 , on G c0 , 4
+0 , belong x1520 x1521 , 5
+0 , attached x1524 l0 , 5
+4 , holding k0 G , 5
+
+#Threats
+
+#Open Preconditions
+top c0 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 G c0 p1
+5 put k0 l0 G c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong x486 x487 , 4
+0 , attached p1 l0 , 4
+0 , empty k0 , 4
+0 , top x488 p1 , 4
+5 , on G c0 , 4
+0 , belong x1520 x1521 , 5
+0 , attached x1524 l0 , 5
+
+#Threats
+
+#Open Preconditions
+holding k0 G
+top c0 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 G c0 p1
+5 put k0 l0 G c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+4  <  5
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong x486 x487 , 4
+0 , attached p1 l0 , 4
+0 , empty k0 , 4
+0 , top x488 p1 , 4
+5 , on G c0 , 4
+0 , belong x1520 x1521 , 5
+0 , attached x1524 l0 , 5
+4 , holding k0 G , 5
+
+#Threats
+
+#Open Preconditions
+top c0 p1
+LEVEL: 5
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p1
+4 load k0 x245 x246 x247
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+
+#Threats
+
+#Open Preconditions
+top c0 p1
+on c0 x69
+belong k0 x245
+holding k0 x246
+at x247 x245
+unloaded x247
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p1
+4 load k0 x245 x246 x247
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+2  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+2 , top c0 p1 , 3
+
+#Threats
+
+#Open Preconditions
+on c0 x69
+belong k0 x245
+holding k0 x246
+at x247 x245
+unloaded x247
+LEVEL: 6
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 x11 p1
+3 take k0 l0 c0 x11 p1
+4 put k0 l0 c0 x11 p1
+5 unload k0 x942 c0 x944
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x11 , 3
+0 , belong x491 x492 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+
+#Threats
+
+#Open Preconditions
+top x11 p1
+belong k0 x942
+at x944 x942
+loaded x944 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 G p1
+5 unload k0 x942 c0 x944
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x11 , 3
+0 , belong x491 x492 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+0 , top x11 p1 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x942
+at x944 x942
+loaded x944 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 G p1
+5 unload k0 l0 c0 x944
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x11 , 3
+0 , belong x491 x492 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+0 , top x11 p1 , 4
+0 , belong k0 x942 , 5
+
+#Threats
+
+#Open Preconditions
+at x944 l0
+loaded x944 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 c0 p1
+3 take k0 l0 c0 c0 p1
+4 put k0 l0 c0 c0 p1
+5 unload k0 x942 c0 x944
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+2  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x11 , 3
+0 , belong x491 x492 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+2 , top x11 p1 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x942
+at x944 x942
+loaded x944 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 x11 p1
+3 take k0 l0 c0 x11 p1
+4 put k0 l0 c0 x11 p1
+5 unload k0 x942 c0 x944
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x11 , 3
+0 , belong x491 x492 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+3 , top x11 p1 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x942
+at x944 x942
+loaded x944 c0
+empty k0
+LEVEL: 5
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 load k0 x287 x288 x289
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+
+#Threats
+
+#Open Preconditions
+top c0 p0
+on c0 x69
+belong k0 x287
+holding k0 x288
+at x289 x287
+unloaded x289
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 load k0 x287 x288 x289
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+
+#Threats
+
+#Open Preconditions
+on c0 x69
+belong k0 x287
+holding k0 x288
+at x289 x287
+unloaded x289
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 load k0 x287 x288 x289
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+0 , on c0 x69 , 3
+
+#Threats
+
+#Open Preconditions
+belong k0 x287
+holding k0 x288
+at x289 x287
+unloaded x289
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 load k0 l0 x288 x289
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong k0 x287 , 4
+
+#Threats
+
+#Open Preconditions
+holding k0 x288
+at x289 l0
+unloaded x289
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 load k0 l0 c0 x289
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong k0 x287 , 4
+3 , holding k0 x288 , 4
+
+#Threats
+
+#Open Preconditions
+at x289 l0
+unloaded x289
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 load k0 x287 x288 x289
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+2  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+2 , on c0 x69 , 3
+
+#Threats
+
+#Open Preconditions
+belong k0 x287
+holding k0 x288
+at x289 x287
+unloaded x289
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 x11 p1
+3 take k0 l0 c0 x11 p1
+4 put k0 x471 x472 x473 x474
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+4 , empty k0 , 3
+
+#Threats
+
+#Open Preconditions
+top c0 p1
+on c0 x11
+belong k0 x471
+attached x474 x471
+holding k0 x472
+top x473 x474
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 x11 p1
+3 take k0 l0 c0 x11 p1
+4 put k0 x471 c0 x473 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+
+#Threats
+
+#Open Preconditions
+on c0 x11
+belong k0 x471
+attached p1 x471
+holding k0 c0
+top x473 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 x11 p1
+3 take k0 l0 c0 x11 p1
+4 put k0 x471 c0 x473 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+2  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+2 , on c0 x11 , 3
+
+#Threats
+
+#Open Preconditions
+belong k0 x471
+attached p1 x471
+holding k0 c0
+top x473 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 x471 c0 x473 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+
+#Threats
+
+#Open Preconditions
+belong k0 x471
+attached p1 x471
+holding k0 c0
+top x473 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 x473 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong k0 x471 , 4
+
+#Threats
+
+#Open Preconditions
+attached p1 l0
+holding k0 c0
+top x473 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 x473 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong k0 x471 , 4
+0 , attached p1 l0 , 4
+
+#Threats
+
+#Open Preconditions
+holding k0 c0
+top x473 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 x473 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong k0 x471 , 4
+0 , attached p1 l0 , 4
+3 , holding k0 c0 , 4
+
+#Threats
+
+#Open Preconditions
+top x473 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 x11 p1
+3 take k0 l0 c0 x11 p1
+4 put k0 x471 c0 x11 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x11 , 3
+
+#Threats
+
+#Open Preconditions
+belong k0 x471
+attached p1 x471
+holding k0 c0
+top x11 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 x11 p1
+3 take k0 l0 c0 x11 p1
+4 put k0 l0 c0 x11 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x11 , 3
+0 , belong k0 x471 , 4
+
+#Threats
+
+#Open Preconditions
+attached p1 l0
+holding k0 c0
+top x11 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 x11 p1
+3 take k0 l0 c0 x11 p1
+4 put k0 l0 c0 x11 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x11 , 3
+0 , belong k0 x471 , 4
+0 , attached p1 l0 , 4
+
+#Threats
+
+#Open Preconditions
+holding k0 c0
+top x11 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 x11 p1
+3 take k0 l0 c0 x11 p1
+4 put k0 l0 c0 x11 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x11 , 3
+0 , belong k0 x471 , 4
+0 , attached p1 l0 , 4
+3 , holding k0 c0 , 4
+
+#Threats
+
+#Open Preconditions
+top x11 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 x11 p1
+3 take k0 l0 c0 x11 p1
+4 put k0 x471 x472 x473 x474
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+2  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+4 , empty k0 , 3
+2 , top c0 p1 , 3
+
+#Threats
+
+#Open Preconditions
+on c0 x11
+belong k0 x471
+attached x474 x471
+holding k0 x472
+top x473 x474
+LEVEL: 6
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 l0 c0 x69 p0
+5 unload k0 x396 c0 x398
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+0 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong x323 x324 , 4
+0 , attached x327 l0 , 4
+5 , holding k0 c0 , 4
+
+#Threats
+
+#Open Preconditions
+top x69 p0
+belong k0 x396
+at x398 x396
+loaded x398 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 l0 c0 x69 p0
+5 unload k0 x396 c0 x398
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+0 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong x323 x324 , 4
+0 , attached x327 l0 , 4
+5 , holding k0 c0 , 4
+3 , top x69 p0 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x396
+at x398 x396
+loaded x398 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 c0 p0
+4 put k0 l0 c0 c0 p0
+5 unload k0 x396 c0 x398
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+0 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong x323 x324 , 4
+0 , attached x327 l0 , 4
+5 , holding k0 c0 , 4
+0 , top x69 p0 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x396
+at x398 x396
+loaded x398 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 c0 p0
+4 put k0 l0 c0 c0 p0
+5 unload k0 l0 c0 x398
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+0 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong x323 x324 , 4
+0 , attached x327 l0 , 4
+5 , holding k0 c0 , 4
+0 , top x69 p0 , 4
+0 , belong k0 x396 , 5
+
+#Threats
+
+#Open Preconditions
+at x398 l0
+loaded x398 c0
+empty k0
+LEVEL: 5
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 x282 x283 x284 x285
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+
+#Threats
+
+#Open Preconditions
+top c0 p0
+on c0 x69
+belong k0 x282
+attached x285 x282
+holding k0 x283
+top x284 x285
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 x282 c0 x284 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p0 , 3
+
+#Threats
+
+#Open Preconditions
+on c0 x69
+belong k0 x282
+attached p0 x282
+holding k0 c0
+top x284 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 x282 c0 x284 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+
+#Threats
+
+#Open Preconditions
+belong k0 x282
+attached p0 x282
+holding k0 c0
+top x284 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 l0 c0 x284 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+
+#Threats
+
+#Open Preconditions
+attached p0 l0
+holding k0 c0
+top x284 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 l0 c0 x284 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached p0 l0 , 4
+
+#Threats
+
+#Open Preconditions
+holding k0 c0
+top x284 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 l0 c0 x284 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached p0 l0 , 4
+3 , holding k0 c0 , 4
+
+#Threats
+
+#Open Preconditions
+top x284 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 x282 c0 x284 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+2  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p0 , 3
+2 , on c0 x69 , 3
+
+#Threats
+
+#Open Preconditions
+belong k0 x282
+attached p0 x282
+holding k0 c0
+top x284 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 x282 c0 x69 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p0 , 3
+4 , on c0 x69 , 3
+
+#Threats
+
+#Open Preconditions
+belong k0 x282
+attached p0 x282
+holding k0 c0
+top x69 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 l0 c0 x69 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+
+#Threats
+
+#Open Preconditions
+attached p0 l0
+holding k0 c0
+top x69 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 l0 c0 x69 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached p0 l0 , 4
+
+#Threats
+
+#Open Preconditions
+holding k0 c0
+top x69 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 l0 c0 x69 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached p0 l0 , 4
+3 , holding k0 c0 , 4
+
+#Threats
+
+#Open Preconditions
+top x69 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 x282 x283 x284 x285
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+
+#Threats
+
+#Open Preconditions
+on c0 x69
+belong k0 x282
+attached x285 x282
+holding k0 x283
+top x284 x285
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 x282 x283 x284 x285
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+0 , on c0 x69 , 3
+
+#Threats
+
+#Open Preconditions
+belong k0 x282
+attached x285 x282
+holding k0 x283
+top x284 x285
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 l0 x283 x284 x285
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+
+#Threats
+
+#Open Preconditions
+attached x285 l0
+holding k0 x283
+top x284 x285
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 l0 x283 x284 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached x285 l0 , 4
+
+#Threats
+
+#Open Preconditions
+holding k0 x283
+top x284 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 l0 c0 x284 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached x285 l0 , 4
+3 , holding k0 x283 , 4
+
+#Threats
+
+#Open Preconditions
+top x284 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 l0 x283 x284 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached x285 l0 , 4
+
+#Threats
+
+#Open Preconditions
+holding k0 x283
+top x284 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 l0 c0 x284 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached x285 l0 , 4
+3 , holding k0 x283 , 4
+
+#Threats
+
+#Open Preconditions
+top x284 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 x282 x283 x284 x285
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+2  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+2 , on c0 x69 , 3
+
+#Threats
+
+#Open Preconditions
+belong k0 x282
+attached x285 x282
+holding k0 x283
+top x284 x285
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 x282 c0 x69 x285
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+4 , on c0 x69 , 3
+
+#Threats
+
+#Open Preconditions
+belong k0 x282
+attached x285 x282
+holding k0 c0
+top x69 x285
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 l0 c0 x69 x285
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+
+#Threats
+
+#Open Preconditions
+attached x285 l0
+holding k0 c0
+top x69 x285
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 l0 c0 x69 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached x285 l0 , 4
+
+#Threats
+
+#Open Preconditions
+holding k0 c0
+top x69 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 l0 c0 x69 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached x285 l0 , 4
+3 , holding k0 c0 , 4
+
+#Threats
+
+#Open Preconditions
+top x69 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 l0 c0 x69 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached x285 l0 , 4
+
+#Threats
+
+#Open Preconditions
+holding k0 c0
+top x69 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 l0 c0 x69 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached x285 l0 , 4
+3 , holding k0 c0 , 4
+
+#Threats
+
+#Open Preconditions
+top x69 p1
+LEVEL: 6
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 l0 c0 x69 p1
+5 unload k0 x417 c0 x419
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+0 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong x323 x324 , 4
+0 , attached x327 l0 , 4
+5 , holding k0 c0 , 4
+
+#Threats
+
+#Open Preconditions
+top x69 p1
+belong k0 x417
+at x419 x417
+loaded x419 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 l0 c0 G p1
+5 unload k0 x417 c0 x419
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+0 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong x323 x324 , 4
+0 , attached x327 l0 , 4
+5 , holding k0 c0 , 4
+0 , top x69 p1 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x417
+at x419 x417
+loaded x419 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 l0 c0 G p1
+5 unload k0 l0 c0 x419
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+0 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong x323 x324 , 4
+0 , attached x327 l0 , 4
+5 , holding k0 c0 , 4
+0 , top x69 p1 , 4
+0 , belong k0 x417 , 5
+
+#Threats
+
+#Open Preconditions
+at x419 l0
+loaded x419 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 c0 p0
+4 put k0 l0 c0 c0 p1
+5 unload k0 x417 c0 x419
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+2  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+0 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong x323 x324 , 4
+0 , attached x327 l0 , 4
+5 , holding k0 c0 , 4
+2 , top x69 p1 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x417
+at x419 x417
+loaded x419 c0
+empty k0
+LEVEL: 5
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 take x297 x298 x299 c0 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+
+#Threats
+
+#Open Preconditions
+on c0 x69
+belong x297 x298
+attached p0 x298
+empty x297
+top x299 p0
+on x299 c0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 take x297 x298 x299 c0 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+
+#Threats
+
+#Open Preconditions
+belong x297 x298
+attached p0 x298
+empty x297
+top x299 p0
+on x299 c0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 take k0 l0 x299 c0 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong x297 x298 , 4
+
+#Threats
+
+#Open Preconditions
+attached p0 l0
+empty k0
+top x299 p0
+on x299 c0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 take k0 l0 x299 c0 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong x297 x298 , 4
+0 , attached p0 l0 , 4
+
+#Threats
+
+#Open Preconditions
+empty k0
+top x299 p0
+on x299 c0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 take k0 l0 x299 c0 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+2  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong x297 x298 , 4
+0 , attached p0 l0 , 4
+2 , empty k0 , 4
+
+#Threats
+
+#Open Preconditions
+top x299 p0
+on x299 c0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 take k0 l0 x299 c0 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong x297 x298 , 4
+0 , attached p0 l0 , 4
+0 , empty k0 , 4
+
+#Threats
+
+#Open Preconditions
+top x299 p0
+on x299 c0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 take k0 l0 c0 c0 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong x297 x298 , 4
+0 , attached p0 l0 , 4
+0 , empty k0 , 4
+0 , top x299 p0 , 4
+
+#Threats
+
+#Open Preconditions
+on c0 c0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 take k0 l0 G c0 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong x297 x298 , 4
+0 , attached p0 l0 , 4
+0 , empty k0 , 4
+3 , top x299 p0 , 4
+
+#Threats
+
+#Open Preconditions
+on G c0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 take x297 x298 x299 c0 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+2  <  3
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+2 , on c0 x69 , 3
+
+#Threats
+
+#Open Preconditions
+belong x297 x298
+attached p0 x298
+empty x297
+top x299 p0
+on x299 c0
+LEVEL: 6
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 take k0 l0 c0 c0 p0
+5 put x2549 x2550 c0 c0 x2553
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong x297 x298 , 4
+0 , attached p0 l0 , 4
+0 , empty k0 , 4
+0 , top x299 p0 , 4
+5 , on c0 c0 , 4
+
+#Threats
+
+#Open Preconditions
+belong x2549 x2550
+attached x2553 x2550
+holding x2549 c0
+top c0 x2553
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 take k0 l0 c0 c0 p0
+5 put k0 l0 c0 c0 x2553
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong x297 x298 , 4
+0 , attached p0 l0 , 4
+0 , empty k0 , 4
+0 , top x299 p0 , 4
+5 , on c0 c0 , 4
+0 , belong x2549 x2550 , 5
+
+#Threats
+
+#Open Preconditions
+attached x2553 l0
+holding k0 c0
+top c0 x2553
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 take k0 l0 c0 c0 p0
+5 put k0 l0 c0 c0 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong x297 x298 , 4
+0 , attached p0 l0 , 4
+0 , empty k0 , 4
+0 , top x299 p0 , 4
+5 , on c0 c0 , 4
+0 , belong x2549 x2550 , 5
+0 , attached x2553 l0 , 5
+
+#Threats
+
+#Open Preconditions
+holding k0 c0
+top c0 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 take k0 l0 c0 c0 p0
+5 put k0 l0 c0 c0 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+4  <  5
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong x297 x298 , 4
+0 , attached p0 l0 , 4
+0 , empty k0 , 4
+0 , top x299 p0 , 4
+5 , on c0 c0 , 4
+0 , belong x2549 x2550 , 5
+0 , attached x2553 l0 , 5
+4 , holding k0 c0 , 5
+
+#Threats
+
+#Open Preconditions
+top c0 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 take k0 l0 c0 c0 p0
+5 put k0 l0 c0 c0 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+3  <  5
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong x297 x298 , 4
+0 , attached p0 l0 , 4
+0 , empty k0 , 4
+0 , top x299 p0 , 4
+5 , on c0 c0 , 4
+0 , belong x2549 x2550 , 5
+0 , attached x2553 l0 , 5
+3 , holding k0 c0 , 5
+
+#Threats
+
+#Open Preconditions
+top c0 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 take k0 l0 c0 c0 p0
+5 put k0 l0 c0 c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong x297 x298 , 4
+0 , attached p0 l0 , 4
+0 , empty k0 , 4
+0 , top x299 p0 , 4
+5 , on c0 c0 , 4
+0 , belong x2549 x2550 , 5
+0 , attached x2553 l0 , 5
+
+#Threats
+
+#Open Preconditions
+holding k0 c0
+top c0 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 take k0 l0 c0 c0 p0
+5 put k0 l0 c0 c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+3  <  5
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong x297 x298 , 4
+0 , attached p0 l0 , 4
+0 , empty k0 , 4
+0 , top x299 p0 , 4
+5 , on c0 c0 , 4
+0 , belong x2549 x2550 , 5
+0 , attached x2553 l0 , 5
+3 , holding k0 c0 , 5
+
+#Threats
+
+#Open Preconditions
+top c0 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 take k0 l0 c0 c0 p0
+5 put k0 l0 c0 c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+4  <  5
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong x297 x298 , 4
+0 , attached p0 l0 , 4
+0 , empty k0 , 4
+0 , top x299 p0 , 4
+5 , on c0 c0 , 4
+0 , belong x2549 x2550 , 5
+0 , attached x2553 l0 , 5
+4 , holding k0 c0 , 5
+
+#Threats
+
+#Open Preconditions
+top c0 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p1
+4 put k0 l0 c0 x69 p1
+5 unload k0 x585 c0 x587
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x69 , 3
+0 , belong x260 x261 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+
+#Threats
+
+#Open Preconditions
+top x69 p1
+belong k0 x585
+at x587 x585
+loaded x587 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 G p1
+5 unload k0 x585 c0 x587
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x69 , 3
+0 , belong x260 x261 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+0 , top x69 p1 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x585
+at x587 x585
+loaded x587 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 G p1
+5 unload k0 l0 c0 x587
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x69 , 3
+0 , belong x260 x261 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+0 , top x69 p1 , 4
+0 , belong k0 x585 , 5
+
+#Threats
+
+#Open Preconditions
+at x587 l0
+loaded x587 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 c0 p1
+4 put k0 l0 c0 c0 p1
+5 unload k0 x585 c0 x587
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+2  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x69 , 3
+0 , belong x260 x261 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+2 , top x69 p1 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x585
+at x587 x585
+loaded x587 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p1
+4 put k0 l0 c0 x69 p1
+5 unload k0 x585 c0 x587
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x69 , 3
+0 , belong x260 x261 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+3 , top x69 p1 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x585
+at x587 x585
+loaded x587 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 x263 p1
+5 unload k0 x648 c0 x650
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong x260 x261 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+
+#Threats
+
+#Open Preconditions
+top x263 p1
+belong k0 x648
+at x650 x648
+loaded x650 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 G p1
+5 unload k0 x648 c0 x650
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong x260 x261 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+3 , top x263 p1 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x648
+at x650 x648
+loaded x650 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 c0 p1
+5 unload k0 x648 c0 x650
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+2  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong x260 x261 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+2 , top x263 p1 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x648
+at x650 x648
+loaded x650 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 G p1
+5 unload k0 x648 c0 x650
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong x260 x261 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+0 , top x263 p1 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x648
+at x650 x648
+loaded x650 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 G p1
+5 unload k0 l0 c0 x650
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong x260 x261 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+0 , top x263 p1 , 4
+0 , belong k0 x648 , 5
+
+#Threats
+
+#Open Preconditions
+at x650 l0
+loaded x650 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 l0 c0 x305 p0
+5 unload k0 x795 c0 x797
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong x302 x303 , 4
+0 , attached p0 l0 , 4
+5 , holding k0 c0 , 4
+
+#Threats
+
+#Open Preconditions
+top x305 p0
+belong k0 x795
+at x797 x795
+loaded x797 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 l0 c0 c0 p0
+5 unload k0 x795 c0 x797
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong x302 x303 , 4
+0 , attached p0 l0 , 4
+5 , holding k0 c0 , 4
+0 , top x305 p0 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x795
+at x797 x795
+loaded x797 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 l0 c0 c0 p0
+5 unload k0 l0 c0 x797
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong x302 x303 , 4
+0 , attached p0 l0 , 4
+5 , holding k0 c0 , 4
+0 , top x305 p0 , 4
+0 , belong k0 x795 , 5
+
+#Threats
+
+#Open Preconditions
+at x797 l0
+loaded x797 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 l0 c0 G p0
+5 unload k0 x795 c0 x797
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong x302 x303 , 4
+0 , attached p0 l0 , 4
+5 , holding k0 c0 , 4
+3 , top x305 p0 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x795
+at x797 x795
+loaded x797 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 x494 p1
+5 unload k0 x879 c0 x881
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong x491 x492 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+
+#Threats
+
+#Open Preconditions
+top x494 p1
+belong k0 x879
+at x881 x879
+loaded x881 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 c0 p1
+5 unload k0 x879 c0 x881
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+2  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong x491 x492 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+2 , top x494 p1 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x879
+at x881 x879
+loaded x881 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 G p1
+5 unload k0 x879 c0 x881
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong x491 x492 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+0 , top x494 p1 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x879
+at x881 x879
+loaded x881 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 G p1
+5 unload k0 l0 c0 x881
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong x491 x492 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+0 , top x494 p1 , 4
+0 , belong k0 x879 , 5
+
+#Threats
+
+#Open Preconditions
+at x881 l0
+loaded x881 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 G p1
+5 unload k0 x879 c0 x881
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong x491 x492 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+3 , top x494 p1 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x879
+at x881 x879
+loaded x881 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p1
+4 put k0 l0 c0 x69 p1
+5 unload k0 x1173 c0 x1175
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x69 , 3
+0 , belong k0 x240 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+
+#Threats
+
+#Open Preconditions
+top x69 p1
+belong k0 x1173
+at x1175 x1173
+loaded x1175 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p1
+4 put k0 l0 c0 x69 p1
+5 unload k0 x1173 c0 x1175
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x69 , 3
+0 , belong k0 x240 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+3 , top x69 p1 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x1173
+at x1175 x1173
+loaded x1175 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 G p1
+5 unload k0 x1173 c0 x1175
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x69 , 3
+0 , belong k0 x240 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+0 , top x69 p1 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x1173
+at x1175 x1173
+loaded x1175 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 G p1
+5 unload k0 l0 c0 x1175
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x69 , 3
+0 , belong k0 x240 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+0 , top x69 p1 , 4
+0 , belong k0 x1173 , 5
+
+#Threats
+
+#Open Preconditions
+at x1175 l0
+loaded x1175 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 c0 p1
+4 put k0 l0 c0 c0 p1
+5 unload k0 x1173 c0 x1175
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+2  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x69 , 3
+0 , belong k0 x240 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+2 , top x69 p1 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x1173
+at x1175 x1173
+loaded x1175 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 x242 p1
+5 unload k0 x1110 c0 x1112
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong k0 x240 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+
+#Threats
+
+#Open Preconditions
+top x242 p1
+belong k0 x1110
+at x1112 x1110
+loaded x1112 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 c0 p1
+5 unload k0 x1110 c0 x1112
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+2  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong k0 x240 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+2 , top x242 p1 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x1110
+at x1112 x1110
+loaded x1112 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 G p1
+5 unload k0 x1110 c0 x1112
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong k0 x240 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+0 , top x242 p1 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x1110
+at x1112 x1110
+loaded x1112 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 G p1
+5 unload k0 l0 c0 x1112
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong k0 x240 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+0 , top x242 p1 , 4
+0 , belong k0 x1110 , 5
+
+#Threats
+
+#Open Preconditions
+at x1112 l0
+loaded x1112 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 G p1
+5 unload k0 x1110 c0 x1112
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong k0 x240 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+3 , top x242 p1 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x1110
+at x1112 x1110
+loaded x1112 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 x257 c0 p1
+5 put x1268 x1269 x257 x1271 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong x255 x256 , 4
+0 , attached p1 l0 , 4
+0 , empty k0 , 4
+5 , top x257 p1 , 4
+
+#Threats
+
+#Open Preconditions
+on x257 c0
+belong x1268 x1269
+attached p1 x1269
+holding x1268 x257
+top x1271 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 x257 c0 p1
+5 put x1268 x1269 x257 c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong x255 x256 , 4
+0 , attached p1 l0 , 4
+0 , empty k0 , 4
+5 , top x257 p1 , 4
+5 , on x257 c0 , 4
+
+#Threats
+
+#Open Preconditions
+belong x1268 x1269
+attached p1 x1269
+holding x1268 x257
+top c0 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 x257 c0 p1
+5 put k0 l0 x257 c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong x255 x256 , 4
+0 , attached p1 l0 , 4
+0 , empty k0 , 4
+5 , top x257 p1 , 4
+5 , on x257 c0 , 4
+0 , belong x1268 x1269 , 5
+
+#Threats
+
+#Open Preconditions
+attached p1 l0
+holding k0 x257
+top c0 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 x257 c0 p1
+5 put k0 l0 x257 c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong x255 x256 , 4
+0 , attached p1 l0 , 4
+0 , empty k0 , 4
+5 , top x257 p1 , 4
+5 , on x257 c0 , 4
+0 , belong x1268 x1269 , 5
+0 , attached p1 l0 , 5
+
+#Threats
+
+#Open Preconditions
+holding k0 x257
+top c0 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 x257 c0 p1
+5 put k0 l0 x257 c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+4  <  5
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong x255 x256 , 4
+0 , attached p1 l0 , 4
+0 , empty k0 , 4
+5 , top x257 p1 , 4
+5 , on x257 c0 , 4
+0 , belong x1268 x1269 , 5
+0 , attached p1 l0 , 5
+4 , holding k0 x257 , 5
+
+#Threats
+
+#Open Preconditions
+top c0 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 c0 c0 p1
+5 put k0 l0 c0 c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+3  <  5
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x69 , 3
+0 , belong x255 x256 , 4
+0 , attached p1 l0 , 4
+0 , empty k0 , 4
+5 , top x257 p1 , 4
+5 , on x257 c0 , 4
+0 , belong x1268 x1269 , 5
+0 , attached p1 l0 , 5
+3 , holding k0 x257 , 5
+
+#Threats
+
+#Open Preconditions
+top c0 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 x488 c0 p1
+5 put x1499 x1500 x488 x1502 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong x486 x487 , 4
+0 , attached p1 l0 , 4
+0 , empty k0 , 4
+5 , top x488 p1 , 4
+
+#Threats
+
+#Open Preconditions
+on x488 c0
+belong x1499 x1500
+attached p1 x1500
+holding x1499 x488
+top x1502 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 x488 c0 p1
+5 put x1499 x1500 x488 c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong x486 x487 , 4
+0 , attached p1 l0 , 4
+0 , empty k0 , 4
+5 , top x488 p1 , 4
+5 , on x488 c0 , 4
+
+#Threats
+
+#Open Preconditions
+belong x1499 x1500
+attached p1 x1500
+holding x1499 x488
+top c0 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 x488 c0 p1
+5 put k0 l0 x488 c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong x486 x487 , 4
+0 , attached p1 l0 , 4
+0 , empty k0 , 4
+5 , top x488 p1 , 4
+5 , on x488 c0 , 4
+0 , belong x1499 x1500 , 5
+
+#Threats
+
+#Open Preconditions
+attached p1 l0
+holding k0 x488
+top c0 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 x488 c0 p1
+5 put k0 l0 x488 c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong x486 x487 , 4
+0 , attached p1 l0 , 4
+0 , empty k0 , 4
+5 , top x488 p1 , 4
+5 , on x488 c0 , 4
+0 , belong x1499 x1500 , 5
+0 , attached p1 l0 , 5
+
+#Threats
+
+#Open Preconditions
+holding k0 x488
+top c0 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 c0 c0 p1
+5 put k0 l0 c0 c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+3  <  5
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong x486 x487 , 4
+0 , attached p1 l0 , 4
+0 , empty k0 , 4
+5 , top x488 p1 , 4
+5 , on x488 c0 , 4
+0 , belong x1499 x1500 , 5
+0 , attached p1 l0 , 5
+3 , holding k0 x488 , 5
+
+#Threats
+
+#Open Preconditions
+top c0 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 take k0 l0 x488 c0 p1
+5 put k0 l0 x488 c0 p1
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+4  <  5
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong x486 x487 , 4
+0 , attached p1 l0 , 4
+0 , empty k0 , 4
+5 , top x488 p1 , 4
+5 , on x488 c0 , 4
+0 , belong x1499 x1500 , 5
+0 , attached p1 l0 , 5
+4 , holding k0 x488 , 5
+
+#Threats
+
+#Open Preconditions
+top c0 p1
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 x473 p1
+5 unload k0 x1887 c0 x1889
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong k0 x471 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+
+#Threats
+
+#Open Preconditions
+top x473 p1
+belong k0 x1887
+at x1889 x1887
+loaded x1889 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 c0 p1
+5 unload k0 x1887 c0 x1889
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+2  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong k0 x471 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+2 , top x473 p1 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x1887
+at x1889 x1887
+loaded x1889 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 G p1
+5 unload k0 x1887 c0 x1889
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong k0 x471 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+3 , top x473 p1 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x1887
+at x1889 x1887
+loaded x1889 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 G p1
+5 unload k0 x1887 c0 x1889
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong k0 x471 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+0 , top x473 p1 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x1887
+at x1889 x1887
+loaded x1889 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 G p1
+5 unload k0 l0 c0 x1889
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+0 , on c0 x11 , 3
+0 , belong k0 x471 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+0 , top x473 p1 , 4
+0 , belong k0 x1887 , 5
+
+#Threats
+
+#Open Preconditions
+at x1889 l0
+loaded x1889 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 x11 p1
+3 take k0 l0 c0 x11 p1
+4 put k0 l0 c0 x11 p1
+5 unload k0 x1950 c0 x1952
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x11 , 3
+0 , belong k0 x471 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+
+#Threats
+
+#Open Preconditions
+top x11 p1
+belong k0 x1950
+at x1952 x1950
+loaded x1952 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 x11 p1
+3 take k0 l0 c0 x11 p1
+4 put k0 l0 c0 x11 p1
+5 unload k0 x1950 c0 x1952
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x11 , 3
+0 , belong k0 x471 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+3 , top x11 p1 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x1950
+at x1952 x1950
+loaded x1952 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 c0 p1
+3 take k0 l0 c0 c0 p1
+4 put k0 l0 c0 c0 p1
+5 unload k0 x1950 c0 x1952
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+2  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x11 , 3
+0 , belong k0 x471 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+2 , top x11 p1 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x1950
+at x1952 x1950
+loaded x1952 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 G p1
+5 unload k0 x1950 c0 x1952
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x11 , 3
+0 , belong k0 x471 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+0 , top x11 p1 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x1950
+at x1952 x1950
+loaded x1952 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p1
+4 put k0 l0 c0 G p1
+5 unload k0 l0 c0 x1952
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+3 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached p1 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p1 , 3
+4 , on c0 x11 , 3
+0 , belong k0 x471 , 4
+0 , attached p1 l0 , 4
+5 , holding k0 c0 , 4
+0 , top x11 p1 , 4
+0 , belong k0 x1950 , 5
+
+#Threats
+
+#Open Preconditions
+at x1952 l0
+loaded x1952 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 l0 c0 x69 p0
+5 unload k0 x2181 c0 x2183
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached p0 l0 , 4
+5 , holding k0 c0 , 4
+
+#Threats
+
+#Open Preconditions
+top x69 p0
+belong k0 x2181
+at x2183 x2181
+loaded x2183 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 l0 c0 x69 p0
+5 unload k0 x2181 c0 x2183
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached p0 l0 , 4
+5 , holding k0 c0 , 4
+3 , top x69 p0 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x2181
+at x2183 x2181
+loaded x2183 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 c0 p0
+4 put k0 l0 c0 c0 p0
+5 unload k0 x2181 c0 x2183
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached p0 l0 , 4
+5 , holding k0 c0 , 4
+0 , top x69 p0 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x2181
+at x2183 x2181
+loaded x2183 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 c0 p0
+4 put k0 l0 c0 c0 p0
+5 unload k0 l0 c0 x2183
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached p0 l0 , 4
+5 , holding k0 c0 , 4
+0 , top x69 p0 , 4
+0 , belong k0 x2181 , 5
+
+#Threats
+
+#Open Preconditions
+at x2183 l0
+loaded x2183 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 l0 c0 x284 p0
+5 unload k0 x2118 c0 x2120
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached p0 l0 , 4
+5 , holding k0 c0 , 4
+
+#Threats
+
+#Open Preconditions
+top x284 p0
+belong k0 x2118
+at x2120 x2118
+loaded x2120 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 l0 c0 G p0
+5 unload k0 x2118 c0 x2120
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached p0 l0 , 4
+5 , holding k0 c0 , 4
+3 , top x284 p0 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x2118
+at x2120 x2118
+loaded x2120 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 l0 c0 c0 p0
+5 unload k0 x2118 c0 x2120
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached p0 l0 , 4
+5 , holding k0 c0 , 4
+0 , top x284 p0 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x2118
+at x2120 x2118
+loaded x2120 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 l0 c0 c0 p0
+5 unload k0 l0 c0 x2120
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached p0 l0 , 4
+5 , holding k0 c0 , 4
+0 , top x284 p0 , 4
+0 , belong k0 x2118 , 5
+
+#Threats
+
+#Open Preconditions
+at x2120 l0
+loaded x2120 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 l0 x283 x284 p0
+5 unload k0 x2265 x283 x2267
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached x285 l0 , 4
+5 , holding k0 x283 , 4
+
+#Threats
+
+#Open Preconditions
+top x284 p0
+belong k0 x2265
+at x2267 x2265
+loaded x2267 x283
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 l0 x283 c0 p0
+5 unload k0 x2265 x283 x2267
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached x285 l0 , 4
+5 , holding k0 x283 , 4
+0 , top x284 p0 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x2265
+at x2267 x2265
+loaded x2267 x283
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 l0 x283 c0 p0
+5 unload k0 l0 x283 x2267
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached x285 l0 , 4
+5 , holding k0 x283 , 4
+0 , top x284 p0 , 4
+0 , belong k0 x2265 , 5
+
+#Threats
+
+#Open Preconditions
+at x2267 l0
+loaded x2267 x283
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 l0 x283 G p0
+5 unload k0 x2265 x283 x2267
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached x285 l0 , 4
+5 , holding k0 x283 , 4
+3 , top x284 p0 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x2265
+at x2267 x2265
+loaded x2267 x283
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 l0 x283 x284 p1
+5 unload k0 x2286 x283 x2288
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached x285 l0 , 4
+5 , holding k0 x283 , 4
+
+#Threats
+
+#Open Preconditions
+top x284 p1
+belong k0 x2286
+at x2288 x2286
+loaded x2288 x283
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 l0 x283 G p1
+5 unload k0 x2286 x283 x2288
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached x285 l0 , 4
+5 , holding k0 x283 , 4
+0 , top x284 p1 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x2286
+at x2288 x2286
+loaded x2288 x283
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 l0 x283 G p1
+5 unload k0 l0 x283 x2288
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached x285 l0 , 4
+5 , holding k0 x283 , 4
+0 , top x284 p1 , 4
+0 , belong k0 x2286 , 5
+
+#Threats
+
+#Open Preconditions
+at x2288 l0
+loaded x2288 x283
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 l0 x283 c0 p1
+5 unload k0 x2286 x283 x2288
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+2  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached x285 l0 , 4
+5 , holding k0 x283 , 4
+2 , top x284 p1 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x2286
+at x2288 x2286
+loaded x2288 x283
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 l0 c0 x69 p0
+5 unload k0 x2349 c0 x2351
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached x285 l0 , 4
+5 , holding k0 c0 , 4
+
+#Threats
+
+#Open Preconditions
+top x69 p0
+belong k0 x2349
+at x2351 x2349
+loaded x2351 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 c0 p0
+4 put k0 l0 c0 c0 p0
+5 unload k0 x2349 c0 x2351
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached x285 l0 , 4
+5 , holding k0 c0 , 4
+0 , top x69 p0 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x2349
+at x2351 x2349
+loaded x2351 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 c0 p0
+4 put k0 l0 c0 c0 p0
+5 unload k0 l0 c0 x2351
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached x285 l0 , 4
+5 , holding k0 c0 , 4
+0 , top x69 p0 , 4
+0 , belong k0 x2349 , 5
+
+#Threats
+
+#Open Preconditions
+at x2351 l0
+loaded x2351 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 l0 c0 x69 p0
+5 unload k0 x2349 c0 x2351
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+3  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached x285 l0 , 4
+5 , holding k0 c0 , 4
+3 , top x69 p0 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x2349
+at x2351 x2349
+loaded x2351 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 l0 c0 x69 p1
+5 unload k0 x2370 c0 x2372
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached x285 l0 , 4
+5 , holding k0 c0 , 4
+
+#Threats
+
+#Open Preconditions
+top x69 p1
+belong k0 x2370
+at x2372 x2370
+loaded x2372 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 l0 c0 G p1
+5 unload k0 x2370 c0 x2372
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached x285 l0 , 4
+5 , holding k0 c0 , 4
+0 , top x69 p1 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x2370
+at x2372 x2370
+loaded x2372 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 l0 c0 G p1
+5 unload k0 l0 c0 x2372
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached x285 l0 , 4
+5 , holding k0 c0 , 4
+0 , top x69 p1 , 4
+0 , belong k0 x2370 , 5
+
+#Threats
+
+#Open Preconditions
+at x2372 l0
+loaded x2372 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 c0 p0
+4 put k0 l0 c0 c0 p1
+5 unload k0 x2370 c0 x2372
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+2  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+4 , empty k0 , 3
+0 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong k0 x282 , 4
+0 , attached x285 l0 , 4
+5 , holding k0 c0 , 4
+2 , top x69 p1 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x2370
+at x2372 x2370
+loaded x2372 c0
+empty k0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 take k0 l0 x299 c0 p0
+5 put x2528 x2529 x299 x2531 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong x297 x298 , 4
+0 , attached p0 l0 , 4
+0 , empty k0 , 4
+5 , top x299 p0 , 4
+
+#Threats
+
+#Open Preconditions
+on x299 c0
+belong x2528 x2529
+attached p0 x2529
+holding x2528 x299
+top x2531 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 take k0 l0 x299 c0 p0
+5 put x2528 x2529 x299 c0 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong x297 x298 , 4
+0 , attached p0 l0 , 4
+0 , empty k0 , 4
+5 , top x299 p0 , 4
+5 , on x299 c0 , 4
+
+#Threats
+
+#Open Preconditions
+belong x2528 x2529
+attached p0 x2529
+holding x2528 x299
+top c0 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 take k0 l0 x299 c0 p0
+5 put k0 l0 x299 c0 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong x297 x298 , 4
+0 , attached p0 l0 , 4
+0 , empty k0 , 4
+5 , top x299 p0 , 4
+5 , on x299 c0 , 4
+0 , belong x2528 x2529 , 5
+
+#Threats
+
+#Open Preconditions
+attached p0 l0
+holding k0 x299
+top c0 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 take k0 l0 x299 c0 p0
+5 put k0 l0 x299 c0 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong x297 x298 , 4
+0 , attached p0 l0 , 4
+0 , empty k0 , 4
+5 , top x299 p0 , 4
+5 , on x299 c0 , 4
+0 , belong x2528 x2529 , 5
+0 , attached p0 l0 , 5
+
+#Threats
+
+#Open Preconditions
+holding k0 x299
+top c0 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 take k0 l0 c0 c0 p0
+5 put k0 l0 c0 c0 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+3  <  5
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong x297 x298 , 4
+0 , attached p0 l0 , 4
+0 , empty k0 , 4
+5 , top x299 p0 , 4
+5 , on x299 c0 , 4
+0 , belong x2528 x2529 , 5
+0 , attached p0 l0 , 5
+3 , holding k0 x299 , 5
+
+#Threats
+
+#Open Preconditions
+top c0 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 take k0 l0 x299 c0 p0
+5 put k0 l0 x299 c0 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+4  <  5
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+0 , on c0 x69 , 3
+0 , belong x297 x298 , 4
+0 , attached p0 l0 , 4
+0 , empty k0 , 4
+5 , top x299 p0 , 4
+5 , on x299 c0 , 4
+0 , belong x2528 x2529 , 5
+0 , attached p0 l0 , 5
+4 , holding k0 x299 , 5
+
+#Threats
+
+#Open Preconditions
+top c0 p0
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 l0 c0 x69 p0
+5 take k0 x718 c0 x720 x721
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong x302 x303 , 4
+0 , attached p0 l0 , 4
+5 , holding k0 c0 , 4
+
+#Threats
+
+#Open Preconditions
+top x69 p0
+belong k0 x718
+attached x721 x718
+empty k0
+top c0 x721
+on c0 x720
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 l0 c0 x69 p0
+5 take k0 x718 c0 x69 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong x302 x303 , 4
+0 , attached p0 l0 , 4
+5 , holding k0 c0 , 4
+5 , top x69 p0 , 4
+
+#Threats
+
+#Open Preconditions
+belong k0 x718
+attached p0 x718
+empty k0
+top c0 p0
+on c0 x69
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 l0 c0 x69 p0
+5 take k0 l0 c0 x69 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong x302 x303 , 4
+0 , attached p0 l0 , 4
+5 , holding k0 c0 , 4
+5 , top x69 p0 , 4
+0 , belong k0 x718 , 5
+
+#Threats
+
+#Open Preconditions
+attached p0 l0
+empty k0
+top c0 p0
+on c0 x69
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 l0 c0 x69 p0
+5 take k0 l0 c0 x69 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong x302 x303 , 4
+0 , attached p0 l0 , 4
+5 , holding k0 c0 , 4
+5 , top x69 p0 , 4
+0 , belong k0 x718 , 5
+0 , attached p0 l0 , 5
+
+#Threats
+
+#Open Preconditions
+empty k0
+top c0 p0
+on c0 x69
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 l0 c0 x69 p0
+5 take k0 l0 c0 x69 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong x302 x303 , 4
+0 , attached p0 l0 , 4
+5 , holding k0 c0 , 4
+5 , top x69 p0 , 4
+0 , belong k0 x718 , 5
+0 , attached p0 l0 , 5
+0 , empty k0 , 5
+
+#Threats
+
+#Open Preconditions
+top c0 p0
+on c0 x69
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 x69 p0
+4 put k0 l0 c0 x69 p0
+5 take k0 l0 c0 x69 p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong x302 x303 , 4
+0 , attached p0 l0 , 4
+5 , holding k0 c0 , 4
+5 , top x69 p0 , 4
+0 , belong k0 x718 , 5
+0 , attached p0 l0 , 5
+0 , empty k0 , 5
+0 , top c0 p0 , 5
+
+#Threats
+
+#Open Preconditions
+on c0 x69
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 l0 c0 G p0
+5 take k0 l0 c0 G p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong x302 x303 , 4
+0 , attached p0 l0 , 4
+5 , holding k0 c0 , 4
+5 , top x69 p0 , 4
+0 , belong k0 x718 , 5
+0 , attached p0 l0 , 5
+0 , empty k0 , 5
+0 , top c0 p0 , 5
+0 , on c0 x69 , 5
+
+#Threats
+
+#Open Preconditions
+===== FINAL PLAN=====
+#Steps
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
+4 put k0 l0 c0 G p0
+5 take k0 l0 c0 G p0
+
+#Orderings
+0  <  1
+0  <  2
+2  <  1
+0  <  3
+3  <  1
+3  <  2
+0  <  4
+4  <  1
+4  <  3
+0  <  5
+5  <  1
+5  <  4
+
+#Causal Links
+2 , in c0 p1 , 1
+0 , belong x8 x9 , 2
+0 , attached p1 l0 , 2
+3 , holding k0 c0 , 2
+0 , top x11 p1 , 2
+0 , belong k0 x67 , 3
+0 , attached x70 l0 , 3
+0 , empty k0 , 3
+4 , top c0 p0 , 3
+4 , on c0 x69 , 3
+0 , belong x302 x303 , 4
+0 , attached p0 l0 , 4
+5 , holding k0 c0 , 4
+5 , top x69 p0 , 4
+0 , belong k0 x718 , 5
+0 , attached p0 l0 , 5
+0 , empty k0 , 5
+0 , top c0 p0 , 5
+0 , on c0 x69 , 5
+
+#Threats
+
+#Open Preconditions
+[0, 5, 4, 3, 2, 1]

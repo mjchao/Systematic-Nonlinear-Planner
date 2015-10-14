@@ -52,7 +52,9 @@ except:
 finalPlan = planSearch( initial , tracker )
 
 print "===== FINAL PLAN====="
-printPlan( finalPlan , tracker )
+printVerbosePlan( finalPlan , tracker )
+ordering = topSort( finalPlan.orderings , len( finalPlan.steps ) )[ 0 ]
+print ordering
 #printPlan(finalPlan, tracker)
 
 
