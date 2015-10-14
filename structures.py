@@ -421,8 +421,9 @@ class Action:
     ## Calls the unification algorithm
     def deletes(self, p):
         for i in range(len(self.deleteList)):
-            if (Predicate.unify( self.deleteList[ i ].args , p.args , [] , Predicate.tracker ) != None ):
-                return True
+            if ( self.deleteList[ i ].type_t == p.type_t ):
+                if (Predicate.unify( self.deleteList[ i ].args , p.args , [] , Predicate.tracker ) != None ):
+                    return True
         return False
     
     def __str__(self):
@@ -467,6 +468,11 @@ class Plan:
         self.open_conditions = []
     
         self.orderings = [] ## All ordering constraints
+        
+    def enforce_ordering( self , start , end ):
+        newOrdering = (start , end)
+        if newOrdering not in self.orderings:
+            self.orderings.append( newOrdering )
     
     '''
     Returns if this plan is a complete plan - i.e. there are no
@@ -491,20 +497,36 @@ class plan_not_found:
 
 
 '''
-Unit testing
+Unit testing for unification
 '''
+def debug_mismatched_ground_literals():
+    tracker = VariableTracker( 1 , 0 , 1 , 3 , 3 )
+    Predicate.tracker = tracker
+    putAction = Action( Actions.PUT , 17 , 18 , 5 , 6 , 21 )
+    failDeletedPred = Predicate( Predicates.ON , 6 , 7 )
+    
+    print "Checking if " + str(putAction) + " deletes " + str(failDeletedPred)
+    print "Expect False, Found: " + str( putAction.deletes( failDeletedPred ) )
+        
 def main():
+    debug_mismatched_ground_literals()
+    return
+
     tracker = VariableTracker( 2 , 1 , 0 , 0 , 0 )
     Predicate.tracker = tracker
     moveAction = Action( Actions.MOVE , tracker.getUnassignedVar() , tracker.getUnassignedVar() , tracker.getUnassignedVar() )
     print str( moveAction )
     pred = Predicate( Predicates.AT , "r0" , "l1" )
+    
     for p in moveAction.addList:
         print str(p)
         
     for p in moveAction.deleteList:
         print str(p)
     print moveAction.adds( pred , tracker )
+    
+    deletedPred = Predicate( Predicates.AT , "r0" , "l0" )
+    print "Deletes (True): " + str( moveAction.deletes( deletedPred ) )
     
     failPred = Predicate( Predicates.HOLDING , "k0" , "c1" )
     print moveAction.adds( failPred , tracker )

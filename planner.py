@@ -73,21 +73,14 @@ def planSearch(p, tracker):
             del childPlan1.threats[ len( childPlan1.threats )-1 ]
             
             #enforce T < A
-            newOrdering = ( threat.actionId , threat.threatened.causalStep )
-            
-            #TODO create an enforceOrdering() method in plan
-            if ( not newOrdering in childPlan1.orderings ):
-                childPlan1.orderings.append( newOrdering )
-                
+            childPlan1.enforce_ordering( threat.actionId , threat.threatened.causalStep )     
             insert_plan( pq , childPlan1 )
             
             childPlan2 = copy.deepcopy( nextPlan )
             del childPlan2.threats[ len( childPlan2.threats)-1 ]
             
             #enforce B < T
-            newOrdering = (threat.threatened.recipientStep , threat.actionId)
-            if ( not newOrdering in childPlan2.orderings ):
-                childPlan2.orderings.append( newOrdering )  
+            childPlan2.enforce_ordering( threat.threatened.recipientStep , threat.actionId ) 
             insert_plan( pq , childPlan2 )
             
         #if no threats, then pick a precondition to satisfy
@@ -116,8 +109,7 @@ def planSearch(p, tracker):
                             childPlan.links.append( newLink )
                             
                             newOrdering = (i, childPlan.open_conditions[ nextPrecondIdx ][ 1 ] )
-                            if ( not newOrdering in childPlan.orderings ):
-                                childPlan.orderings.append( (i , childPlan.open_conditions[ nextPrecondIdx ][ 1 ] ) )
+                            childPlan.enforce_ordering( i , childPlan.open_conditions[ nextPrecondIdx ][ 1 ] )
                             del childPlan.open_conditions[ nextPrecondIdx ]   
                         
                             #calculate new threats
@@ -128,6 +120,17 @@ def planSearch(p, tracker):
                                         newThreat = Threat( link , i )
                                         childPlan.threats.append( newThreat )
                                         break;
+                                    
+                            '''        
+                            #also calculate threats from previous actions
+                            for j in range(len(childPlan.steps)):
+                                if ( childPlan.steps[ j ] is not a ):
+                                    for prereq in a.getPrereqs():
+                                        if ( childPlan.steps[ j ].deletes( prereq ) ):
+                                            newThreat = Threat( newLink , j )
+                                            childPlan.threats.append( newThreat )
+                                            break
+                            '''
             
                             #print "Generated child plan " + str(idx+1) + " using past action " + str( nextPlan.steps[ i ] )
                             insert_plan( pq , childPlan )
@@ -156,6 +159,7 @@ def planSearch(p, tracker):
                         newOrdering = (len(childPlan.steps)-1 , nextPrecond[ 1 ])
                         if ( not newOrdering in childPlan.orderings ):
                             childPlan.orderings.append( newOrdering )
+                        childPlan.enforce_ordering( len(childPlan.steps)-1 , nextPrecond[ 1 ] )
                         del childPlan.open_conditions[ nextPrecondIdx ]
                         
                         for precond in a.getPrereqs():
@@ -171,6 +175,14 @@ def planSearch(p, tracker):
                                         newThreat = Threat( link , len(childPlan.steps)-1 )
                                         childPlan.threats.append( newThreat )
                                         break;
+                    
+                        #also add threats from previous actions
+                        for j in range(len(childPlan.steps)-1):
+                            if ( childPlan.steps[ j ].deletes( nextPrecond[ 0 ] ) ):
+                                print str( childPlan.steps[ j ] ) + " deletes " + str( nextPrecond[ 0 ] )
+                                newThreat = Threat( newLink , j )
+                                childPlan.threats.append( newThreat )
+                                break
                                 
                         #print "Generated child plan " + str(idx+1) + " using " + str(a)
                         insert_plan( pq , childPlan )
