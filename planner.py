@@ -15,7 +15,7 @@ that will be required to complete a partial
 plan. This is the heuristic function
 '''
 def estimateRemainingCost( plan ):
-    return len( plan.steps )
+    return len( plan.steps ) + len( plan.open_conditions )
 
 def insert_plan( pq , plan ):
     pq.put( (estimateRemainingCost( plan ) , plan) )
@@ -144,13 +144,9 @@ def planSearch(p, tracker):
                         newLink = Link( nextPrecond[ 0 ] , len(childPlan.steps)-1 , nextPrecond[ 1 ] )
                         childPlan.links.append( newLink )
                         
-                        newOrderingStart = (0 , len(childPlan.steps)-1)
-                        childPlan.orderings.append( newOrderingStart )
                         newOrdering = (len(childPlan.steps)-1 , nextPrecond[ 1 ])
-                        childPlan.orderings.append( newOrdering )
-                        newOrderingEnd = (len(childPlan.steps)-1 , 1 )
-                        childPlan.orderings.append( newOrderingEnd )
-                        
+                        if ( not newOrdering in childPlan.orderings ):
+                            childPlan.orderings.append( newOrdering )
                         del childPlan.open_conditions[ nextPrecondIdx ]
                         
                         for precond in a.getPrereqs():
