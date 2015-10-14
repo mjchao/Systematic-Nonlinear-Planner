@@ -156,14 +156,11 @@ def planSearch(p, tracker):
                         
                         #check for new threats
                         for link in childPlan.links:
-                            
-                            #do not let action threaten itself
-                            if ( len(childPlan.steps)-1 != link.causalStep ):
-                                for prereq in childPlan.steps[ link.causalStep ].getPrereqs():
-                                    if ( a.deletes( prereq ) ):
-                                        newThreat = Threat( link , len(childPlan.steps)-1 )
-                                        childPlan.threats.append( newThreat )
-                                        break;
+                            for prereq in childPlan.steps[ link.causalStep ].getPrereqs():
+                                if ( a.deletes( prereq ) ):
+                                    newThreat = Threat( link , len(childPlan.steps)-1 )
+                                    childPlan.threats.append( newThreat )
+                                    break;
                                     
                         #check for threats by other actions that might threaten this new link
                         for j in range(len(childPlan.steps)):
