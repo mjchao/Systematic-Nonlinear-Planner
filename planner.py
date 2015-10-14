@@ -87,21 +87,21 @@ def planSearch(p, tracker):
                 #do not let an action link to or threaten itself
                 if ( i != nextPrecond[ 1 ] ):
                     substitutions = nextPlan.steps[ i ].adds( nextPrecond[ 0 ] , tracker )
-                    if ( i == 0 ):
-                        pass
-                        #print "Unifying with start: " + str(substitutions)
                     if ( len( substitutions ) > 0 ):
                         for sub in substitutions:
                             childPlan = copy.deepcopy( nextPlan )
                             a = childPlan.steps[ i ]
+                        
+                            newLink = Link( nextPrecond[ 0 ] , i , childPlan.open_conditions[ nextPrecondIdx ][ 1 ] )
+                            childPlan.links.append( newLink )
+                            
                             for entry in sub:
                                 for action in childPlan.steps:
                                     action.substitute( tracker.getId(entry[ 0 ]) , tracker.getId(entry[ 1 ]) )
                                 for cond in childPlan.open_conditions:
                                     cond[ 0 ].substitute( tracker.getId( entry[ 0 ] ) , tracker.getId( entry[ 1 ] ) )
-                        
-                            newLink = Link( nextPrecond[ 0 ] , i , childPlan.open_conditions[ nextPrecondIdx ][ 1 ] )
-                            childPlan.links.append( newLink )
+                                for link in childPlan.links:
+                                    link.pred.substitute( tracker.getId( entry[ 0 ] ) , tracker.getId( entry[ 1 ] ) )
                             
                             newOrdering = (i, childPlan.open_conditions[ nextPrecondIdx ][ 1 ] )
                             if ( not newOrdering in childPlan.orderings ):
@@ -110,12 +110,18 @@ def planSearch(p, tracker):
                         
                             #calculate new threats
                             for link in childPlan.links:
-                                
-                                for prereq in childPlan.steps[ link.causalStep ].getPrereqs():
-                                    if ( a.deletes( prereq ) ):
+                                if ( a.deletes( link.pred ) ):
+                                    if ( i != link.causalStep and i != link.recipientStep ):
                                         newThreat = Threat( link , i )
-                                        childPlan.threats.append( newThreat )
-                                        break;
+                                        if ( not childPlan.is_threat_addressed( newThreat ) ):
+                                            childPlan.threats.append( newThreat )
+                                    
+                            for j in range(len(childPlan.steps)):
+                                if ( j != i and childPlan.steps[ j ].deletes( newLink.pred ) ):
+                                    if ( j != link.causalStep and j != link.recipientStep ):
+                                        newThreat = Threat( newLink , j )
+                                        if ( not childPlan.is_threat_addressed( newThreat ) ):
+                                            childPlan.threats.append( newThreat )
             
                             #print "Generated child plan " + str(idx+1) + " using past action " + str( nextPlan.steps[ i ] )
                             insert_plan( pq , childPlan )
@@ -137,6 +143,8 @@ def planSearch(p, tracker):
                                 action.substitute( tracker.getId(entry[ 0 ]) , tracker.getId(entry[ 1 ]) )
                             for cond in childPlan.open_conditions:
                                 cond[ 0 ].substitute( tracker.getId( entry[ 0 ] ) , tracker.getId( entry[ 1 ] ) )
+                            for link in childPlan.links:
+                                link.pred.substitute( tracker.getId( entry[ 0 ] ) , tracker.getId( entry[ 1 ] ) )
                             
                         newLink = Link( nextPrecond[ 0 ] , len(childPlan.steps)-1 , nextPrecond[ 1 ] )
                         childPlan.links.append( newLink )
@@ -149,16 +157,20 @@ def planSearch(p, tracker):
                         for precond in a.getPrereqs():
                             childPlan.open_conditions.append( (precond , len(childPlan.steps)-1) )
                         
-                        #check for new threats
+                        #calculate new threats
                         for link in childPlan.links:
-                            
-                            #do not let action threaten itself
-                            if ( len(childPlan.steps)-1 != link.causalStep ):
-                                for prereq in childPlan.steps[ link.causalStep ].getPrereqs():
-                                    if ( a.deletes( prereq ) ):
-                                        newThreat = Threat( link , len(childPlan.steps)-1 )
+                            if ( a.deletes( link.pred ) ):
+                                if ( i != link.causalStep and i != link.recipientStep ):
+                                    newThreat = Threat( link , i )
+                                    if ( not childPlan.is_threat_addressed( newThreat ) ):
                                         childPlan.threats.append( newThreat )
-                                        break;
+                                    
+                        for j in range(len(childPlan.steps)):
+                            if ( childPlan.steps[ j ].deletes( newLink.pred ) ):
+                                if ( j != newLink.causalStep and j != newLink.recipientStep ):
+                                    newThreat = Threat( newLink , j )
+                                    if ( not childPlan.is_threat_addressed( newThreat ) ):
+                                        childPlan.threats.append( newThreat )
                                 
                         #print "Generated child plan " + str(idx+1) + " using " + str(a)
                         insert_plan( pq , childPlan )
