@@ -107,13 +107,11 @@ def planSearch(p, tracker):
                             del childPlan.open_conditions[ nextPrecondIdx ]   
                         
                             #calculate new threats
-                            for link in childPlan.links:
-                                
-                                for prereq in childPlan.steps[ link.causalStep ].getPrereqs():
-                                    if ( a.deletes( prereq ) ):
-                                        newThreat = Threat( link , i )
-                                        childPlan.threats.append( newThreat )
-                                        break;
+                            for link in childPlan.links:                                
+                                if ( a.deletes( link.pred ) ):
+                                    newThreat = Threat( link , i )
+                                    childPlan.threats.append( newThreat )
+                                    break;
                             
                             #check for threats to this new link by other previous actions        
                             for j in range(len(childPlan.steps)):
@@ -156,11 +154,10 @@ def planSearch(p, tracker):
                         
                         #check for new threats
                         for link in childPlan.links:
-                            for prereq in childPlan.steps[ link.causalStep ].getPrereqs():
-                                if ( a.deletes( prereq ) ):
-                                    newThreat = Threat( link , len(childPlan.steps)-1 )
-                                    childPlan.threats.append( newThreat )
-                                    break;
+                            if ( a.deletes( link.pred ) ):
+                                newThreat = Threat( link , len(childPlan.steps)-1 )
+                                childPlan.threats.append( newThreat )
+                                break;
                                     
                         #check for threats by other actions that might threaten this new link
                         for j in range(len(childPlan.steps)):
