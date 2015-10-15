@@ -421,7 +421,7 @@ class Action:
     ## Calls the unification algorithm
     def deletes(self, p):
         for i in range(len(self.deleteList)):
-            if ( self.type_t == p.type_t ):
+            if (self.deleteList[ i ].type_t == p.type_t):
                 if (Predicate.unify( self.deleteList[ i ].args , p.args , [] , Predicate.tracker ) != None ):
                     return True
         return False
@@ -470,11 +470,20 @@ class Plan:
         self.orderings = [] ## All ordering constraints
     
     '''
+    Determines if there is an ordering that already addresses a potential
+    threat.
+    '''
+    def is_threat_addressed(self , threat):
+        ordering1 = (threat.actionId , threat.threatened.causalStep)
+        ordering2 = (threat.threatened.recipientStep , threat.actionId)
+        return ordering1 in self.orderings or ordering2 in self.orderings
+    
+    '''
     Returns if this plan is a complete plan - i.e. there are no
-    open preconditions left
+    open preconditions left and no more unresolved threats
     '''
     def is_complete(self):
-        return len( self.open_conditions ) == 0
+        return len( self.open_conditions ) == 0 and len( self.threats ) == 0
     
     '''
     Returns if this plan has unresolved threats that threaten
@@ -490,11 +499,27 @@ class Plan:
 class plan_not_found:
     def __init__(self): pass
 
+def debug_unify():
+    tracker = VariableTracker( 2 , 1 , 2 , 2 , 1 )
+    Predicate.tracker = tracker   
+    pred1 = Predicate( Predicates.ON , 7 , 8 )
+    pred2 = Predicate( Predicates.ON , 7 , 20 )
+    print "Unifying " + str(pred2) + " with " + str(pred1) + ", Result: " + str(Predicate.unify( pred2.args , pred1.args , [] , tracker ))
+
+def debug_deletes():
+    tracker = VariableTracker( 1 , 0 , 1 , 3 , 3 )
+    Predicate.tracker = tracker 
+    takeAction = Action( Actions.TAKE , 1 , 0 , 7 , 5 , 2 )
+    pred = Predicate( Predicates.EMPTY , 1 )
+    print str(takeAction) + " deletes " + str( pred ) + " ? " + str(takeAction.deletes( pred )) 
 
 '''
 Unit testing
 '''
 def main():
+    #debug_unify()
+    debug_deletes()
+    return
     tracker = VariableTracker( 2 , 1 , 0 , 0 , 0 )
     Predicate.tracker = tracker
     moveAction = Action( Actions.MOVE , tracker.getUnassignedVar() , tracker.getUnassignedVar() , tracker.getUnassignedVar() )
@@ -514,5 +539,4 @@ def main():
     print moveAction.adds( failPred , tracker )
 
 if __name__ == "__main__": main()
-
 
