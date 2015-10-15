@@ -504,8 +504,8 @@ def debug_unify():
 def debug_deletes():
     tracker = VariableTracker( 1 , 0 , 1 , 3 , 3 )
     Predicate.tracker = tracker 
-    takeAction = Action( Actions.TAKE , 1 , 9+67 , 5 , 9+69 , 9+70 )
-    pred = Predicate( Predicates.TOP , 8 , 3 )
+    takeAction = Action( Actions.TAKE , 1 , 0 , 7 , 5 , 2 )
+    pred = Predicate( Predicates.EMPTY , 1 )
     print str(takeAction) + " deletes " + str( pred ) + " ? " + str(takeAction.deletes( pred )) 
 
 '''
