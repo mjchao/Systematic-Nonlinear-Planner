@@ -5,7 +5,6 @@ from topsort import *
 from read import *
 from Queue import PriorityQueue
 import copy
-from random import randint
 
 MAX_SEARCH_EFFORT = 1000000
 
@@ -15,7 +14,7 @@ that will be required to complete a partial
 plan. This is the heuristic function
 '''
 def estimateRemainingCost( plan ):
-    return len( plan.steps ) + len( plan.open_conditions )
+    return len( plan.steps )
 
 def insert_plan( pq , plan ):
     pq.put( (estimateRemainingCost( plan ) , plan) )
@@ -130,13 +129,13 @@ def planSearch(p, tracker):
                                     cond[ 0 ].substitute( tracker.getId( entry[ 0 ] ) , tracker.getId( entry[ 1 ] ) )
                                 for link in childPlan.links:
                                     link.pred.substitute( tracker.getId( entry[ 0 ] ) , tracker.getId( entry[ 1 ] ) )
-                            
+
                             #calculate new threats that result from adding this new causal link.
                             #specifically, we look at previous actions and see if any of them
                             #threaten the causal link we just added
                             for j in range(len(childPlan.steps)):
                                 if ( j != i and childPlan.steps[ j ].deletes( newLink.pred ) ):
-                                    if ( j != link.causalStep and j != link.recipientStep ):
+                                    if ( j != newLink.causalStep and j != newLink.recipientStep ):
                                         newThreat = Threat( newLink , j )
                                         if ( not childPlan.is_threat_addressed( newThreat ) ):
                                             childPlan.threats.append( newThreat )
@@ -193,13 +192,13 @@ def planSearch(p, tracker):
                                 cond[ 0 ].substitute( tracker.getId( entry[ 0 ] ) , tracker.getId( entry[ 1 ] ) )
                             for link in childPlan.links:
                                 link.pred.substitute( tracker.getId( entry[ 0 ] ) , tracker.getId( entry[ 1 ] ) )
-                        
+
                         #check if adding this action might threaten any 
                         #causal links already added
                         for link in childPlan.links:
                             if ( a.deletes( link.pred ) ):
-                                if ( i != link.causalStep and i != link.recipientStep ):
-                                    newThreat = Threat( link , i )
+                                if ( len(childPlan.steps)-1 != link.causalStep and len(childPlan.steps)-1 != link.recipientStep ):
+                                    newThreat = Threat( link , len(childPlan.steps)-1 )
                                     if ( not childPlan.is_threat_addressed( newThreat ) ):
                                         childPlan.threats.append( newThreat )
                          

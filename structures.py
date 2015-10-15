@@ -480,7 +480,7 @@ class Plan:
     
     '''
     Returns if this plan is a complete plan - i.e. there are no
-    open preconditions left
+    open preconditions left and no more unresolved threats
     '''
     def is_complete(self):
         return len( self.open_conditions ) == 0 and len( self.threats ) == 0
