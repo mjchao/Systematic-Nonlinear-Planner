@@ -135,29 +135,51 @@ def planSearch(p, tracker):
                                         newThreat = Threat( newLink , j )
                                         if ( not childPlan.is_threat_addressed( newThreat ) ):
                                             childPlan.threats.append( newThreat )
-            
-                            #print "Generated child plan " + str(idx+1) + " using past action " + str( nextPlan.steps[ i ] )
+
                             insert_plan( pq , childPlan )
-                    
+            
+            #create a list of new potential actions
             potentialActions = [ Action( Actions.MOVE , tracker.getUnassignedVar() , tracker.getUnassignedVar() , tracker.getUnassignedVar() ) ,
                                 Action( Actions.TAKE , tracker.getUnassignedVar() , tracker.getUnassignedVar() , tracker.getUnassignedVar() , tracker.getUnassignedVar() , tracker.getUnassignedVar() ) ,
                                 Action( Actions.PUT , tracker.getUnassignedVar() , tracker.getUnassignedVar() , tracker.getUnassignedVar() , tracker.getUnassignedVar() , tracker.getUnassignedVar() ) ,
                                 Action( Actions.LOAD , tracker.getUnassignedVar() , tracker.getUnassignedVar() , tracker.getUnassignedVar() , tracker.getUnassignedVar() ) ,
                                 Action( Actions.UNLOAD , tracker.getUnassignedVar() , tracker.getUnassignedVar() , tracker.getUnassignedVar() , tracker.getUnassignedVar() )]
             
+            #go through every action
             for a in potentialActions:
+                
+                #check if it adds the precondition we want to satisfy
                 substitutions = a.adds( nextPrecond , tracker )
                 if ( len( substitutions ) > 0 ):
+                    
+                    #if there exist variable bindings that will let us satisfy
+                    #the preconditions
                     for sub in substitutions:
+                        
+                        #then we'll create a successor plan - but first
+                        #we need to copy the current plan so that we don't
+                        #get entangled references
                         childPlan = copy.deepcopy( nextPlan )
+                        
+                        #add the potential action to the successor plan
                         childPlan.steps.append( a )
+                        
+                        #add the preconditions of of the potential action
+                        #to the plan's open preconditions
+                        for prereq in a.getPrereqs():
+                            childPlan.open_conditions.append( (prereq , len(childPlan.steps)-1) )
                             
+                        #create the new causal link
                         newLink = Link( nextPrecond , len(childPlan.steps)-1 , precondParentIdx )
                         childPlan.links.append( newLink )
                         
-                        for prereq in a.getPrereqs():
-                            childPlan.open_conditions.append( (prereq , len(childPlan.steps)-1) )
+                        #enforce that the causal step of the link
+                        #comes before the recipient step
+                        newOrdering = (len(childPlan.steps)-1 , precondParentIdx)
+                        if ( not newOrdering in childPlan.orderings ):
+                            childPlan.orderings.append( newOrdering )
         
+                        #perform all variable bindings in the successor
                         for entry in sub:
                             for action in childPlan.steps :
                                 action.substitute( tracker.getId(entry[ 0 ]) , tracker.getId(entry[ 1 ]) )
@@ -166,9 +188,6 @@ def planSearch(p, tracker):
                             for link in childPlan.links:
                                 link.pred.substitute( tracker.getId( entry[ 0 ] ) , tracker.getId( entry[ 1 ] ) )
                         
-                        newOrdering = (len(childPlan.steps)-1 , precondParentIdx)
-                        if ( not newOrdering in childPlan.orderings ):
-                            childPlan.orderings.append( newOrdering )
                         
                         #calculate new threats
                         for link in childPlan.links:
