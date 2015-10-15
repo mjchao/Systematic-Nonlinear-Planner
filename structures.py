@@ -469,10 +469,15 @@ class Plan:
     
         self.orderings = [] ## All ordering constraints
     
+    '''
+    Determines if there is an ordering that already addresses a potential
+    threat.
+    '''
     def is_threat_addressed(self , threat):
         ordering1 = (threat.actionId , threat.threatened.causalStep)
         ordering2 = (threat.threatened.recipientStep , threat.actionId)
         return ordering1 in self.orderings or ordering2 in self.orderings
+    
     '''
     Returns if this plan is a complete plan - i.e. there are no
     open preconditions left
