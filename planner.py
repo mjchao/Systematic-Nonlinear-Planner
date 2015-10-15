@@ -141,6 +141,9 @@ def planSearch(p, tracker):
                             
                         newLink = Link( nextPrecond[ 0 ] , len(childPlan.steps)-1 , nextPrecond[ 1 ] )
                         childPlan.links.append( newLink )
+                        
+                        for precond in a.getPrereqs():
+                            childPlan.open_conditions.append( (precond , len(childPlan.steps)-1) )
         
                         for entry in sub:
                             for action in childPlan.steps :
@@ -154,9 +157,6 @@ def planSearch(p, tracker):
                         if ( not newOrdering in childPlan.orderings ):
                             childPlan.orderings.append( newOrdering )
                         del childPlan.open_conditions[ nextPrecondIdx ]
-                        
-                        for precond in a.getPrereqs():
-                            childPlan.open_conditions.append( (precond , len(childPlan.steps)-1) )
                         
                         #calculate new threats
                         for link in childPlan.links:
