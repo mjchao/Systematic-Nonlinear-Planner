@@ -88,6 +88,7 @@ def planSearch(p, tracker):
             precondParentIdx = nextPrecondTuple[ 1 ]
             
             #remove that open precondition from the list
+            #TODO investigate del and references to elements in the list
             del nextPlan.open_conditions[ nextPrecondIdx ]
             
             #go through all previous actions: we're going to see if we can
