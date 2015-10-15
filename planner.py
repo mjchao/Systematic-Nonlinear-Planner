@@ -81,20 +81,45 @@ def planSearch(p, tracker):
         #if no threats, then pick a precondition to satisfy
         else:
             nextPrecondIdx = 0 #randint( 0 , len(nextPlan.open_conditions)-1 )
-            nextPrecond = nextPlan.open_conditions[ nextPrecondIdx ]
+            nextPrecondTuple = nextPlan.open_conditions[ nextPrecondIdx ]
+            nextPrecond = nextPrecondTuple[ 0 ]
+            precondParentIdx = nextPrecondTuple[ 1 ]
+            
+            #remove that open precondition from the list
+            del nextPlan.open_conditions[ nextPrecondIdx ]
+            
+            #go through all previous actions: we're going to see if we can
+            #get it to link and satisfy the precondition
             for i in range( 0 , len( nextPlan.steps ) ):
                 
-                #do not let an action link to or threaten itself
-                if ( i != nextPrecond[ 1 ] ):
-                    substitutions = nextPlan.steps[ i ].adds( nextPrecond[ 0 ] , tracker )
+                #but do not let an action satisfy its own precondition
+                #(index 1 stores the parent index and we can't let the
+                #parent satisfy its own precondition)
+                if ( i != precondParentIdx ):
+                    
+                    #find all sets of variable bindings such that the given action adds 
+                    #the open precondition
+                    substitutions = nextPlan.steps[ i ].adds( nextPrecond , tracker )
                     if ( len( substitutions ) > 0 ):
                         for sub in substitutions:
+                            
+                            #we need to create a copy of the current action
+                            #to use at the successor - otherwise, this plan will
+                            #get altered on some other iteration of the search
                             childPlan = copy.deepcopy( nextPlan )
                             a = childPlan.steps[ i ]
                         
-                            newLink = Link( nextPrecond[ 0 ] , i , childPlan.open_conditions[ nextPrecondIdx ][ 1 ] )
+                            #add the causal link to the given precondition
+                            newLink = Link( nextPrecond , i , precondParentIdx )
                             childPlan.links.append( newLink )
                             
+                            #we have to enforce that this action comes before the
+                            #the action that gets its precondition satisfied
+                            newOrdering = (i, precondParentIdx )
+                            if ( not newOrdering in childPlan.orderings ):
+                                childPlan.orderings.append( (i , precondParentIdx ) )  
+                        
+                            #perform all necessary variable bindings on the successor
                             for entry in sub:
                                 for action in childPlan.steps:
                                     action.substitute( tracker.getId(entry[ 0 ]) , tracker.getId(entry[ 1 ]) )
@@ -103,19 +128,7 @@ def planSearch(p, tracker):
                                 for link in childPlan.links:
                                     link.pred.substitute( tracker.getId( entry[ 0 ] ) , tracker.getId( entry[ 1 ] ) )
                             
-                            newOrdering = (i, childPlan.open_conditions[ nextPrecondIdx ][ 1 ] )
-                            if ( not newOrdering in childPlan.orderings ):
-                                childPlan.orderings.append( (i , childPlan.open_conditions[ nextPrecondIdx ][ 1 ] ) )
-                            del childPlan.open_conditions[ nextPrecondIdx ]   
-                        
-                            #calculate new threats
-                            for link in childPlan.links:
-                                if ( a.deletes( link.pred ) ):
-                                    if ( i != link.causalStep and i != link.recipientStep ):
-                                        newThreat = Threat( link , i )
-                                        if ( not childPlan.is_threat_addressed( newThreat ) ):
-                                            childPlan.threats.append( newThreat )
-                                    
+                            #calculate new threats that result from adding this new causal link
                             for j in range(len(childPlan.steps)):
                                 if ( j != i and childPlan.steps[ j ].deletes( newLink.pred ) ):
                                     if ( j != link.causalStep and j != link.recipientStep ):
@@ -133,17 +146,17 @@ def planSearch(p, tracker):
                                 Action( Actions.UNLOAD , tracker.getUnassignedVar() , tracker.getUnassignedVar() , tracker.getUnassignedVar() , tracker.getUnassignedVar() )]
             
             for a in potentialActions:
-                substitutions = a.adds( nextPrecond[ 0 ] , tracker )
+                substitutions = a.adds( nextPrecond , tracker )
                 if ( len( substitutions ) > 0 ):
                     for sub in substitutions:
                         childPlan = copy.deepcopy( nextPlan )
                         childPlan.steps.append( a )
                             
-                        newLink = Link( nextPrecond[ 0 ] , len(childPlan.steps)-1 , nextPrecond[ 1 ] )
+                        newLink = Link( nextPrecond , len(childPlan.steps)-1 , precondParentIdx )
                         childPlan.links.append( newLink )
                         
-                        for precond in a.getPrereqs():
-                            childPlan.open_conditions.append( (precond , len(childPlan.steps)-1) )
+                        for prereq in a.getPrereqs():
+                            childPlan.open_conditions.append( (prereq , len(childPlan.steps)-1) )
         
                         for entry in sub:
                             for action in childPlan.steps :
@@ -153,10 +166,9 @@ def planSearch(p, tracker):
                             for link in childPlan.links:
                                 link.pred.substitute( tracker.getId( entry[ 0 ] ) , tracker.getId( entry[ 1 ] ) )
                         
-                        newOrdering = (len(childPlan.steps)-1 , nextPrecond[ 1 ])
+                        newOrdering = (len(childPlan.steps)-1 , precondParentIdx)
                         if ( not newOrdering in childPlan.orderings ):
                             childPlan.orderings.append( newOrdering )
-                        del childPlan.open_conditions[ nextPrecondIdx ]
                         
                         #calculate new threats
                         for link in childPlan.links:
