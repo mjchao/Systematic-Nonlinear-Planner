@@ -483,7 +483,7 @@ class Plan:
     open preconditions left
     '''
     def is_complete(self):
-        return len( self.open_conditions ) == 0
+        return len( self.open_conditions ) == 0 and len( self.threats ) == 0
     
     '''
     Returns if this plan has unresolved threats that threaten
