@@ -460,6 +460,7 @@ class Plan:
         #and B is the integer that represents the second endpoint of the
         #causal link
         self.threats = [] ## All threats to causal links
+        self.resolvedThreats = []
     
         ## For open conditions, we use a list of (Predicate, int)
         ## because we need to store the "parent" action of each open condition,

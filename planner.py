@@ -58,6 +58,7 @@ def planSearch(p, tracker):
             #create a copy of the plan with the additional
             #constraint T < A
             childPlan1 = copy.deepcopy( nextPlan )
+            childPlan1.resolvedThreats.append( childPlan1.threats[ len( childPlan1.threats)-1 ] )
             del childPlan1.threats[ len( childPlan1.threats )-1 ]
             
             #enforce T < A
@@ -71,6 +72,7 @@ def planSearch(p, tracker):
             
             #create a copy of the plan with the additional constraint B < T
             childPlan2 = copy.deepcopy( nextPlan )
+            childPlan2.resolvedThreats.append( childPlan2.threats[ len( childPlan2.threats)-1 ] )
             del childPlan2.threats[ len( childPlan2.threats)-1 ]
             
             #enforce B < T
