@@ -211,7 +211,7 @@ class Action:
         '''
         for pred in self.addList:
             if ( pred.type_t == p.type_t ):
-                possibleBindings = Predicate.unify( pred.args , p.args , returnList , tracker )
+                possibleBindings = Predicate.unify( pred.args , p.args , [] , tracker )
                 if ( possibleBindings != None ):
                     returnList.append( possibleBindings )
 
