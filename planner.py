@@ -56,8 +56,7 @@ def planSearch(p, tracker):
             threat = nextPlan.threats[ len(nextPlan.threats)-1 ]
             del nextPlan.threats[ len(nextPlan.threats)-1 ]
             
-            #create a copy of the plan with the additional
-            #constraint T < A
+            #create a copy of the plan with the additional constraint T < A
             childPlan1 = copy.deepcopy( nextPlan )
             
             #enforce T < A
@@ -69,7 +68,7 @@ def planSearch(p, tracker):
             childPlan2 = copy.deepcopy( nextPlan )
 
             #enforce B < T
-            childPlan1.enforce_ordering(threat.threatened.recipientStep , threat.actionId)
+            childPlan2.enforce_ordering(threat.threatened.recipientStep , threat.actionId)
 
             insert_plan( pq , childPlan2 )
             
@@ -81,7 +80,6 @@ def planSearch(p, tracker):
             precondParentIdx = nextPrecondTuple[ 1 ]
             
             #remove that open precondition from the list
-            #TODO investigate del and references to elements in the list
             del nextPlan.open_conditions[ nextPrecondIdx ]
             
             #go through all previous actions: we're going to see if we can
@@ -114,23 +112,12 @@ def planSearch(p, tracker):
                             childPlan.enforce_ordering(i, precondParentIdx )
                         
                             #perform all necessary variable bindings on the successor
-                            for entry in sub:
-                                for action in childPlan.steps:
-                                    action.substitute( tracker.getId(entry[ 0 ]) , tracker.getId(entry[ 1 ]) )
-                                for cond in childPlan.open_conditions:
-                                    cond[ 0 ].substitute( tracker.getId( entry[ 0 ] ) , tracker.getId( entry[ 1 ] ) )
-                                for link in childPlan.links:
-                                    link.pred.substitute( tracker.getId( entry[ 0 ] ) , tracker.getId( entry[ 1 ] ) )
+                            childPlan.bind_variables( sub , tracker )
 
                             #calculate new threats that result from adding this new causal link.
                             #specifically, we look at previous actions and see if any of them
                             #threaten the causal link we just added
-                            for j in range(len(childPlan.steps)):
-                                if ( j != i and childPlan.steps[ j ].deletes( newLink.pred ) ):
-                                    if ( j != newLink.causalStep and j != newLink.recipientStep ):
-                                        newThreat = Threat( newLink , j )
-                                        if ( not childPlan.is_threat_addressed( newThreat ) ):
-                                            childPlan.threats.append( newThreat )
+                            childPlan.calculate_threats_to_new_link( newLink )
 
                             #add the successor to the queue
                             insert_plan( pq , childPlan )
@@ -175,13 +162,7 @@ def planSearch(p, tracker):
                         childPlan.enforce_ordering(len(childPlan.steps)-1 , precondParentIdx)
         
                         #perform all variable bindings in the successor
-                        for entry in sub:
-                            for action in childPlan.steps:
-                                action.substitute( tracker.getId(entry[ 0 ]) , tracker.getId(entry[ 1 ]) )
-                            for cond in childPlan.open_conditions:
-                                cond[ 0 ].substitute( tracker.getId( entry[ 0 ] ) , tracker.getId( entry[ 1 ] ) )
-                            for link in childPlan.links:
-                                link.pred.substitute( tracker.getId( entry[ 0 ] ) , tracker.getId( entry[ 1 ] ) )
+                        childPlan.bind_variables( sub , tracker )
 
                         #check if adding this action might threaten any 
                         #causal links already added
@@ -194,12 +175,7 @@ def planSearch(p, tracker):
                          
                         #look for previous actions that might threaten this new
                         #causal link           
-                        for j in range(len(childPlan.steps)):
-                            if ( childPlan.steps[ j ].deletes( newLink.pred ) ):
-                                if ( j != newLink.causalStep and j != newLink.recipientStep ):
-                                    newThreat = Threat( newLink , j )
-                                    if ( not childPlan.is_threat_addressed( newThreat ) ):
-                                        childPlan.threats.append( newThreat )
+                        childPlan.calculate_threats_to_new_link( newLink )
                                 
                         #add the successor to the queue
                         insert_plan( pq , childPlan )

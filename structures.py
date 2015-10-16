@@ -143,12 +143,13 @@ class Predicate:
 ##    causalStep -----pred-----> recipientStep
 class Link:
 
-    def __init__(self): pass
-
     def __init__(self, p, cstep, rstep):
         self.pred = p
         self.causalStep = cstep
         self.recipientStep = rstep
+        
+    def __str__(self):
+        return str(self.causalStep) + " -- " + str( self.pred ) + " --> " + str( self.recipientStep )
 
 
 ## A threat to a causal link
@@ -158,6 +159,9 @@ class Threat:
     def __init__(self, thrt, act):
         self.threatened = thrt
         self.actionId = act
+        
+    def __str__(self):
+        return str( self.actionId ) + " threatens " + str(self.threatened)
 
 
 ## Pairs representing ordering contraints and binding constraints
@@ -470,6 +474,32 @@ class Plan:
         self.orderings = [] ## All ordering constraints
     
     '''
+    Calculates any threats to a new causal link that
+    was just added to the plan
+    '''
+    def calculate_threats_to_new_link( self , newLink ):
+        for j in range(len(self.steps)):
+            potentialThreat = Threat( newLink , j )
+            if ( potentialThreat not in self.threats ):
+                if ( self.steps[ j ].deletes( newLink.pred ) ):
+                    if ( j != newLink.causalStep and j != newLink.recipientStep ):
+                        if ( not self.is_threat_addressed( potentialThreat ) ):
+                            if ( newLink.pred.type_t == Predicates.AT and self.steps[ j ].type_t == Actions.MOVE ):
+                                print "Added a threat: " + str( potentialThreat )
+                            self.threats.append( potentialThreat )
+    
+    '''
+    Applies the given substitution to the variables in this plan
+    '''
+    def bind_variables( self , substitution , tracker ):
+        for entry in substitution:
+            for action in self.steps:
+                action.substitute( tracker.getId(entry[ 0 ]) , tracker.getId(entry[ 1 ]) )
+            for cond in self.open_conditions:
+                cond[ 0 ].substitute( tracker.getId( entry[ 0 ] ) , tracker.getId( entry[ 1 ] ) )
+            for link in self.links:
+                link.pred.substitute( tracker.getId( entry[ 0 ] ) , tracker.getId( entry[ 1 ] ) )
+    '''
     Adds the given ordering to the list of ordering constraints
     if the given ordering is not already in the list. This also
     checks for any threats that are resolved
@@ -478,6 +508,10 @@ class Plan:
         newOrdering = ( before , after )
         if newOrdering not in self.orderings:
             self.orderings.append( newOrdering )
+            
+            #some threats may have been resolved by this ordering, so
+            #remove them
+            #self.threats = [ x for x in self.threats if ((x.actionId != before or x.threatened.causalStep != after) and (x.actionId != after or x.threatened.causalStep != before)) ]
     '''
     Determines if there is an ordering that already addresses a potential
     threat.
