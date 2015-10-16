@@ -55,9 +55,6 @@ print "===== FINAL PLAN====="
 printVerbosePlan( finalPlan , tracker )
 ordering = topSort( finalPlan.orderings , len( finalPlan.steps ) )[ 0 ]
 print ordering
-print "Resolved Threats: "
-for t in finalPlan.resolvedThreats:
-    print t.actionId , " ( " , t.threatened.causalStep, t.threatened.pred , t.threatened.recipientStep , ") "
 #printPlan(finalPlan, tracker)
 
 

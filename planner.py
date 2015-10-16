@@ -44,6 +44,8 @@ def planSearch(p, tracker):
         #printVerbosePlan( nextPlan , tracker )
                 
         #if the ordering isn't consistent, clearly this plan won't work
+        if ( len( nextPlan.steps ) > 8 or len( nextPlan.open_conditions ) > 40 or len( nextPlan.threats ) > 40 ):
+            continue
         if ( not isOrderConsistent( nextPlan.orderings , len( nextPlan.steps ) ) ):
             continue
         
