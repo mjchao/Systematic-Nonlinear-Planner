@@ -484,8 +484,6 @@ class Plan:
                 if ( self.steps[ j ].deletes( newLink.pred ) ):
                     if ( j != newLink.causalStep and j != newLink.recipientStep ):
                         if ( not self.is_threat_addressed( potentialThreat ) ):
-                            if ( newLink.pred.type_t == Predicates.AT and self.steps[ j ].type_t == Actions.MOVE ):
-                                print "Added a threat: " + str( potentialThreat )
                             self.threats.append( potentialThreat )
     
     '''
@@ -511,7 +509,7 @@ class Plan:
             
             #some threats may have been resolved by this ordering, so
             #remove them
-            #self.threats = [ x for x in self.threats if ((x.actionId != before or x.threatened.causalStep != after) and (x.actionId != after or x.threatened.causalStep != before)) ]
+            self.threats = [ x for x in self.threats if ((x.actionId != before or x.threatened.causalStep != after) and (x.actionId != after or x.threatened.causalStep != before)) ]
     '''
     Determines if there is an ordering that already addresses a potential
     threat.
