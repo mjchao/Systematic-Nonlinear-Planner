@@ -14,7 +14,7 @@ that will be required to complete a partial
 plan. This is the heuristic function
 '''
 def estimateRemainingCost( plan ):
-    return len( plan.steps ) + len( plan.open_conditions )
+    return len( plan.steps )
 
 def insert_plan( pq , plan ):
     pq.put( (estimateRemainingCost( plan ) , plan) )
@@ -44,8 +44,6 @@ def planSearch(p, tracker):
         #printVerbosePlan( nextPlan , tracker )
                 
         #if the ordering isn't consistent, clearly this plan won't work
-        if ( len( nextPlan.steps ) > 8 or len( nextPlan.open_conditions ) > 40 or len( nextPlan.threats ) > 40 ):
-            continue
         if ( not isOrderConsistent( nextPlan.orderings , len( nextPlan.steps ) ) ):
             continue
         
@@ -56,31 +54,23 @@ def planSearch(p, tracker):
         #otherwise, try resolving open threats
         if ( nextPlan.has_threats() ):
             threat = nextPlan.threats[ len(nextPlan.threats)-1 ]
+            del nextPlan.threats[ len(nextPlan.threats)-1 ]
             
             #create a copy of the plan with the additional
             #constraint T < A
             childPlan1 = copy.deepcopy( nextPlan )
-            #childPlan1.resolvedThreats.append( childPlan1.threats[ len( childPlan1.threats)-1 ] )
-            del childPlan1.threats[ len( childPlan1.threats )-1 ]
             
             #enforce T < A
-            newOrdering = ( threat.actionId , threat.threatened.causalStep )
-            
-            #TODO create an enforceOrdering() method in plan
-            if ( not newOrdering in childPlan1.orderings ):
-                childPlan1.orderings.append( newOrdering )
+            childPlan1.enforce_ordering( threat.actionId , threat.threatened.causalStep )
                 
             insert_plan( pq , childPlan1 )
             
             #create a copy of the plan with the additional constraint B < T
             childPlan2 = copy.deepcopy( nextPlan )
-            #childPlan2.resolvedThreats.append( childPlan2.threats[ len( childPlan2.threats)-1 ] )
-            del childPlan2.threats[ len( childPlan2.threats)-1 ]
-            
+
             #enforce B < T
-            newOrdering = (threat.threatened.recipientStep , threat.actionId)
-            if ( not newOrdering in childPlan2.orderings ):
-                childPlan2.orderings.append( newOrdering )  
+            childPlan1.enforce_ordering(threat.threatened.recipientStep , threat.actionId)
+
             insert_plan( pq , childPlan2 )
             
         #if no threats, then pick a precondition to satisfy
@@ -121,9 +111,7 @@ def planSearch(p, tracker):
                             
                             #we have to enforce that this action comes before the
                             #the action that gets its precondition satisfied
-                            newOrdering = (i, precondParentIdx )
-                            if ( not newOrdering in childPlan.orderings ):
-                                childPlan.orderings.append( (i , precondParentIdx ) )  
+                            childPlan.enforce_ordering(i, precondParentIdx )
                         
                             #perform all necessary variable bindings on the successor
                             for entry in sub:
@@ -184,9 +172,7 @@ def planSearch(p, tracker):
                         
                         #enforce that the causal step of the link
                         #comes before the recipient step
-                        newOrdering = (len(childPlan.steps)-1 , precondParentIdx)
-                        if ( not newOrdering in childPlan.orderings ):
-                            childPlan.orderings.append( newOrdering )
+                        childPlan.enforce_ordering(len(childPlan.steps)-1 , precondParentIdx)
         
                         #perform all variable bindings in the successor
                         for entry in sub:

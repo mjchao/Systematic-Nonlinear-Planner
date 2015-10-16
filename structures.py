@@ -470,6 +470,15 @@ class Plan:
         self.orderings = [] ## All ordering constraints
     
     '''
+    Adds the given ordering to the list of ordering constraints
+    if the given ordering is not already in the list. This also
+    checks for any threats that are resolved
+    '''
+    def enforce_ordering( self , before , after ):
+        newOrdering = ( before , after )
+        if newOrdering not in self.orderings:
+            self.orderings.append( newOrdering )
+    '''
     Determines if there is an ordering that already addresses a potential
     threat.
     '''
