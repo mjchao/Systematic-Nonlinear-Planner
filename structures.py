@@ -211,7 +211,7 @@ class Action:
         '''
         for pred in self.addList:
             if ( pred.type_t == p.type_t ):
-                possibleBindings = Predicate.unify( pred.args , p.args , [] , tracker )
+                possibleBindings = Predicate.unify( pred.args , p.args , returnList , tracker )
                 if ( possibleBindings != None ):
                     returnList.append( possibleBindings )
 
@@ -546,6 +546,10 @@ def debug_unify():
     pred1 = Predicate( Predicates.ON , 7 , 8 )
     pred2 = Predicate( Predicates.ON , 7 , 20 )
     print "Unifying " + str(pred2) + " with " + str(pred1) + ", Result: " + str(Predicate.unify( pred2.args , pred1.args , [] , tracker ))
+    
+    tracker = VariableTracker( 4 , 2 , 2 , 4 , 2 )
+    Predicate.tracker = tracker
+    #action = Action( Actions.TAKE , )
 
 def debug_deletes():
     tracker = VariableTracker( 1 , 0 , 1 , 3 , 3 )
