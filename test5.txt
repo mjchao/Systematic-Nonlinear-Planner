@@ -1,6 +1,6 @@
 locations 4
 robots 2
-cranes 2
+cranes 4
 piles 4
 containers 2
 
