@@ -550,9 +550,25 @@ def debug_unify():
 def debug_deletes():
     tracker = VariableTracker( 1 , 0 , 1 , 3 , 3 )
     Predicate.tracker = tracker 
+    
+    
+    a1 = Action( Actions.TAKE , 1 , 0 , 7 , 5 , 2 )
+    a2 = Action( Actions.TAKE , 1 , 0 , 6 , 8 , 2 )
+    a3 = Action( Actions.TAKE , 1 , 0 , 5 , 8 , 2 )
+    a4 = Action( Actions.PUT , 1 , 0 , 5 , 6 , 2 )
+    a5 = Action( Actions.PUT , 1 , 0 , 6 , 7 , 2 )
+    a6 = Action( Actions.PUT , 1 , 0 , 7 , 8 , 2 )
+    print str(a1)
+    print str(a2)
+    print a3
+    print a4
+    print a5
+    print a6
+    
+    
     takeAction = Action( Actions.TAKE , 1 , 0 , 7 , 5 , 2 )
     pred = Predicate( Predicates.EMPTY , 1 )
-    print str(takeAction) + " deletes " + str( pred ) + " ? " + str(takeAction.deletes( pred )) 
+    #print str(takeAction) + " deletes " + str( pred ) + " ? " + str(takeAction.deletes( pred )) 
 
 '''
 Unit testing

@@ -35,9 +35,37 @@ if ( not readInputStatus[ 0 ] ):
     sys.exit()
 
 initial = readInputStatus[ 1 ]
+
 tracker = readInputStatus[ 2 ]
 Predicate.tracker = tracker
 print str(initial.open_conditions[ 0 ][ 0 ])
+
+'''
+a1 = Action( Actions.TAKE , 1 , 0 , 7 , 5 , 2 )
+a2 = Action( Actions.TAKE , 1 , 0 , 6 , 8 , 2 )
+a3 = Action( Actions.TAKE , 1 , 0 , 5 , 8 , 2 )
+a4 = Action( Actions.PUT , 1 , 0 , 5 , 6 , 2 )
+a5 = Action( Actions.PUT , 1 , 0 , 6 , 7 , 2 )
+a6 = Action( Actions.PUT , 1 , 0 , 7 , 8 , 2 )
+initial.steps.append( a1 )
+for prereq in a1.getPrereqs():
+    initial.open_conditions.append( (prereq , 2) )
+initial.steps.append( a2 )
+for prereq in a2.getPrereqs():
+    initial.open_conditions.append( (prereq , 3) )
+initial.steps.append( a3 )
+for prereq in a3.getPrereqs():
+    initial.open_conditions.append( (prereq , 4) )
+initial.steps.append( a4 )
+for prereq in a4.getPrereqs():
+    initial.open_conditions.append( (prereq , 5) )
+initial.steps.append( a5 )
+for prereq in a5.getPrereqs():
+    initial.open_conditions.append( (prereq , 6) )
+initial.steps.append( a6 )
+for prereq in a6.getPrereqs():
+    initial.open_conditions.append( (prereq , 7) )
+'''
 
 printPlan( initial , tracker )
 
