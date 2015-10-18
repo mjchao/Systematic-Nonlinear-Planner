@@ -6,7 +6,7 @@ from read import *
 from Queue import PriorityQueue
 import copy
 
-MAX_SEARCH_EFFORT = 1000000
+MAX_ITERATIONS = 100000
 
 '''
 Returns an estimate of the number of steps
@@ -14,7 +14,7 @@ that will be required to complete a partial
 plan. This is the heuristic function
 '''
 def estimateRemainingCost( plan ):
-    return len( plan.steps )
+    return len( plan.steps ) + len( plan.open_conditions )
 
 def insert_plan( pq , plan ):
     pq.put( (estimateRemainingCost( plan ) , plan) )
@@ -30,16 +30,11 @@ def planSearch(p, tracker):
     pq = PriorityQueue()
     insert_plan( pq , p )
 
-    level = 0
-    lastNumActions = 0
+    iterations = 0
     #we'll use A* search
-    while( not pq.empty() and level < 1000 ):
+    while( not pq.empty() and iterations < MAX_ITERATIONS ):
         entry = pq.get()
         nextPlan = entry[ 1 ]
-        
-        if len(nextPlan.steps) != lastNumActions:
-            lastNumActions = len( nextPlan.steps )
-            print "LEVEL: " + str(lastNumActions)
         
         #printVerbosePlan( nextPlan , tracker )
                 
@@ -50,6 +45,9 @@ def planSearch(p, tracker):
         #if the plan is complete, then we're done
         if ( nextPlan.is_complete() ):
             return nextPlan
+        
+        iterations += 1
+        print "Iterations: " + str(iterations)
         
         #otherwise, try resolving open threats
         if ( nextPlan.has_threats() ):
@@ -180,5 +178,10 @@ def planSearch(p, tracker):
                         #add the successor to the queue
                         insert_plan( pq , childPlan )
     
-    print "FAILED" 
-    raise plan_not_found()
+    if pq.empty():
+        print "FAILED"
+        raise plan_not_found()
+    else:
+        
+        #return closest approximation that was found
+        return pq.get()[1]
