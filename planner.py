@@ -47,7 +47,8 @@ def planSearch(p, tracker):
             return nextPlan
         
         iterations += 1
-        print "Iterations: " + str(iterations)
+        if ( iterations % 1000 == 0 ):
+            print "Iterations: " + str(iterations)
         
         #otherwise, try resolving open threats
         if ( nextPlan.has_threats() ):
