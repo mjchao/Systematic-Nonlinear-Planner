@@ -32,21 +32,21 @@ def is_redundant( plan , ordering ):
         lastIdx = ordering[ i-1 ]
         lastAction = plan.steps[ lastIdx ]
         
+        
         #picking up a block and then putting it down again
         #in the same location is redundant
         if ( lastAction.type_t == Actions.TAKE and 
              currAction.type_t == Actions.PUT and              
-             lastAction.args[ 2 ] == currAction.args[ 2 ] and
-             lastAction.args[ 3 ] == currAction.args[ 3 ] and
-             lastAction.args[ 4 ] == currAction.args[ 4 ]):
+             lastAction.args[ 2 ] == currAction.args[ 2 ] and 
+             lastAction.args[ 4 ] == currAction.args[ 4 ] ):
             return True
+        
         
         #putting down a block and then picking it up again
         #is redundant
         if ( lastAction.type_t == Actions.PUT and 
              currAction.type_t == Actions.TAKE and 
              lastAction.args[ 2 ] == currAction.args[ 2 ] and
-             lastAction.args[ 3 ] == currAction.args[ 3 ] and
              lastAction.args[ 4 ] == currAction.args[ 4 ] ):
             return True
         
