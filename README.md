@@ -19,14 +19,10 @@ Running the Program
 
 The following is what I did to produce the output. I wouldn't make any guarantees about the programming running correctly if one does not adhere to the following process.
 
-1. Log on to CAEN with the following command:
-
-ssh -X login-course.engin.umich.edu
+1. Log on to CAEN with the following command: ssh -X login-course.engin.umich.edu
 
 2. cd into the directory in which the program files are stored.
 
-3. Run the program with CAEN using the following command:
-
-python main.py <input filename> <output filename>
+3. Run the program with CAEN using the following command: python main.py <input filename> <output filename>
 
 4. The solution plan will be written to the output file. The information printed to standard output is for the user if s/he is interested in the status of the program.
