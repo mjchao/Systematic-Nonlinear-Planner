@@ -5,6 +5,7 @@ from topsort import *
 from read import *
 from Queue import PriorityQueue
 import copy
+from __builtin__ import True
 
 MAX_ITERATIONS = 300000
 
@@ -13,6 +14,9 @@ MAX_ITERATIONS = 300000
 #plan cannot possibly be the most efficient
 INFINITE_COST = 1000000
 
+def check_shadowing():
+    pass
+
 '''
 Determines if the last action taken was redundant. The 
 redundancy checks we make are as follows:
@@ -20,31 +24,37 @@ redundancy checks we make are as follows:
 * moving a robot twice in a row
 * loading then unloading a block
 '''
-def is_redundant( lastAction , secondToLastAction ):
-    #note that because our search is backwards, the
-    #second to last action in the list actually comes after the
-    #last action in the list, so the actions are "inverted". e.g.
-    #we check for TAKE-PUT sequences instead of
-    #PUT-TAKE because the actions are in reverse order
+def is_redundant( plan , ordering ):
     
-    #putting down a block and then picking it up again
-    #is redundant
-    if ( secondToLastAction.type_t == Actions.TAKE and 
-         lastAction.type_t == Actions.PUT and 
-         secondToLastAction.args[ 2 ] == lastAction.args[ 2 ] ):
-        return True
-    
-    #moving the same robot twice is redundant
-    if ( secondToLastAction.type_t == Actions.MOVE and 
-         lastAction.type_t == Actions.MOVE and 
-         secondToLastAction.args[ 0 ] == lastAction.args[ 0 ] ):
-        return True
-    
-    #loading then unloading a block is redundant
-    if ( secondToLastAction.type_t == Actions.UNLOAD and 
-         lastAction.type_t == Actions.LOAD and 
-         secondToLastAction.args[ 2 ] == lastAction.args[ 2 ] ):
-        return True
+    for i in range( 1 , len( ordering ) ):
+        currIdx = ordering[ i ]
+        currAction = plan.steps[ currIdx ]
+        lastIdx = ordering[ i-1 ]
+        lastAction = plan.steps[ lastIdx ]
+        
+        #putting down a block and then picking it up again
+        #is redundant
+        
+        if ( lastAction.type_t == Actions.PUT and 
+             currAction.type_t == Actions.TAKE and 
+             lastAction.args[ 2 ] == currAction.args[ 2 ] ):
+            return True
+        
+        #moving a robot twice in a row is redundant
+        if ( lastAction.type_t == Actions.MOVE and 
+             currAction.type_t == Actions.MOVE and 
+             lastAction.args[ 0 ] == currAction.args[ 0 ] ):
+            return True
+        
+        #loading then unloading the same robot and the same location
+        #is redundant
+        if ( lastAction.type_t == Actions.LOAD and 
+             currAction.type_t == Actions.UNLOAD and 
+             lastAction.args[ 3 ] == currAction.args[ 3 ] and
+             lastAction.args[ 1 ] == currAction.args[ 1 ] ):
+            return True
+        
+    return False
     
 '''
 Returns an estimate of the number of steps
@@ -52,14 +62,19 @@ that will be required to complete a partial
 plan. This is the heuristic function
 '''
 def estimateCost( plan ):
-    goal = plan.steps[ 1 ]
+    topsortResult = topSort( plan.orderings , len( plan.steps ) )
     
-    #first check is for redundant actions
-    lastAction = plan.steps[ len( plan.steps)-1 ]
-    secondToLastAction = plan.steps[ len( plan.steps)-2 ]
-    
-    if ( is_redundant( lastAction , secondToLastAction ) ):
+    #if the ordering is inconsistent, this plan
+    #should not be added
+    if ( topsortResult[ 1 ] == False ):
         return INFINITE_COST
+    
+    #check for redundant actions
+    ordering = topsortResult[ 0 ]
+    if ( is_redundant( plan , ordering ) ):
+        return INFINITE_COST
+    
+    goal = plan.steps[ 1 ]
     
     
     return len( plan.steps ) + len( plan.open_conditions )
@@ -93,8 +108,10 @@ def planSearch(p, tracker):
         #printVerbosePlan( nextPlan , tracker )
                 
         #if the ordering isn't consistent, clearly this plan won't work
-        if ( not isOrderConsistent( nextPlan.orderings , len( nextPlan.steps ) ) ):
-            continue
+        #NOTE: this was moved to the heuristic function. If a plan is inconsistent,
+        #it receives cost of INFINITY and is never added to the queue
+        #if ( not isOrderConsistent( nextPlan.orderings , len( nextPlan.steps ) ) ):
+            #continue
         
         #if the plan is complete, then we're done
         if ( nextPlan.is_complete() ):
