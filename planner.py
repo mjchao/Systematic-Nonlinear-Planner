@@ -14,7 +14,13 @@ MAX_ITERATIONS = 300000
 #plan cannot possibly be the most efficient
 INFINITE_COST = 1000000
 
-def check_shadowing():
+#these are pairs of goal conditions where the first
+#condition shadows the second one. This means that
+#achieving the second condition without achieving
+#the first is useless.
+shadowing_pairs = []
+
+def check_shadowing( goal , plan ):
     pass
 
 '''
@@ -26,50 +32,76 @@ redundancy checks we make are as follows:
 '''
 def is_redundant( plan , ordering ):
     
-    for i in range( 1 , len( ordering ) ):
+    for i in range( 0 , len( ordering ) ):
         currIdx = ordering[ i ]
         currAction = plan.steps[ currIdx ]
-        lastIdx = ordering[ i-1 ]
-        lastAction = plan.steps[ lastIdx ]
         
-        
-        #picking up a block and then putting it down again
-        #in the same location is redundant
-        if ( lastAction.type_t == Actions.TAKE and 
-             currAction.type_t == Actions.PUT and              
-             lastAction.args[ 2 ] == currAction.args[ 2 ] and 
-             lastAction.args[ 4 ] == currAction.args[ 4 ] ):
-            return True
-        
-        
-        #putting down a block and then picking it up again
-        #is redundant
-        if ( lastAction.type_t == Actions.PUT and 
-             currAction.type_t == Actions.TAKE and 
-             lastAction.args[ 2 ] == currAction.args[ 2 ] and
-             lastAction.args[ 4 ] == currAction.args[ 4 ] ):
-            return True
-        
-        #moving a robot twice in a row is redundant
-        if ( lastAction.type_t == Actions.MOVE and 
-             currAction.type_t == Actions.MOVE and 
-             lastAction.args[ 0 ] == currAction.args[ 0 ] ):
-            return True
-        
-        #loading then unloading the same robot and the same location
-        #is redundant
-        if ( lastAction.type_t == Actions.LOAD and 
-             currAction.type_t == Actions.UNLOAD and 
-             lastAction.args[ 3 ] == currAction.args[ 3 ] and
-             lastAction.args[ 1 ] == currAction.args[ 1 ] ):
-            return True
-        
+        if ( currAction.type_t == Actions.TAKE ):
+            for j in range( i+1 , len(ordering) ):
+                nextAction = plan.steps[ ordering[ j ] ]
+                
+                #picking up a block and then putting it down again
+                #in the same location is redundant
+                if ( nextAction.type_t == Actions.PUT and
+                     nextAction.args[ 2 ] == currAction.args[ 2 ] and
+                     nextAction.args[ 4 ] == currAction.args[ 4 ] ):
+                    return True
+                
+                #if we did something to the block before putting it down
+                #again, then that's not being redundant anymore
+                if ( currAction.args[ 2 ] in nextAction.args ):
+                    break
+        elif ( currAction.type_t == Actions.PUT ):
+            for j in range( i+1 , len(ordering) ):
+                nextAction = plan.steps[ ordering[ j ] ]
+
+                #putting down a block and then picking it up again
+                #is redundant
+                if ( nextAction.type_t == Actions.TAKE and
+                     nextAction.args[ 2 ] == currAction.args[ 2 ] and
+                     nextAction.args[ 4 ] == currAction.args[ 4 ] ):
+                        return True                
+                
+                #if we did something to the block before taking it
+                #again, then that's not being redundant anymore
+                if ( currAction.args[ 2 ] in nextAction.args ):
+                    break
+                
+        elif ( currAction.type_t == Actions.MOVE ):
+            for j in range( i+1 , len(ordering) ):
+                nextAction = plan.steps[ ordering[ j ] ]
+                
+                #moving a robot twice is redundant
+                if ( nextAction.type_t == Actions.MOVE and 
+                     nextAction.args[ 0 ] == currAction.args[ 0 ] ):
+                    return True
+                
+                #if we did something to the robot before moving it
+                #again, then that's not being redundant anymore
+                if ( currAction.args[ 0 ] in nextAction.args ):
+                    break
+                
+        elif ( currAction.type_t == Actions.LOAD ):
+            for j in range( i+1 , len(ordering) ):
+                nextAction = plan.steps[ ordering[ j ] ] 
+                
+                #loading then unloading the same robot at the same
+                #location is redundant
+                if ( nextAction.type_t == Actions.UNLOAD and 
+                     nextAction.args[ 3 ] == currAction.args[ 3 ] and 
+                     nextAction.args[ 1 ] == currAction.args[ 1 ] ):
+                        return True
+                    
+                #if we did something to the robot before unloading it
+                #again, then that's not being redundant anymore
+                if ( currAction.args[ 3 ] in nextAction.args ):
+                    break 
     return False
     
 '''
 Returns an estimate of the number of steps
 that will be required to complete a partial
-plan. This is the heuristic function
+plan. This is the heuristic function.
 '''
 def estimateCost( plan ):
     topsortResult = topSort( plan.orderings , len( plan.steps ) )
