@@ -85,4 +85,17 @@ ordering = topSort( finalPlan.orderings , len( finalPlan.steps ) )[ 0 ]
 print ordering
 #printPlan(finalPlan, tracker)
 
+#write solution to file
+print "Writing solution to file..."
+f = open( sys.argv[ 2 ] , "w" )
+f.write( "actions\n" )
+for action in finalPlan.steps:
+    f.write( action.to_output_str() + "\n" )
+f.write( "\norderings\n" )
+for ordering in finalPlan.orderings:
+    f.write( str(ordering[ 0 ]) + " " + str(ordering[ 1 ]) + "\n" )
+f.write( "\nlinks\n" )
+for link in finalPlan.links:
+    f.write( str(link.causalStep) + " " + str(link.recipientStep) + " " + link.pred.to_output_str() + "\n" )
+print "Done."
 

@@ -20,12 +20,16 @@ INFINITE_COST = 1000000
 #the first is useless.
 shadowing_pairs = []
 
+def initialize_shadowing_pairs( goal ):
+    pass
+
 def check_shadowing( goal , plan ):
     pass
 
 '''
 Determines if the last action taken was redundant. The 
 redundancy checks we make are as follows:
+* picking up a block then putting it down again
 * putting down a block then picking it up again
 * moving a robot twice in a row
 * loading then unloading a block

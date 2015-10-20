@@ -58,6 +58,13 @@ class Predicate:
         argsStr += ")"
         return Predicate2Name[ self.type_t ] + argsStr
     
+    def to_output_str( self ):
+        rtn = Predicate2Name[ self.type_t ]
+        for arg in self.args:
+            rtn += " " + Predicate.tracker.getName( arg )
+            
+        return rtn
+    
     '''
     Determines the substitutions that would make two lists of variables/literals 
     equivalent, or returns failure if this is impossible.
@@ -439,6 +446,13 @@ class Action:
         else:
             argsStr = "()"
         return str(Action2Name[ self.type_t ]) + argsStr
+    
+    def to_output_str( self ):
+        rtn = str(Action2Name[ self.type_t ] )
+        for arg in self.args:
+            rtn += " " + Predicate.tracker.getName( arg )
+            
+        return rtn
 
 
 ## A plan object

@@ -14,3 +14,10 @@ topSort.py : Provides functions for doing topological sort of plans and checking
 
 main.py : The main function, takes command line arguments
 
+Running the Program
+----------------------
+Please run the following command on CAEN:
+
+python main.py <input filename> <output filename>
+
+The solution plan will be written to the given output file. You may ignore anything that is printed to standard output.
