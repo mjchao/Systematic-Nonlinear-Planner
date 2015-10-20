@@ -1,0 +1,14 @@
+actions
+start
+finish
+
+orderings
+0 1
+
+links
+0 1 in c0 p0
+0 1 top c0 p0
+0 1 unloaded r0
+
+order of actions
+0 1
