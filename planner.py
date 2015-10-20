@@ -14,18 +14,6 @@ MAX_ITERATIONS = 300000
 #plan cannot possibly be the most efficient
 INFINITE_COST = 1000000
 
-#these are pairs of goal conditions where the first
-#condition shadows the second one. This means that
-#achieving the second condition without achieving
-#the first is useless.
-shadowing_pairs = []
-
-def initialize_shadowing_pairs( goal ):
-    pass
-
-def check_shadowing( goal , plan ):
-    pass
-
 '''
 Determines if the last action taken was redundant. The 
 redundancy checks we make are as follows:
@@ -120,10 +108,7 @@ def estimateCost( plan ):
     if ( is_redundant( plan , ordering ) ):
         return INFINITE_COST
     
-    goal = plan.steps[ 1 ]
-    
-    
-    return len( plan.steps ) + len( plan.open_conditions )
+    return len( plan.steps ) + len( plan.threats ) + len( plan.open_conditions )
 
 def insert_plan( pq , plan ):
     cost = estimateCost( plan )
