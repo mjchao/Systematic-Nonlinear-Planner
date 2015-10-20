@@ -6,18 +6,72 @@ from read import *
 from Queue import PriorityQueue
 import copy
 
-MAX_ITERATIONS = 100000
+MAX_ITERATIONS = 300000
 
+#we will assign states to have "infinite" cost
+#if the heuristic function decides that this
+#plan cannot possibly be the most efficient
+INFINITE_COST = 1000000
+
+'''
+Determines if the last action taken was redundant. The 
+redundancy checks we make are as follows:
+* putting down a block then picking it up again
+* moving a robot twice in a row
+* loading then unloading a block
+'''
+def is_redundant( lastAction , secondToLastAction ):
+    #note that because our search is backwards, the
+    #second to last action in the list actually comes after the
+    #last action in the list, so the actions are "inverted". e.g.
+    #we check for TAKE-PUT sequences instead of
+    #PUT-TAKE because the actions are in reverse order
+    
+    #putting down a block and then picking it up again
+    #is redundant
+    if ( secondToLastAction.type_t == Actions.TAKE and 
+         lastAction.type_t == Actions.PUT and 
+         secondToLastAction.args[ 2 ] == lastAction.args[ 2 ] ):
+        return True
+    
+    #moving the same robot twice is redundant
+    if ( secondToLastAction.type_t == Actions.MOVE and 
+         lastAction.type_t == Actions.MOVE and 
+         secondToLastAction.args[ 0 ] == lastAction.args[ 0 ] ):
+        return True
+    
+    #loading then unloading a block is redundant
+    if ( secondToLastAction.type_t == Actions.UNLOAD and 
+         lastAction.type_t == Actions.LOAD and 
+         secondToLastAction.args[ 2 ] == lastAction.args[ 2 ] ):
+        return True
+    
 '''
 Returns an estimate of the number of steps
 that will be required to complete a partial
 plan. This is the heuristic function
 '''
-def estimateRemainingCost( plan ):
+def estimateCost( plan ):
+    goal = plan.steps[ 1 ]
+    
+    #first check is for redundant actions
+    lastAction = plan.steps[ len( plan.steps)-1 ]
+    secondToLastAction = plan.steps[ len( plan.steps)-2 ]
+    
+    if ( is_redundant( lastAction , secondToLastAction ) ):
+        return INFINITE_COST
+    
+    
     return len( plan.steps ) + len( plan.open_conditions )
 
 def insert_plan( pq , plan ):
-    pq.put( (estimateRemainingCost( plan ) , plan) )
+    cost = estimateCost( plan )
+    
+    #if the heuristic function decides that this path
+    #has no hope because it's performing redundant actions,
+    #bad action sequences, etc., we'll just prune it
+    if ( cost != INFINITE_COST ):
+        pq.put( (cost , plan) )
 
 ## ***** Implement Partial Order / SNLP planning here
 ## Take an initial partial plan, and a variable tracker,
@@ -44,6 +98,7 @@ def planSearch(p, tracker):
         
         #if the plan is complete, then we're done
         if ( nextPlan.is_complete() ):
+            print "Plan found after " + str( iterations ) + " iterations"
             return nextPlan
         
         iterations += 1
