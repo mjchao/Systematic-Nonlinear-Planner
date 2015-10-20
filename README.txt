@@ -16,8 +16,15 @@ main.py : The main function, takes command line arguments
 
 Running the Program
 ----------------------
-Please run the following command on CAEN:
+
+The following is what I did to produce the correct output. I wouldn't make any guarantees about the programming running correctly if it is run differently.
+
+1. Log on to CAEN with the following command:
+
+ssh -X login-course.engin.umich.edu
+
+2. Run the program with CAEN using the following command:
 
 python main.py <input filename> <output filename>
 
-The solution plan will be written to the given output file. You may ignore anything that is printed to standard output.
+3. The solution plan will be written to the output file. The information printed to standard output is for the user if s/he is interested in the status of the program.
