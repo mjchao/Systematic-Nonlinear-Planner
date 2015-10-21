@@ -38,7 +38,6 @@ initial = readInputStatus[ 1 ]
 
 tracker = readInputStatus[ 2 ]
 Predicate.tracker = tracker
-print str(initial.open_conditions[ 0 ][ 0 ])
 
 '''
 a1 = Action( Actions.TAKE , 1 , 0 , 7 , 5 , 2 )
@@ -66,8 +65,6 @@ initial.steps.append( a6 )
 for prereq in a6.getPrereqs():
     initial.open_conditions.append( (prereq , 7) )
 '''
-
-printPlan( initial , tracker )
 
 finalPlan = Plan()
 '''
