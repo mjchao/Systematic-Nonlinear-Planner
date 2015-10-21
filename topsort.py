@@ -23,9 +23,9 @@ The second element of the pair is a boolean that is true if the sort was
 successful, and false if unsuccessful. A sort is unsuccessful if the input
 graph contains a cycle.
 
-A plan is order consistent if and only if it can be successfully 
+A plansearch is order consistent if and only if it can be successfully 
 topologically sorted - hence the usefulness of this function in our project.
-A topological sort is also useful for taking a partially ordered plan
+A topological sort is also useful for taking a partially ordered plansearch
 and making it into a linear sequence of steps, for ease of reading.
 '''
 
