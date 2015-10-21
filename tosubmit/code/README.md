@@ -23,6 +23,6 @@ The following is what I did to produce the output. I wouldn't make any guarantee
 
 2. `cd` to the directory in which the program files are stored.
 
-3. Run the program with CAEN using the following command: `python main.py \<input filename\> \<output filename\>` . For example you could run, `python main.py test1.txt test1.out` to execute test case 1, and the output will be stored in `test1.out`
+3. Run the program with CAEN using the following command: `python planner.py \<input filename\> \<output filename\>` . For example you could run, `python planner.py test1.txt test1.out` to execute test case 1, and the output will be stored in `test1.out`
 
 4. The solution plan will be written to the output file. The information printed to standard output is for the user if s/he is interested in the status of the program.
