@@ -4,7 +4,7 @@ main.py
 Implements the main function, which takes files as command line arguments
 
 You need to implement two functions:
-"planSearch" in planner.py (SNLP / Partial order planning)
+"planSearch" in plansearch.py (SNLP / Partial order planning)
 "Action::adds(...)" in structures.py
 
 These will probably require you to write major helper functions,
@@ -18,7 +18,7 @@ from configure import *
 from variables import *
 from read import *
 from topsort import *
-from planner import *
+from plansearch import *
 
 
 ## argv[1] is the input file name
@@ -74,7 +74,7 @@ finalPlan = Plan()
 try:
     finalPlan = planSearch(initial, tracker)
 except:
-    print "Could not find a plan\n"
+    print "Could not find a plansearch\n"
     sys.exit()
 '''
 finalPlan = planSearch( initial , tracker )
@@ -93,15 +93,9 @@ for action in finalPlan.steps:
     f.write( action.to_output_str() + "\n" )
 f.write( "\norderings\n" )
 for order in finalPlan.orderings:
-    f.write( str(order[ 0 ]) + " " + str(order[ 1 ]) + "\n" )
+    f.write( str(order[ 0 ]) + " < " + str(order[ 1 ]) + "\n" )
 f.write( "\nlinks\n" )
 for link in finalPlan.links:
     f.write( str(link.causalStep) + " " + str(link.recipientStep) + " " + link.pred.to_output_str() + "\n" )
-    
-f.write( "\norder of actions\n" )
-solution = str(ordering[ 0 ])
-for i in range( 1 , len( ordering ) ):
-    solution += " " + str(ordering[ i ])
-f.write( solution )
 print "Done."
 
