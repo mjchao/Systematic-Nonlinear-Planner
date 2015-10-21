@@ -1,0 +1,45 @@
+locations 4
+robots 2
+cranes 4
+piles 4
+containers 2
+
+# This problem has two independent subproblems that can be
+# solved in parallel
+initial
+adjacent l0 l1
+adjacent l1 l0
+adjacent l2 l3
+adjacent l3 l2
+attached p0 l0
+attached p1 l1
+attached p2 l2
+attached p3 l3
+belong k0 l0
+belong k1 l1
+belong k2 l2
+belong k3 l3
+at r0 l0
+at r1 l2
+occupied l0
+occupied l2
+free l1
+free l3
+unloaded r0
+unloaded r1
+empty k0
+empty k1
+empty k2
+empty k3
+in c0 p0
+in c1 p2
+on c0 G
+on c1 G
+top c0 p0
+top c1 p2
+top G p1
+top G p3
+
+goal
+in c0 p1
+in c1 p3

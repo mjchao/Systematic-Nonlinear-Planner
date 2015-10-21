@@ -1,0 +1,22 @@
+locations 1
+robots 1
+cranes 1
+piles 1
+containers 1
+
+initial
+attached p0 l0
+at r0 l0
+occupied l0
+empty k0
+unloaded r0
+in c0 p0
+on c0 G
+top c0 p0
+
+# These goal conditions are already satisfied
+# Algorithm should produce a plan with only start and finish
+goal
+in c0 p0
+top c0 p0
+unloaded r0
