@@ -1,65 +1,62 @@
 actions
 start
 finish
-put k0 l0 c1 c2 p2
 put k0 l0 c0 c1 p2
+put k0 l0 c1 c2 p2
+take k0 l0 c0 G p0
 take k0 l0 c1 G p1
 put k0 l0 c2 G p2
-take k0 l0 c0 G p0
 take k0 l0 c2 c0 p0
 
 orderings
-0 1
-2 1
-3 1
-0 2
-4 2
-5 2
-0 3
-6 3
-2 3
-0 4
-5 4
-4 6
-0 5
-7 5
-0 6
-2 6
-7 2
-7 6
-0 7
-7 4
+0 < 1
+2 < 1
+3 < 1
+0 < 2
+4 < 2
+3 < 2
+0 < 3
+5 < 3
+6 < 3
+0 < 4
+3 < 4
+7 < 4
+7 < 3
+0 < 5
+6 < 5
+7 < 6
+5 < 4
+0 < 6
+0 < 7
+7 < 5
 
 links
-2 1 on c1 c2
-3 1 on c0 c1
+2 1 on c0 c1
+3 1 on c1 c2
 0 2 belong k0 l0
 0 2 attached p0 l0
-4 2 holding k0 c1
-5 2 top c2 p2
+4 2 holding k0 c0
+3 2 top c1 p2
 0 3 belong k0 l0
-0 3 attached p0 l0
-6 3 holding k0 c0
-2 3 top c1 p2
+0 3 attached p2 l0
+5 3 holding k0 c1
+6 3 top c2 p2
 0 4 belong k0 l0
 0 4 attached p0 l0
-5 4 empty k0
-0 4 top c1 p1
-0 4 on c1 G
+3 4 empty k0
+7 4 top c0 p0
+0 4 on c0 G
 0 5 belong k0 l0
-0 5 attached p2 l0
-7 5 holding k0 c2
-0 5 top G p2
+0 5 attached p0 l0
+6 5 empty k0
+0 5 top c1 p1
+0 5 on c1 G
 0 6 belong k0 l0
-0 6 attached p0 l0
-2 6 empty k0
-7 6 top c0 p0
-0 6 on c0 G
+0 6 attached p2 l0
+7 6 holding k0 c2
+0 6 top G p2
 0 7 belong k0 l0
 0 7 attached p0 l0
 0 7 empty k0
 0 7 top c2 p0
 0 7 on c2 c0
-
-order of actions
-0 7 5 4 2 6 3 1
