@@ -86,8 +86,8 @@ print ordering
 print "Writing solution to file..."
 f = open( sys.argv[ 2 ] , "w" )
 f.write( "actions\n" )
-for action in finalPlan.steps:
-    f.write( action.to_output_str() + "\n" )
+for i in range( len( finalPlan.steps ) ):
+    f.write( str(i) + " " + finalPlan.steps[ i ].to_output_str() + "\n")
 f.write( "\norderings\n" )
 for order in finalPlan.orderings:
     f.write( str(order[ 0 ]) + " < " + str(order[ 1 ]) + "\n" )

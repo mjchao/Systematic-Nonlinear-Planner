@@ -1,8 +1,8 @@
 actions
-start
-finish
-put k0 l0 c0 G p1
-take k0 l0 c0 G p0
+0 start
+1 finish
+2 put k0 l0 c0 G p1
+3 take k0 l0 c0 G p0
 
 orderings
 0 < 1
