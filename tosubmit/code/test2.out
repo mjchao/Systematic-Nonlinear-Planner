@@ -1,13 +1,13 @@
 actions
-start
-finish
-put k1 l1 c0 G p1
-unload k1 l1 c0 r0
-move r0 l0 l1
-load k0 l0 c0 r0
-take k0 l0 c0 G p0
+0 start
+1 finish
+2 put k1 l1 c0 G p1
+3 unload k1 l1 c0 r0
+4 move r0 l0 l1
+5 load k0 l0 c0 r0
+6 take k0 l0 c0 G p0
 
-orderings
+constraints
 0 < 1
 2 < 1
 0 < 2

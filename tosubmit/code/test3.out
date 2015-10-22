@@ -1,14 +1,14 @@
 actions
-start
-finish
-put k0 l0 c0 c1 p2
-put k0 l0 c1 c2 p2
-take k0 l0 c0 G p0
-take k0 l0 c1 G p1
-put k0 l0 c2 G p2
-take k0 l0 c2 c0 p0
+0 start
+1 finish
+2 put k0 l0 c0 c1 p2
+3 put k0 l0 c1 c2 p2
+4 take k0 l0 c0 G p0
+5 take k0 l0 c1 G p1
+6 put k0 l0 c2 G p2
+7 take k0 l0 c2 c0 p0
 
-orderings
+constraints
 0 < 1
 2 < 1
 3 < 1

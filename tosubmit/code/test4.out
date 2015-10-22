@@ -1,8 +1,8 @@
 actions
-start
-finish
+0 start
+1 finish
 
-orderings
+constraints
 0 < 1
 
 links

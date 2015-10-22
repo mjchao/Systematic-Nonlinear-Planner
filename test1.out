@@ -4,7 +4,7 @@ actions
 2 put k0 l0 c0 G p1
 3 take k0 l0 c0 G p0
 
-orderings
+constraints
 0 < 1
 2 < 1
 0 < 2
