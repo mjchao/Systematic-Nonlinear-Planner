@@ -88,7 +88,7 @@ f = open( sys.argv[ 2 ] , "w" )
 f.write( "actions\n" )
 for i in range( len( finalPlan.steps ) ):
     f.write( str(i) + " " + finalPlan.steps[ i ].to_output_str() + "\n")
-f.write( "\norderings\n" )
+f.write( "\nconstraints\n" )
 for order in finalPlan.orderings:
     f.write( str(order[ 0 ]) + " < " + str(order[ 1 ]) + "\n" )
 f.write( "\nlinks\n" )
