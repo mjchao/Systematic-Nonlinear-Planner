@@ -1,0 +1,26 @@
+locations 4
+robots 2
+cranes 0
+piles 0
+containers 0
+
+# Move robots diagonally in a square
+initial
+adjacent l0 l1
+adjacent l1 l0
+adjacent l1 l2
+adjacent l2 l1
+adjacent l2 l3
+adjacent l3 l2
+adjacent l3 l0
+adjacent l0 l3
+at r0 l0
+at r1 l1
+occupied l0
+occupied l1
+free l2
+free l3
+
+goal
+at r0 l2
+at r1 l3

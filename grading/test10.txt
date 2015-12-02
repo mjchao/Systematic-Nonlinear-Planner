@@ -1,0 +1,45 @@
+locations 8
+robots 2
+cranes 1
+piles 2
+containers 1
+
+# Move container across three piles
+initial
+adjacent l0 l2
+adjacent l2 l0
+adjacent l1 l3
+adjacent l3 l1
+adjacent l2 l4
+adjacent l4 l2
+adjacent l3 l4
+adjacent l4 l3
+adjacent l4 l5
+adjacent l5 l4
+adjacent l4 l6
+adjacent l6 l4
+belong k0 l7
+attached p0 l7
+attached p1 l7
+at r0 l0
+at r1 l1
+occupied l0
+occupied l1
+free l2
+free l3
+free l4
+free l5
+free l6
+free l7
+unloaded r0
+unloaded r1
+empty k0
+in c0 p0
+on c0 G
+top c0 p0
+top G p1
+
+goal
+at r0 l5
+at r1 l6
+in c0 p1
