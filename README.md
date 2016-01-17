@@ -1,3 +1,7 @@
+EECS 492: Artificial Intelligence, Project 2
+====================
+In this project, we use Planning Domain Definition Language (PDDL) to describe the initial state of a world containing crates, cranes, robots, and locations. Then, we specify a desired state of the world using PDDL. Finally, we apply our search algorithm to produce an ordered plan that when executed on the initial state will produce the desired state.
+
 Project Files Summary
 ====================
 Variables.py : Defines an object that tracks variable names
